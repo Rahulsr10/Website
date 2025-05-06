@@ -26,7 +26,7 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
   />
-  <style>
+  <!-- <style>
     .swiper {
       width: 100%;
       height: 300px;
@@ -36,7 +36,16 @@
       height: 100%;
       object-fit: cover;
     }
-  </style>   
+  </style>    -->
+
+<style>
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
 </head>
 <body class="bg-black text-purple-300 font-sans">
 
@@ -72,23 +81,24 @@
     </div>
   </section>
 
-     <!-- Carousel Section -->
-  <section class="py-10 bg-purple-900">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-purple-200 mb-6">Gallery</h2>
-      <div class="swiper mySwiper rounded-xl overflow-hidden">
+<!-- Carousel Section (Square) -->
+<section class="py-10 bg-purple-900">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-purple-200 mb-6">Gallery</h2>
+    <div class="relative max-w-lg mx-auto aspect-square overflow-hidden rounded-xl">
+      <div class="swiper mySwiper w-full h-full">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="https://www.google.com/imgres?q=anime%20image%20for%20purple%20background&imgurl=https%3A%2F%2Fi.pinimg.com%2F736x%2F5a%2F21%2Fcb%2F5a21cbb366b691d35fbb9f9d62aded06.jpg&imgrefurl=https%3A%2F%2Fin.pinterest.com%2Fpin%2F680043612462662880%2F&docid=a56WTILP21WlSM&tbnid=7FLDUIiFMuWUYM&vet=12ahUKEwijtaP_lo6NAxVNT2wGHYs1Cs8QM3oECGgQAA..i&w=736&h=414&hcb=2&ved=2ahUKEwijtaP_lo6NAxVNT2wGHYs1Cs8QM3oECGgQAA" alt="Slide 1" /></div>
-          <div class="swiper-slide"><img src="https://www.google.com/imgres?q=anime%20image%20for%20purple%20background&imgurl=https%3A%2F%2Flivewallp.com%2Fwp-content%2Fuploads%2F2022%2F05%2FRain-in-purple.png&imgrefurl=https%3A%2F%2Flivewallp.com%2Frain-in-purple-live-wallpaper%2F&docid=PBcA6zCeAX8MHM&tbnid=w3ggbMIO84LTmM&vet=12ahUKEwijtaP_lo6NAxVNT2wGHYs1Cs8QM3oECFUQAA..i&w=1920&h=1080&hcb=2&ved=2ahUKEwijtaP_lo6NAxVNT2wGHYs1Cs8QM3oECFUQAA" alt="Slide 2" /></div>
-          <div class="swiper-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxcxLCzGRNORD_FMjMuFs39kvXb7K9eRr8EA&s" alt="Slide 3" /></div>
+          <div class="swiper-slide"><img src="https://source.unsplash.com/600x600/?code,purple" alt="Slide 1" /></div>
+          <div class="swiper-slide"><img src="https://source.unsplash.com/600x600/?design,dark" alt="Slide 2" /></div>
+          <div class="swiper-slide"><img src="https://source.unsplash.com/600x600/?abstract,technology" alt="Slide 3" /></div>
         </div>
-        <!-- Swiper Pagination & Navigation -->
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Services Section -->
   <section id="services" class="py-20 bg-purple-950 text-purple-200">
