@@ -20,6 +20,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PurpleWave</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Swiper Carousel CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  <style>
+    .swiper {
+      width: 100%;
+      height: 300px;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>   
 </head>
 <body class="bg-black text-purple-300 font-sans">
 
@@ -36,9 +53,9 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="h-screen flex items-center justify-center bg-gradient-to-b from-black to-purple-900">
-    <div class="container mx-auto text-center px-6">
+<!-- Hero Section with Image -->
+  <section id="home" class="h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://source.unsplash.com/1600x900/?technology,purple');">
+    <div class="container mx-auto text-center px-6 bg-black bg-opacity-60 p-8 rounded-xl">
       <h1 class="text-5xl font-bold text-purple-200 mb-4">Welcome to PurpleWave</h1>
       <p class="text-xl text-purple-400 mb-6">Striking black & purple themed websites for your brand</p>
       <a href="#about" class="px-6 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition">Get Started</a>
@@ -52,6 +69,24 @@
       <p class="text-lg text-purple-400">
         PurpleWave is a creative agency focused on sleek, modern websites using a bold color palette. We believe in making brands shine with design.
       </p>
+    </div>
+  </section>
+
+     <!-- Carousel Section -->
+  <section class="py-10 bg-purple-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-purple-200 mb-6">Gallery</h2>
+      <div class="swiper mySwiper rounded-xl overflow-hidden">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="https://source.unsplash.com/800x300/?code,purple" alt="Slide 1" /></div>
+          <div class="swiper-slide"><img src="https://source.unsplash.com/800x300/?design,dark" alt="Slide 2" /></div>
+          <div class="swiper-slide"><img src="https://source.unsplash.com/800x300/?abstract,technology" alt="Slide 3" /></div>
+        </div>
+        <!-- Swiper Pagination & Navigation -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
     </div>
   </section>
 
@@ -91,6 +126,26 @@
       © 2025 PurpleWave. All rights reserved.
     </div>
   </footer>
+
+     <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+    });
+  </script>
 
 </body>
 </html>
