@@ -149,26 +149,29 @@
     </div>
   </section>
 
-  <!-- Gallery Carousel -->
-  <section class="py-10 bg-purple-900 text-center">
-    <h2 class="text-3xl font-bold text-purple-200 mb-4">Gallery</h2>
-    <div class="container mx-auto px-4">
+ <!-- Gallery Carousel -->
+<section class="py-10 bg-purple-900 text-center">
+  <h2 class="text-3xl font-bold text-purple-200 mb-4">Gallery</h2>
+  <div class="container mx-auto px-4">
       <div class="carousel" id="carousel1">
-        <div class="carousel-inner" id="carousel-inner1">
-          <!-- Replace video .mp4s incorrectly set as <img> with appropriate thumbnail images or use <video> tag -->
-          <!-- Example tile shown below; you should use valid image URLs or convert this into video elements -->
-          <div class="tile">
-            <img src="https://via.placeholder.com/240x135?text=Gallery+1" alt="Gallery 1">
+          <div class="carousel-inner" id="carousel-inner1">
+              <!-- Video tile -->
+              <div class="tile">
+                  <video class="w-full h-[135px] rounded" controls>
+                      <source src="https://v.ftcdn.net/07/11/60/13/240_F_711601350_ty9KqsZRUQwdkWWodCgwzPmuOqrSS2CP_ST.mp4https://v.ftcdn.net/07/11/60/13/240_F_711601350_ty9KqsZRUQwdkWWodCgwzPmuOqrSS2CP_ST.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                  </video>
+              </div>
+              <!-- Add more tiles if needed -->
           </div>
-          <!-- Repeat for other tiles -->
-        </div>
-        <div class="controls">
-          <button class="control-btn" onclick="slide('carousel-inner1', -1)">❮</button>
-          <button class="control-btn" onclick="slide('carousel-inner1', 1)">❯</button>
-        </div>
+          <div class="controls">
+              <button class="control-btn" onclick="slide('carousel-inner1', -1)">❮</button>
+              <button class="control-btn" onclick="slide('carousel-inner1', 1)">❯</button>
+          </div>
       </div>
-    </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- JS for carousel sliding -->
   <script>
