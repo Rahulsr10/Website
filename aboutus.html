@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about PurpleWave, a creative agency specializing in modern web design and branding." />
+  <meta name="keywords" content="about purplewave, web design, branding, creative agency" />
+  <title>About PurpleWave</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS for Carousel and Team Cards -->
+  <style>
+    .carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-tile {
+      flex: 0 0 300px;
+      margin-right: 16px;
+    }
+    .carousel-tile img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 8px;
+    }
+    .carousel-btn {
+      background: rgba(0, 0, 0, 0.7);
+      color: #d8b4fe;
+      border: none;
+      padding: 8px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .carousel-btn:hover {
+      background: rgba(0, 0, 0, 0.9);
+    }
+    .carousel-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .team-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    }
+    @media (max-width: 640px) {
+      .carousel-tile {
+        flex: 0 0 200px;
+      }
+      .carousel-tile img {
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-black text-purple-300 font-sans">
+  <!-- Navbar -->
+  <nav class="bg-purple-950 shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-purple-200">PurpleWave</h1>
+      <ul class="flex space-x-6 text-purple-200">
+        <li><a href="index.html#home" class="hover:text-white transition">Home</a></li>
+        <li><a href="about.html" class="text-white font-semibold">About</a></li>
+        <li><a href="index.html#services" class="hover:text-white transition">Services</a></li>
+        <li><a href="index.html#contact" class="hover:text-white transition">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="py-20 bg-cover bg-center flex items-center justify-center"
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://img.goodfon.com/original/1920x1080/d/f4/anime-art-final-fantazi-fioletovyi-fon-demon-ubiitsa-oruzhie.jpg');">
+    <div class="container mx-auto text-center px-6">
+      <h1 class="text-5xl font-bold text-purple-200 mb-4">About PurpleWave</h1>
+      <p class="text-xl text-purple-400 max-w-2xl mx-auto">
+        We’re a passionate team dedicated to crafting bold, modern websites that make your brand stand out.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="py-20 bg-black">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-purple-200 mb-4">Our Story</h2>
+        <p class="text-lg text-purple-400 max-w-3xl mx-auto">
+          Founded in 2020, PurpleWave emerged from a vision to redefine web design with a bold, black-and-purple aesthetic. Our team combines creativity, technology, and strategy to deliver websites that are not only visually stunning but also highly functional. We believe in empowering brands to tell their stories through immersive digital experiences.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="py-20 bg-purple-950">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-black p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold text-purple-200 mb-3">Our Mission</h3>
+          <p class="text-purple-400">
+            To create user-centric websites that drive engagement and growth, blending innovative design with seamless functionality.
+          </p>
+        </div>
+        <div class="bg-black p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold text-purple-200 mb-3">Our Vision</h3>
+          <p class="text-purple-400">
+            To lead the web design industry by setting new standards for creativity, accessibility, and performance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Showcase -->
+  <section class="py-20 bg-black">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-purple-200 mb-8">Meet Our Team</h2>
+        <p class="text-lg text-purple-400 max-w-2xl mx-auto">
+          Our talented team brings diverse expertise to every project, ensuring exceptional results.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="team-card bg-purple-900 p-4 rounded-lg shadow-md">
+          <img loading="lazy" src="https://via.placeholder.com/150x150?text=Team+1" alt="Jane Doe"
+            class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" />
+          <h4 class="text-xl font-semibold text-purple-200">Jane Doe</h4>
+          <p class="text-purple-400">Lead Designer</p>
+        </div>
+        <div class="team-card bg-purple-900 p-4 rounded-lg shadow-md">
+          <img loading="lazy" src="https://via.placeholder.com/150x150?text=Team+2" alt="John Smith"
+            class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" />
+          <h4 class="text-xl font-semibold text-purple-200">John Smith</h4>
+          <p class="text-purple-400">Frontend Developer</p>
+        </div>
+        <div class="team-card bg-purple-900 p-4 rounded-lg shadow-md">
+          <img loading="lazy" src="https://via.placeholder.com/150x150?text=Team+3" alt="Emily Brown"
+            class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" />
+          <h4 class="text-xl font-semibold text-purple-200">Emily Brown</h4>
+          <p class="text-purple-400">UX Specialist</p>
+        </div>
+        <div class="team-card bg-purple-900 p-4 rounded-lg shadow-md">
+          <img loading="lazy" src="https://via.placeholder.com/150x150?text=Team+4" alt="Michael Lee"
+            class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" />
+          <h4 class="text-xl font-semibold text-purple-200">Michael Lee</h4>
+          <p class="text-purple-400">Project Manager</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Carousel (Optional, Horizontal, Image-Only) -->
+  <section class="py-20 bg-purple-900 text-center">
+    <h2 class="text-3xl font-bold text-purple-200 mb-8">Our Creative Work</h2>
+    <div class="container mx-auto px-4">
+      <div class="carousel" id="galleryCarousel" tabindex="0">
+        <div class="carousel-inner" id="galleryCarouselInner">
+          <div class="carousel-tile">
+            <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJl8JJBWZnsoiDEm9Ehs5KuJ_DD2rIcaJnoQ&s" alt="Creative Work 1" />
+          </div>
+          <div class="carousel-tile">
+            <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSra6qDK2JUyjLK0ch-oqgQOe-fwgOy8x9Qpg&s" alt="Creative Work 2" />
+          </div>
+          <div class="carousel-tile">
+            <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:wght9GcTdW8T-KHCbZohGaXwKo-ska1FRItY1-0w-pQ&s" alt="Creative Work 3" />
+          </div>
+          <div class="carousel-tile">
+            <img loading="lazy" src="https://via.placeholder.com/300x170?text=Creative+Work+4" alt="Creative Work 4" />
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn prev" onclick="slideGallery(-1)" aria-label="Previous image" disabled>❮</button>
+          <button class="carousel-btn next" onclick="slideGallery(1)" aria-label="Next image">❯</button>
+        </div>
+        <noscript>
+          <p class="text-purple-400">JavaScript is required to view the carousel.</p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJl8JJBWZnsoiDEm9Ehs5KuJ_DD2rIcaJnoQ&s" alt="Creative Work 1" class="w-48 h-28 object-cover rounded" />
+          </div>
+        </noscript>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-20 bg-black">
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-3xl font-bold text-purple-200 mb-4">Ready to Collaborate?</h2>
+      <p class="text-lg text-purple-400 mb-6 max-w-2xl mx-auto">
+        Let’s bring your vision to life with a website that stands out. Contact us today to start your project.
+      </p>
+      <a href="index.html#contact" class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-purple-950 py-6 text-center text-purple-200">
+    <p>© <script>document.write(new Date().getFullYear())</script> PurpleWave. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Carousel -->
+  <script>
+    let galleryIndex = 0;
+
+    function slideGallery(direction) {
+      const carouselInner = document.getElementById('galleryCarouselInner');
+      const tiles = carouselInner.querySelectorAll('.carousel-tile');
+      const tileWidth = tiles[0].offsetWidth + 16;
+      const visibleTiles = Math.floor(carouselInner.parentElement.offsetWidth / tileWidth);
+      const maxIndex = tiles.length - visibleTiles;
+
+      galleryIndex = Math.max(0, Math.min(galleryIndex + direction, maxIndex));
+      carouselInner.style.transform = `translateX(-${galleryIndex * tileWidth}px)`;
+
+      document.querySelector('.carousel-btn.prev').disabled = galleryIndex === 0;
+      document.querySelector('.carousel-btn.next').disabled = galleryIndex >= maxIndex;
+    }
+
+    document.getElementById('galleryCarousel').addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') slideGallery(-1);
+      if (e.key === 'ArrowRight') slideGallery(1);
+    });
+  </script>
+</body>
+</html>
