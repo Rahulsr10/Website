@@ -15,6 +15,21 @@
 
   <!-- Custom Styles -->
   <style>
+
+  /* vedio crousal  */
+
+    .video-strip::-webkit-scrollbar {
+      display: none;
+    }
+
+    .video-tile video {
+      pointer-events: none;
+    }
+
+    .video-tile:hover video {
+      pointer-events: auto;
+    }
+
     .carousel {
       overflow: hidden;
       position: relative;
@@ -134,7 +149,7 @@
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkf6RAmp6hjzfGHfLZpj-VjKZQMiMM8kTrmg&s"
             alt="Watch" class="rounded">
           <div class="mt-4">
-            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white py-1 px-4 rounded-full text-sm">Learn more</a>
+            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-full text-sm">Learn more</a>
           </div>
         </div>
         <!-- Card 2 -->
@@ -142,7 +157,7 @@
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCtoQTGOjrbsmCSmC9MBMy8M_sA1lMmia8RA&s"
             alt="iPhone" class="rounded">
           <div class="mt-4">
-            <a href="#" class="bg-white text-black hover:bg-gray-200 py-1 px-4 rounded-full text-sm">Learn more</a>
+            <a href="#" class="bg-white text-black hover:bg-gray-200 py-3 px-4 rounded-full text-sm">Learn more</a>
           </div>
         </div>
       </div>
