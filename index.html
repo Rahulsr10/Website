@@ -1,106 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PurpleWave</title>
-  <link rel="icon" href="https://cdn-icons-png.freepik.com/256/4424/4424616.png?semt=ais_hybrid">
-
-  <!-- Tailwind CSS -->
+  <link rel="icon" href="https://cdn-icons-png.freepik.com/256/4424/4424616.png?semt=ais_hybrid"/>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Bootstrap CSS (minimized usage recommended to avoid overlap with Tailwind) -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-  <!-- Custom Styles -->
   <style>
-
-  /* vedio crousal  */
-
-    .video-strip::-webkit-scrollbar {
+    .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
-
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
     .video-tile video {
       pointer-events: none;
     }
-
     .video-tile:hover video {
       pointer-events: auto;
-    }
-
-    .carousel {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-
-    .tile {
-      flex: 0 0 240px;
-      margin-right: 10px;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .tile img {
-      width: 100%;
-      height: 135px;
-      object-fit: cover;
-      border-radius: 4px;
-      transition: transform 0.3s ease;
-    }
-
-    .tile:hover img {
-      transform: scale(1.1);
-    }
-
-    .tile__details {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 10px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .tile:hover .tile__details {
-      opacity: 1;
-    }
-
-    .tile__title {
-      font-size: 14px;
-      font-weight: bold;
-      color: #d8b4fe;
-    }
-
-    .controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-    }
-
-    .control-btn {
-      background: rgba(0, 0, 0, 0.5);
-      border: none;
-      color: #fff;
-      font-size: 24px;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 50%;
-    }
-
-    .control-btn:hover {
-      background: rgba(147, 51, 234, 0.8);
     }
   </style>
 
@@ -108,6 +27,7 @@
 </head>
 
 <body class="bg-black text-purple-300 font-sans">
+
   <!-- Navbar -->
   <nav class="bg-purple-950 shadow-lg">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -124,7 +44,7 @@
   <!-- Hero Section -->
   <section id="home" class="h-screen bg-cover bg-center flex items-center justify-center"
     style="background-image: url('https://img.goodfon.com/original/1920x1080/d/f4/anime-art-final-fantazi-fioletovyi-fon-demon-ubiitsa-oruzhie.jpg');">
-    <div class="container mx-auto text-center px-6 bg-black bg-opacity-60 p-8 rounded-xl">
+    <div class="bg-black bg-opacity-60 p-8 rounded-xl text-center">
       <h1 class="text-5xl font-bold mb-4">Welcome to PurpleWave</h1>
       <p class="text-xl mb-6">Striking black & purple themed websites for your brand</p>
       <a href="#about" class="px-6 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition">Get Started</a>
@@ -132,77 +52,75 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-20">
-    <div class="container mx-auto text-center px-4">
-      <h2 class="text-3xl font-bold mb-4">About Us</h2>
-      <p class="text-lg text-purple-400">PurpleWave is a creative agency focused on sleek, modern websites using a bold
-        color palette. We believe in making brands shine with design.</p>
-    </div>
+  <section id="about" class="py-20 text-center px-4">
+    <h2 class="text-3xl font-bold mb-4">About Us</h2>
+    <p class="text-lg text-purple-400 max-w-3xl mx-auto">PurpleWave is a creative agency focused on sleek, modern websites using a bold color palette. We believe in making brands shine with design.</p>
   </section>
 
   <!-- Product Cards -->
   <section class="py-10">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Card 1 -->
-        <div class="bg-white text-black p-6 rounded-lg shadow-lg">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkf6RAmp6hjzfGHfLZpj-VjKZQMiMM8kTrmg&s"
-            alt="Watch" class="rounded">
-          <div class="mt-4">
-            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-full text-sm">Learn more</a>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="bg-gradient-to-b from-indigo-800 to-blue-500 text-white p-6 rounded-lg shadow-lg">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCtoQTGOjrbsmCSmC9MBMy8M_sA1lMmia8RA&s"
-            alt="iPhone" class="rounded">
-          <div class="mt-4">
-            <a href="#" class="bg-white text-black hover:bg-gray-200 py-3 px-4 rounded-full text-sm">Learn more</a>
-          </div>
-        </div>
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+      <!-- Card 1 -->
+      <div class="bg-white text-black p-6 rounded-lg shadow-lg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkf6RAmp6hjzfGHfLZpj-VjKZQMiMM8kTrmg&s" alt="Watch" class="rounded mb-4">
+        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-full text-sm inline-block">Learn more</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-gradient-to-b from-indigo-800 to-blue-500 text-white p-6 rounded-lg shadow-lg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCtoQTGOjrbsmCSmC9MBMy8M_sA1lMmia8RA&s" alt="iPhone" class="rounded mb-4">
+        <a href="#" class="bg-white text-black hover:bg-gray-200 py-3 px-4 rounded-full text-sm inline-block">Learn more</a>
       </div>
     </div>
   </section>
 
- <!-- Gallery Carousel -->
-<section class="py-10 bg-purple-900 text-center">
-  <h2 class="text-3xl font-bold text-purple-200 mb-4">Gallery</h2>
-  <div class="container mx-auto px-4">
-      <div class="carousel" id="carousel1">
-          <div class="carousel-inner" id="carousel-inner1">
-              <!-- Video tile -->
-              <div class="tile">
-                  <video class="w-full h-[135px] rounded" controls>
-                      <source src="https://v.ftcdn.net/07/11/60/13/240_F_711601350_ty9KqsZRUQwdkWWodCgwzPmuOqrSS2CP_ST.mp4https://v.ftcdn.net/07/11/60/13/240_F_711601350_ty9KqsZRUQwdkWWodCgwzPmuOqrSS2CP_ST.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
-                  </video>
-              </div>
-              <!-- Add more tiles if needed -->
-          </div>
-          <div class="controls">
-              <button class="control-btn" onclick="slide('carousel-inner1', -1)">❮</button>
-              <button class="control-btn" onclick="slide('carousel-inner1', 1)">❯</button>
-          </div>
+  <!-- Carousel Section -->
+  <section class="py-10">
+    <h2 class="text-3xl font-bold text-center mb-6">Trending Now</h2>
+    <div class="overflow-x-auto flex gap-4 px-6 no-scrollbar scroll-smooth snap-x snap-mandatory">
+      <!-- Repeating video tiles to mimic circular scroll -->
+      <template id="video-template">
+        <div class="flex-none w-60 rounded-lg overflow-hidden snap-start video-tile">
+          <video autoplay muted loop class="w-full h-36 object-cover rounded">
+            <source src="" type="video/mp4">
+          </video>
+        </div>
+      </template>
+
+      <!-- Manually rendered for clarity -->
+      <div class="flex-none w-60 rounded-lg overflow-hidden snap-start video-tile">
+        <video autoplay muted loop class="w-full h-36 object-cover rounded">
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
       </div>
-  </div>
-</section>
+      <div class="flex-none w-60 rounded-lg overflow-hidden snap-start video-tile">
+        <video autoplay muted loop class="w-full h-36 object-cover rounded">
+          <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="flex-none w-60 rounded-lg overflow-hidden snap-start video-tile">
+        <video autoplay muted loop class="w-full h-36 object-cover rounded">
+          <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Repeat for loop effect -->
+      <div class="flex-none w-60 rounded-lg overflow-hidden snap-start video-tile">
+        <video autoplay muted loop class="w-full h-36 object-cover rounded">
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="flex-none w-60 rounded-lg overflow-hidden snap-start video-tile">
+        <video autoplay muted loop class="w-full h-36 object-cover rounded">
+          <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="flex-none w-60 rounded-lg overflow-hidden snap-start video-tile">
+        <video autoplay muted loop class="w-full h-36 object-cover rounded">
+          <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
 
-
-  <!-- JS for carousel sliding -->
-  <script>
-    let position = 0;
-    function slide(id, direction) {
-      const container = document.getElementById(id);
-      const tiles = container.querySelectorAll('.tile');
-      const tileWidth = tiles[0]?.offsetWidth + 10 || 250;
-      const maxScroll = tileWidth * (tiles.length - 1);
-
-      position += direction * tileWidth;
-      position = Math.max(0, Math.min(position, maxScroll));
-
-      container.style.transform = `translateX(-${position}px)`;
-    }
-  </script>
 </body>
-
 </html>
