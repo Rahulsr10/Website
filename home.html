@@ -348,22 +348,49 @@
       return false; // Prevent form submission for demo
 
       // Iframe Height Adjustment
-    window.addEventListener('message', function(event) {
-      if (event.data.height !== undefined) {
-        document.getElementById('consentIframe').style.height = event.data.height + 'px';
-      }
-    });
-    }
-    window.addEventListener('message', function(event) {
+      window.addEventListener('message', function(event) {
     if (event.data.height !== undefined) {
       document.getElementById('consentIframe').style.height = event.data.height + 'px';
     }
   });
 
-  // Add this function to revoke consent
   function revokeConsent() {
     document.getElementById('consentIframe').contentWindow.postMessage('revokeConsent', '*');
   }
+
+  // Updated function to load Elfsight Chatbot conditionally
+  function loadChatbot() {
+    const preferences = localStorage.getItem('cookiePreferences');
+    if (preferences) {
+      const parsedPreferences = JSON.parse(preferences);
+      // Load chatbot if advertising or performance cookies are enabled
+      if (parsedPreferences.advertising || parsedPreferences.performance) {
+        const script = document.createElement('script');
+        script.src = 'https://static.elfsight.com/platform/platform.js';
+        script.setAttribute('data-elfsight-id', 'YOUR_CHATBOT_ID');
+        script.async = true;
+        document.body.appendChild(script);
+
+        const div = document.createElement('div');
+        div.className = 'elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730';
+        document.body.appendChild(div);
+      }
+    }
+  }
+
+  window.onload = function() {
+    loadChatbot();
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data === 'preferencesUpdated') {
+      const existingScript = document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]');
+      const existingDiv = document.querySelector('elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730');
+      if (existingScript) existingScript.remove();
+      if (existingDiv) existingDiv.remove();
+      loadChatbot();
+    }
+  });
   </script>
 </body>
 
