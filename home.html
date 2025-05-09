@@ -298,7 +298,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+<!-- Footer -->
 <footer class="bg-purple-950 py-6 text-center text-purple-200">
   <p class="mb-2">
     © <script>document.write(new Date().getFullYear())</script> PurpleWave. All rights reserved.
@@ -307,6 +307,26 @@
     <a href="javascript:void(0)" onclick="revokeConsent()" class="text-purple-200 underline hover:text-white">Manage Cookies</a>
   </p>
 </footer>
+
+<!-- Consent Module Iframe -->
+<iframe id="consentIframe" src="consent.html"></iframe>
+
+<!-- JavaScript for Carousel, Form, and Iframe Height Adjustment -->
+<script>
+  // Existing scripts (carousel, form validation)...
+
+  // Iframe Height Adjustment
+  window.addEventListener('message', function(event) {
+    if (event.data.height !== undefined) {
+      document.getElementById('consentIframe').style.height = event.data.height + 'px';
+    }
+  });
+
+  // Add this function to revoke consent
+  function revokeConsent() {
+    document.getElementById('consentIframe').contentWindow.postMessage('revokeConsent', '*');
+  }
+</script>
 
   <!-- Consent Module Iframe -->
   <iframe id="consentIframe" src="consent.html"></iframe>
