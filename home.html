@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,34 +8,31 @@
   <title>PurpleWave - Modern Web Design</title>
   <link rel="icon" type="image/png" href="https://cdn-icons-png.freepik.com/256/4424/4424616.png?semt=ais_hybrid">
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS CDN (Moved to defer loading) -->
+  <script defer src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Custom CSS for Carousel -->
+  <!-- Custom CSS for Carousel and Iframe -->
   <style>
+    /* Carousel Styles */
     .carousel {
       position: relative;
       width: 100%;
       overflow: hidden;
     }
-
     .carousel-inner {
       display: flex;
       transition: transform 0.5s ease;
     }
-
     .carousel-tile {
       flex: 0 0 300px;
       margin-right: 16px;
     }
-
     .carousel-tile img {
       width: 100%;
       height: 170px;
       object-fit: cover;
       border-radius: 8px;
     }
-
     .carousel-controls {
       position: absolute;
       top: 50%;
@@ -46,7 +42,6 @@
       transform: translateY(-50%);
       padding: 0 8px;
     }
-
     .carousel-btn {
       background: rgba(0, 0, 0, 0.7);
       color: #d8b4fe;
@@ -57,38 +52,32 @@
       cursor: pointer;
       transition: background 0.3s;
     }
-
     .carousel-btn:hover {
       background: rgba(0, 0, 0, 0.9);
     }
-
     .carousel-btn:disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
-
+    /* Iframe Styles */
+    #consentIframe {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border: none;
+      z-index: 1000;
+      height: 0;
+    }
     @media (max-width: 640px) {
       .carousel-tile {
         flex: 0 0 200px;
       }
-
       .carousel-tile img {
         height: 120px;
       }
     }
   </style>
-
-
-<!-- AI Chatbot | Untitled AI Chatbot -->
-<script src="https://static.elfsight.com/platform/platform.js" async></script>
-<div class="elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730" data-elfsight-app-lazy></div>
-
-  <!-- Tracking Script -->
-
-  <script id="FRGM-tracker" src="https://1e2f308t.fragmatic.io/js-app/js/d8f6cb5f-tracker.js">
-  </script>
-
-
 </head>
 
 <body class="bg-black text-purple-300 font-sans">
@@ -108,13 +97,11 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen bg-cover bg-center flex items-center justify-center"
-    style="background-image: url('https://img.goodfon.com/original/1920x1080/d/f4/anime-art-final-fantazi-fioletovyi-fon-demon-ubiitsa-oruzhie.jpg');">
+  <section id="home" class="min-h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://img.goodfon.com/original/1920x1080/d/f4/anime-art-final-fantazi-fioletovyi-fon-demon-ubiitsa-oruzhie.jpg');">
     <div class="container mx-auto text-center px-6 bg-black bg-opacity-60 p-8 rounded-xl">
       <h1 class="text-5xl font-bold text-purple-200 mb-4">Welcome to PurpleWave</h1>
       <p class="text-xl text-purple-400 mb-6">Crafting bold, modern websites for your brand</p>
-      <a href="aboutus.html" class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">Get
-        Started</a>
+      <a href="aboutus.html" class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">Get Started</a>
     </div>
   </section>
 
@@ -123,8 +110,7 @@
     <div class="container mx-auto text-center px-4">
       <h2 class="text-3xl font-bold text-purple-200 mb-4">About Us</h2>
       <p class="text-lg text-purple-400 max-w-2xl mx-auto">
-        PurpleWave is a creative agency specializing in sleek, modern websites with a bold black and purple aesthetic.
-        We empower brands to stand out with innovative design and seamless functionality.
+        PurpleWave is a creative agency specializing in sleek, modern websites with a bold black and purple aesthetic. We empower brands to stand out with innovative design and seamless functionality.
       </p>
     </div>
   </section>
@@ -134,45 +120,32 @@
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-purple-200 text-center mb-10">Our Work</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Card 1 -->
         <div class="bg-white text-black p-6 rounded-lg shadow-lg flex flex-col">
-          <img loading="lazy"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkf6RAmp6hjzfGHfLZpj-VjKZQMiMM8kTrmg&s"
-            alt="Smart Watch" class="rounded mb-4">
-          <a href="#" class="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg text-center">Learn
-            More</a>
+          <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn9GcRkf6RAmp6hjzfGHfLZpj-VjKZQMiMM8kTrmg&s" alt="Smart Watch" class="rounded mb-4">
+          <a href="#" class="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg text-center">Learn More</a>
         </div>
-        <!-- Card 2 -->
         <div class="bg-gradient-to-b from-purple-800 to-purple-600 text-white p-6 rounded-lg shadow-lg flex flex-col">
-          <img loading="lazy"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCtoQTGOjrbsmCSmC9MBMy8M_sA1lMmia8RA&s"
-            alt="Smartphone" class="rounded mb-4">
+          <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn9GcRCtoQTGOjrbsmCSmC9MBMy8M_sA1lMmia8RA&s" alt="Smartphone" class="rounded mb-4">
           <a href="#" class="bg-white text-purple-800 hover:bg-gray-200 py-2 px-4 rounded-lg text-center">Learn More</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Gallery Carousel (Horizontal, Image-Only) -->
+  <!-- Gallery Carousel -->
   <section class="py-20 bg-purple-900 text-center">
     <h2 class="text-3xl font-bold text-purple-200 mb-8">Gallery</h2>
     <div class="container mx-auto px-4">
       <div class="carousel" id="galleryCarousel" tabindex="0">
         <div class="carousel-inner" id="galleryCarouselInner">
           <div class="carousel-tile">
-            <img loading="lazy"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJl8JJBWZnsoiDEm9Ehs5KuJ_DD2rIcaJnoQ&s"
-              alt="Gallery Image 1" />
+            <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn9GcSJl8JJBWZnsoiDEm9Ehs5KuJ_DD2rIcaJnoQ&s" alt="Gallery Image 1" />
           </div>
           <div class="carousel-tile">
-            <img loading="lazy"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSra6qDK2JUyjLK0ch-oqgQOe-fwgOy8x9Qpg&s"
-              alt="Gallery Image 2" />
+            <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn9GcSra6qDK2JUyjLK0ch-oqgQOe-fwgOy8x9Qpg&s" alt="Gallery Image 2" />
           </div>
           <div class="carousel-tile">
-            <img loading="lazy"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdW8T-KHCbZohGaXwKo-ska1FRItY1-0w-pQ&s"
-              alt="Gallery Image 3" />
+            <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn9GcTdW8T-KHCbZohGaXwKo-ska1FRItY1-0w-pQ&s" alt="Gallery Image 3" />
           </div>
           <div class="carousel-tile">
             <img loading="lazy" src="https://via.placeholder.com/300x170?text=Gallery+Image+4" alt="Gallery Image 4" />
@@ -191,9 +164,7 @@
         <noscript>
           <p class="text-purple-400">JavaScript is required to view the carousel.</p>
           <div class="flex flex-wrap justify-center gap-4">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJl8JJBWZnsoiDEm9Ehs5KuJ_DD2rIcaJnoQ&s"
-              alt="Gallery Image 1" class="w-48 h-28 object-cover rounded" />
-            <!-- Repeat for other images -->
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn9GcSJl8JJBWZnsoiDEm9Ehs5KuJ_DD2rIcaJnoQ&s" alt="Gallery Image 1" class="w-48 h-28 object-cover rounded" />
           </div>
         </noscript>
       </div>
@@ -253,14 +224,9 @@
     <div class="container mx-auto px-4 text-center max-w-xl">
       <h2 class="text-3xl font-bold text-purple-200 mb-4">Stay Updated</h2>
       <p class="mb-6 text-purple-400">Subscribe to our newsletter for the latest updates and designs.</p>
-      <form class="flex flex-col sm:flex-row items-center justify-center gap-4" onsubmit="return validateEmail()">
-        <input type="email" id="emailInput" placeholder="Enter your email"
-          class="w-full sm:w-auto px-4 py-2 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-purple-500"
-          required />
-        <button type="submit"
-          class="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-lg transition">
-          Subscribe
-        </button>
+      <form class="flex flex-col sm:flex-row items-center justify-center gap-4" onsubmit="return validateEmail(event)">
+        <input type="email" id="emailInput" placeholder="Enter your email" class="w-full sm:w-auto px-4 py-2 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-purple-500" required aria-label="Email address for newsletter subscription" />
+        <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-lg transition">Subscribe</button>
       </form>
     </div>
   </section>
@@ -270,94 +236,67 @@
     <div class="container mx-auto text-center px-4">
       <h2 class="text-3xl font-bold text-purple-200 mb-6">Contact Us</h2>
       <p class="text-purple-400 mb-6">Let's bring your ideas to life. Reach out today.</p>
-      <a href="mailto:contact@purplewave.com"
-        class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">Email Us</a>
+      <a href="mailto:contact@purplewave.com" class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">Email Us</a>
     </div>
-    <!-- Social Icons -->
     <div class="absolute bottom-4 right-4">
       <div class="flex space-x-4 text-purple-300">
         <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
           <svg class="w-6 h-6 hover:text-blue-500 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.75 0 5-2.24 5-5v-14c0-2.76-2.25-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.25h-3v-5.5c0-1.32-.03-3-1.83-3s-2.12 1.43-2.12 2.91v5.59h-3v-10h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.03 0 3.59 1.99 3.59 4.58v5.62z" />
+            <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.75 0 5-2.24 5-5v-14c0-2.76-2.25-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.25h-3v-5.5c0-1.32-.03-3-1.83-3s-2.12 1.43-2.12 2.91v5.59h-3v-10h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.03 0 3.59 1.99 3.59 4.58v5.62z" />
           </svg>
         </a>
         <a href="https://instagram.com" target="_blank" aria-label="Instagram">
           <svg class="w-6 h-6 hover:text-pink-500 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 1.5C5.4 3.5 3.5 5.4 3.5 7.75v8.5C3.5 18.6 5.4 20.5 7.75 20.5h8.5c2.35 0 4.25-1.9 4.25-4.25v-8.5C20.5 5.4 18.6 3.5 16.25 3.5h-8.5zM12 7.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.5a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8zm4.6-2.2a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+            <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 1.5C5.4 3.5 3.5 5.4 3.5 7.75v8.5C3.5 18.6 5.4 20.5 7.75 20.5h8.5c2.35 0 4.25-1.9 4.25-4.25v-8.5C20.5 5.4 18.6 3.5 16.25 3.5h-8.5zM12 7.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.5a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8zm4.6-2.2a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
           </svg>
         </a>
         <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-          <svg class="w-6 h-６ hover:text-blue-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-6.99H7.9v-2.89h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.89h-2.34v6.99C18.34 21.13 22 17 22 12z" />
+          <svg class="w-6 h-6 hover:text-blue-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-6.99H7.9v-2.89h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.89h-2.34v6.99C18.34 21.13 22 17 22 12z" />
           </svg>
         </a>
       </div>
     </div>
   </section>
 
-<!-- Footer -->
-<footer class="bg-purple-950 py-6 text-center text-purple-200">
-  <p class="mb-2">
-    © <script>document.write(new Date().getFullYear())</script> PurpleWave. All rights reserved.
-  </p>
-  <p>
-    <a href="javascript:void(0)" onclick="revokeConsent()" class="text-purple-200 underline hover:text-white">Manage Cookies</a>
-  </p>
-</footer>
-
-<!-- Consent Module Iframe -->
-<iframe id="consentIframe" src="consent.html"></iframe>
-
-<!-- JavaScript for Carousel, Form, and Iframe Height Adjustment -->
-<script>
-  // Existing scripts (carousel, form validation)...
-
-  // Iframe Height Adjustment
-  window.addEventListener('message', function(event) {
-    if (event.data.height !== undefined) {
-      document.getElementById('consentIframe').style.height = event.data.height + 'px';
-    }
-  });
-
-  // Add this function to revoke consent
-  function revokeConsent() {
-    document.getElementById('consentIframe').contentWindow.postMessage('revokeConsent', '*');
-  }
-</script>
+  <!-- Footer -->
+  <footer class="bg-purple-950 py-6 text-center text-purple-200">
+    <p class="mb-2">© <span id="currentYear"></span> PurpleWave. All rights reserved.</p>
+    <p><a href="javascript:void(0)" onclick="revokeConsent()" class="text-purple-200 underline hover:text-white">Manage Cookies</a></p>
+  </footer>
 
   <!-- Consent Module Iframe -->
-  <iframe id="consentIframe" src="consent.html"></iframe>
+  <iframe id="consentIframe" src="consent.html" title="Cookie Consent Banner"></iframe>
 
-  <!-- JavaScript for Carousel and Form -->
-  <script>
+  <!-- JavaScript for Functionality -->
+  <script defer>
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Carousel Functionality
     let galleryIndex = 0;
-
     function slideGallery(direction) {
       const carouselInner = document.getElementById('galleryCarouselInner');
       const tiles = carouselInner.querySelectorAll('.carousel-tile');
-      const tileWidth = tiles[0].offsetWidth + 16; // Include margin
+      const tileWidth = tiles[0].offsetWidth + 16;
       const visibleTiles = Math.floor(carouselInner.parentElement.offsetWidth / tileWidth);
       const maxIndex = tiles.length - visibleTiles;
 
       galleryIndex = Math.max(0, Math.min(galleryIndex + direction, maxIndex));
       carouselInner.style.transform = `translateX(-${galleryIndex * tileWidth}px)`;
 
-      // Update button states
       document.querySelector('.carousel-btn.prev').disabled = galleryIndex === 0;
       document.querySelector('.carousel-btn.next').disabled = galleryIndex >= maxIndex;
     }
 
-    // Keyboard navigation
     document.getElementById('galleryCarousel').addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') slideGallery(-1);
       if (e.key === 'ArrowRight') slideGallery(1);
     });
 
-    // Basic email validation for newsletter
-    function validateEmail() {
+    // Newsletter Form Validation
+    function validateEmail(event) {
+      event.preventDefault();
       const emailInput = document.getElementById('emailInput').value;
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(emailInput)) {
@@ -365,53 +304,78 @@
         return false;
       }
       alert('Thank you for subscribing!');
-      return false; // Prevent form submission for demo
-
-      // Iframe Height Adjustment
-      window.addEventListener('message', function(event) {
-    if (event.data.height !== undefined) {
-      document.getElementById('consentIframe').style.height = event.data.height + 'px';
+      document.getElementById('emailInput').value = ''; // Clear input after submission
+      return false;
     }
-  });
 
-  function revokeConsent() {
-    document.getElementById('consentIframe').contentWindow.postMessage('revokeConsent', '*');
-  }
+    // Iframe Height Adjustment
+    window.addEventListener('message', (event) => {
+      if (event.data.height !== undefined) {
+        document.getElementById('consentIframe').style.height = `${event.data.height}px`;
+      }
+    });
 
-  // Updated function to load Elfsight Chatbot conditionally
-  function loadChatbot() {
-    const preferences = localStorage.getItem('cookiePreferences');
-    if (preferences) {
-      const parsedPreferences = JSON.parse(preferences);
-      // Load chatbot if advertising or performance cookies are enabled
-      if (parsedPreferences.advertising || parsedPreferences.performance) {
-        const script = document.createElement('script');
-        script.src = 'https://static.elfsight.com/platform/platform.js';
-        script.setAttribute('data-elfsight-id', 'YOUR_CHATBOT_ID');
-        script.async = true;
-        document.body.appendChild(script);
+    // Revoke Consent
+    function revokeConsent() {
+      document.getElementById('consentIframe').contentWindow.postMessage('revokeConsent', '*');
+    }
 
-        const div = document.createElement('div');
-        div.className = 'elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730';
-        document.body.appendChild(div);
+    // Load Elfsight Chatbot Conditionally
+    function loadChatbot() {
+      const preferences = localStorage.getItem('cookiePreferences');
+      if (preferences) {
+        const parsedPreferences = JSON.parse(preferences);
+        if (parsedPreferences.advertising || parsedPreferences.performance) {
+          const script = document.createElement('script');
+          script.src = 'https://static.elfsight.com/platform/platform.js';
+          script.dataset.elfsightId = '4eb1b9ed-d66c-4229-bbc4-139798a3f730';
+          script.async = true;
+          document.body.appendChild(script);
+
+          const div = document.createElement('div');
+          div.className = 'elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730';
+          div.dataset.elfsightAppLazy = true;
+          document.body.appendChild(div);
+        }
       }
     }
-  }
 
-  window.onload = function() {
-    loadChatbot();
-  };
-
-  window.addEventListener('message', function(event) {
-    if (event.data === 'preferencesUpdated') {
-      const existingScript = document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]');
-      const existingDiv = document.querySelector('elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730');
-      if (existingScript) existingScript.remove();
-      if (existingDiv) existingDiv.remove();
-      loadChatbot();
+    // Load Tracking Script Conditionally (Assuming it uses performance cookies)
+    function loadTrackingScript() {
+      const preferences = localStorage.getItem('cookiePreferences');
+      if (preferences) {
+        const parsedPreferences = JSON.parse(preferences);
+        if (parsedPreferences.performance) {
+          const script = document.createElement('script');
+          script.id = 'FRGM-tracker';
+          script.src = 'https://1e2f308t.fragmatic.io/js-app/js/d8f6cb5f-tracker.js';
+          script.async = true;
+          document.head.appendChild(script);
+        }
+      }
     }
-  });
+
+    // Initialize Scripts on Load
+    window.addEventListener('load', () => {
+      loadChatbot();
+      loadTrackingScript();
+    });
+
+    // Reload Scripts When Preferences Change
+    window.addEventListener('message', (event) => {
+      if (event.data === 'preferencesUpdated') {
+        // Remove existing scripts and elements
+        const existingChatbotScript = document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]');
+        const existingChatbotDiv = document.querySelector('.elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730');
+        const existingTrackingScript = document.querySelector('script[src="https://1e2f308t.fragmatic.io/js-app/js/d8f6cb5f-tracker.js"]');
+        if (existingChatbotScript) existingChatbotScript.remove();
+        if (existingChatbotDiv) existingChatbotDiv.remove();
+        if (existingTrackingScript) existingTrackingScript.remove();
+        // Reload scripts based on new preferences
+        loadChatbot();
+        loadTrackingScript();
+      }
+    });
   </script>
 </body>
-
 </html>
