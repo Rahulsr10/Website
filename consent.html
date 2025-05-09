@@ -10,8 +10,9 @@
       font-family: sans-serif;
       background: transparent;
     }
-    /* Consent Banner Styling */
-    .consent-banner {
+
+    /* Consent Banner */
+    #consentBanner {
       position: fixed;
       bottom: 0;
       left: 0;
@@ -24,16 +25,16 @@
       box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
       box-sizing: border-box;
     }
-    .consent-banner p {
+    #consentBanner p {
       margin: 0 0 0.5rem 0;
       color: #d1d5db;
       font-size: 0.9rem;
     }
-    .consent-banner a {
+    #consentBanner a {
       color: #d8b4fe;
       text-decoration: underline;
     }
-    .consent-banner a:hover {
+    #consentBanner a:hover {
       color: #ffffff;
     }
     .consent-buttons {
@@ -72,11 +73,12 @@
     .consent-btn.manage:hover {
       background: #9ca3af;
     }
-    /* Side Panel Styling */
-    .consent-panel {
+
+    /* Consent Side Panel */
+    #consentPanel {
       position: fixed;
       top: 0;
-      right: -400px; /* Hidden by default */
+      right: -400px;
       width: 400px;
       height: 100%;
       background: #1f2937;
@@ -88,15 +90,15 @@
       box-sizing: border-box;
       overflow-y: auto;
     }
-    .consent-panel.open {
+    #consentPanel.open {
       right: 0;
     }
-    .consent-panel h2 {
+    #consentPanel h2 {
       color: #d8b4fe;
       font-size: 1.5rem;
       margin-bottom: 1rem;
     }
-    .consent-panel p {
+    #consentPanel p {
       color: #d1d5db;
       margin-bottom: 1.5rem;
       font-size: 0.9rem;
@@ -135,39 +137,41 @@
       font-size: 1.5rem;
       cursor: pointer;
     }
-    .dns-link {
-      display: block;
+    #dnsLink {
+      display: none;
       color: #d8b4fe;
       text-decoration: underline;
       margin-top: 1rem;
       font-size: 0.9rem;
       text-align: center;
     }
-    .dns-link:hover {
+    #dnsLink:hover {
       color: #ffffff;
     }
+
+    /* Responsive Design */
     @media (max-width: 640px) {
-      .consent-banner {
+      #consentBanner {
         padding: 0.5rem 1rem;
       }
-      .consent-banner p {
+      #consentBanner p {
         font-size: 0.8rem;
       }
       .consent-btn {
         padding: 0.4rem 0.8rem;
         font-size: 0.8rem;
       }
-      .consent-panel {
+      #consentPanel {
         width: 300px;
         right: -300px;
       }
-      .consent-panel.open {
+      #consentPanel.open {
         right: 0;
       }
-      .consent-panel h2 {
+      #consentPanel h2 {
         font-size: 1.2rem;
       }
-      .consent-panel p {
+      #consentPanel p {
         font-size: 0.8rem;
       }
       .cookie-option label {
@@ -177,10 +181,9 @@
   </style>
 </head>
 <body>
-  <!-- Consent Banner -->
-  <div class="consent-banner" id="consentBanner">
+  <div id="consentBanner" role="dialog" aria-label="Cookie Consent Banner">
     <p id="bannerMessage">
-      We use cookies to enhance your experience, including strictly necessary, functional, advertising, and performance cookies. Learn more in our <a href="privacy.html" target="_blank">Privacy Policy</a>.
+      We use cookies to enhance your experience, including strictly necessary, functional, advertising, and performance cookies. Learn more in our <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
     </p>
     <div class="consent-buttons">
       <button class="consent-btn accept" onclick="acceptAllCookies()">Accept Cookies</button>
@@ -189,208 +192,195 @@
     </div>
   </div>
 
-  <!-- Consent Side Panel -->
-  <div class="consent-panel" id="consentPanel">
-    <button class="close-panel" onclick="closeConsentPanel()">&times;</button>
+  <div id="consentPanel" role="dialog" aria-label="Cookie Preferences Panel">
+    <button class="close-panel" onclick="closeConsentPanel()" aria-label="Close Cookie Preferences Panel">×</button>
     <h2>Cookie Preferences</h2>
     <p id="panelMessage">
       Choose which cookies you allow us to use. Strictly necessary cookies are required for the site to work and cannot be disabled.
     </p>
     <div class="cookie-option">
       <label for="strictlyNecessaryCookies">Strictly Necessary Cookies (Required)</label>
-      <input type="checkbox" id="strictlyNecessaryCookies" checked disabled />
+      <input type="checkbox" id="strictlyNecessaryCookies" checked disabled aria-label="Strictly Necessary Cookies (always enabled)" />
     </div>
     <div class="cookie-option">
       <label for="functionalCookies">Functional Cookies</label>
-      <input type="checkbox" id="functionalCookies" />
+      <input type="checkbox" id="functionalCookies" aria-label="Functional Cookies" />
     </div>
     <div class="cookie-option">
       <label for="advertisingCookies">Advertising Cookies</label>
-      <input type="checkbox" id="advertisingCookies" />
+      <input type="checkbox" id="advertisingCookies" aria-label="Advertising Cookies" />
     </div>
     <div class="cookie-option">
       <label for="performanceCookies">Performance Cookies</label>
-      <input type="checkbox" id="performanceCookies" />
+      <input type="checkbox" id="performanceCookies" aria-label="Performance Cookies" />
     </div>
     <div class="panel-buttons">
       <button class="consent-btn accept" onclick="saveCookiePreferences()">Save Preferences</button>
     </div>
-    <a href="javascript:void(0)" onclick="doNotSell()" class="dns-link" id="dnsLink" style="display: none;">Do Not Sell My Personal Information</a>
+    <a href="javascript:void(0)" onclick="doNotSell()" id="dnsLink">Do Not Sell My Personal Information</a>
   </div>
 
-  <script>
-    let userRegion = 'other'; // Default region
+  <script defer>
+    // Constants
+    const EU_COUNTRIES = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE'];
+    const DEFAULT_REGION = 'other';
+    let userRegion = DEFAULT_REGION;
 
-    // Fetch user region using a geolocation API (ipapi.co for this example)
+    // DOM Elements
+    const consentBanner = document.getElementById('consentBanner');
+    const consentPanel = document.getElementById('consentPanel');
+    const bannerMessage = document.getElementById('bannerMessage');
+    const panelMessage = document.getElementById('panelMessage');
+    const dnsLink = document.getElementById('dnsLink');
+    const functionalCookies = document.getElementById('functionalCookies');
+    const advertisingCookies = document.getElementById('advertisingCookies');
+    const performanceCookies = document.getElementById('performanceCookies');
+
+    // Messages
+    const MESSAGES = {
+      default: {
+        banner: 'We use cookies to enhance your experience, including strictly necessary, functional, advertising, and performance cookies. Learn more in our <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.',
+        panel: 'Choose which cookies you allow us to use. Strictly necessary cookies are required for the site to work and cannot be disabled.'
+      },
+      gdpr: {
+        banner: 'We use cookies to enhance your experience, including strictly necessary, functional, advertising, and performance cookies. You must explicitly opt-in to non-essential cookies under GDPR. Learn more in our <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.',
+        panel: 'Choose which cookies you allow us to use. Strictly necessary cookies are required for the site to work and cannot be disabled. Non-essential cookies are off by default under GDPR.'
+      },
+      ccpa: {
+        banner: 'We use cookies to enhance your experience, including strictly necessary, functional, advertising, and performance cookies. You can opt-out of non-essential cookies under CCPA. Learn more in our <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.',
+        panel: 'Choose which cookies you allow us to use. Strictly necessary cookies are required for the site to work and cannot be disabled. You can also opt-out of the sale of your personal information.'
+      }
+    };
+
+    // Detect User Region
     function detectUserRegion() {
-      fetch('https://ipapi.co/json/')
+      fetch('https://ipapi.co/json/', { method: 'GET', mode: 'cors' })
         .then(response => response.json())
         .then(data => {
           const country = data.country_code;
-          const region = data.region; // For US states like California
-          if (country === 'US' && region === 'California') {
-            userRegion = 'ccpa'; // California (CCPA)
-          } else if (isEUCountry(country)) {
-            userRegion = 'gdpr'; // EU (GDPR)
-          } else {
-            userRegion = 'other'; // Other regions
-          }
+          const region = data.region;
+          userRegion = (country === 'US' && region === 'California') ? 'ccpa' : (EU_COUNTRIES.includes(country) ? 'gdpr' : DEFAULT_REGION);
           updateConsentUI();
           initializeConsent();
         })
         .catch(error => {
-          console.error('Error detecting region:', error);
-          userRegion = 'other'; // Fallback to default
+          console.error('Region detection failed:', error);
+          userRegion = DEFAULT_REGION;
           updateConsentUI();
           initializeConsent();
         });
     }
 
-    // Helper function to check if the country is in the EU (GDPR applies)
-    function isEUCountry(countryCode) {
-      const euCountries = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE'];
-      return euCountries.includes(countryCode);
-    }
-
-    // Update UI based on region
+    // Update UI Based on Region
     function updateConsentUI() {
-      const bannerMessage = document.getElementById('bannerMessage');
-      const panelMessage = document.getElementById('panelMessage');
-      const dnsLink = document.getElementById('dnsLink');
-
-      if (userRegion === 'gdpr') {
-        bannerMessage.innerHTML = 'We use cookies to enhance your experience, including strictly necessary, functional, advertising, and performance cookies. You must explicitly opt-in to non-essential cookies under GDPR. Learn more in our <a href="privacy.html" target="_blank">Privacy Policy</a>.';
-        panelMessage.innerHTML = 'Choose which cookies you allow us to use. Strictly necessary cookies are required for the site to work and cannot be disabled. Non-essential cookies are off by default under GDPR.';
-        dnsLink.style.display = 'none';
-      } else if (userRegion === 'ccpa') {
-        bannerMessage.innerHTML = 'We use cookies to enhance your experience, including strictly necessary, functional, advertising, and performance cookies. You can opt-out of non-essential cookies under CCPA. Learn more in our <a href="privacy.html" target="_blank">Privacy Policy</a>.';
-        panelMessage.innerHTML = 'Choose which cookies you allow us to use. Strictly necessary cookies are required for the site to work and cannot be disabled. You can also opt-out of the sale of your personal information.';
-        dnsLink.style.display = 'block';
-      } else {
-        bannerMessage.innerHTML = 'We use cookies to enhance your experience, including strictly necessary, functional, advertising, and performance cookies. Learn more in our <a href="privacy.html" target="_blank">Privacy Policy</a>.';
-        panelMessage.innerHTML = 'Choose which cookies you allow us to use. Strictly necessary cookies are required for the site to work and cannot be disabled.';
-        dnsLink.style.display = 'none';
-      }
+      bannerMessage.innerHTML = MESSAGES[userRegion]?.banner || MESSAGES.default.banner;
+      panelMessage.innerHTML = MESSAGES[userRegion]?.panel || MESSAGES.default.panel;
+      dnsLink.style.display = userRegion === 'ccpa' ? 'block' : 'none';
     }
 
-    // Initialize consent based on region
+    // Initialize Consent Preferences
     function initializeConsent() {
       const preferences = localStorage.getItem('cookiePreferences');
       if (!preferences) {
-        document.getElementById('consentBanner').style.display = 'block';
-        // GDPR: Non-essential cookies off by default
-        if (userRegion === 'gdpr') {
-          document.getElementById('functionalCookies').checked = false;
-          document.getElementById('advertisingCookies').checked = false;
-          document.getElementById('performanceCookies').checked = false;
-        } else {
-          // CCPA and others: Non-essential cookies on by default
-          document.getElementById('functionalCookies').checked = true;
-          document.getElementById('advertisingCookies').checked = true;
-          document.getElementById('performanceCookies').checked = true;
-        }
+        consentBanner.style.display = 'block';
+        const defaultChecked = userRegion !== 'gdpr'; // GDPR requires opt-in
+        functionalCookies.checked = defaultChecked;
+        advertisingCookies.checked = defaultChecked;
+        performanceCookies.checked = defaultChecked;
       } else {
         const parsedPreferences = JSON.parse(preferences);
-        document.getElementById('functionalCookies').checked = parsedPreferences.functional;
-        document.getElementById('advertisingCookies').checked = parsedPreferences.advertising;
-        document.getElementById('performanceCookies').checked = parsedPreferences.performance;
+        functionalCookies.checked = parsedPreferences.functional;
+        advertisingCookies.checked = parsedPreferences.advertising;
+        performanceCookies.checked = parsedPreferences.performance;
       }
       adjustParentIframeHeight();
     }
 
+    // Save Preferences to Local Storage
+    function savePreferences(preferences) {
+      localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+      consentBanner.style.display = 'none';
+      closeConsentPanel();
+      adjustParentIframeHeight();
+      window.parent.postMessage('preferencesUpdated', '*');
+    }
+
+    // Accept All Cookies
     function acceptAllCookies() {
-      const preferences = {
+      savePreferences({
         strictlyNecessary: true,
         functional: true,
         advertising: true,
         performance: true
-      };
-      localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
-      document.getElementById('consentBanner').style.display = 'none';
-      closeConsentPanel();
-      adjustParentIframeHeight();
-      window.parent.postMessage('preferencesUpdated', '*');
+      });
     }
 
+    // Decline All Non-Essential Cookies
     function declineAllCookies() {
-      const preferences = {
+      savePreferences({
         strictlyNecessary: true,
         functional: false,
         advertising: false,
         performance: false
-      };
-      localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
-      document.getElementById('consentBanner').style.display = 'none';
-      closeConsentPanel();
+      });
       alert('You have declined non-essential cookies. Some features may be limited.');
-      adjustParentIframeHeight();
-      window.parent.postMessage('preferencesUpdated', '*');
     }
 
+    // Show Consent Panel
     function showConsentPanel() {
-      document.getElementById('consentPanel').classList.add('open');
+      consentPanel.classList.add('open');
       adjustParentIframeHeight();
     }
 
+    // Close Consent Panel
     function closeConsentPanel() {
-      document.getElementById('consentPanel').classList.remove('open');
+      consentPanel.classList.remove('open');
       adjustParentIframeHeight();
     }
 
+    // Save Custom Preferences
     function saveCookiePreferences() {
-      const preferences = {
+      savePreferences({
         strictlyNecessary: true,
-        functional: document.getElementById('functionalCookies').checked,
-        advertising: document.getElementById('advertisingCookies').checked,
-        performance: document.getElementById('performanceCookies').checked
-      };
-      localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
-      document.getElementById('consentBanner').style.display = 'none';
-      closeConsentPanel();
-      adjustParentIframeHeight();
-      window.parent.postMessage('preferencesUpdated', '*');
+        functional: functionalCookies.checked,
+        advertising: advertisingCookies.checked,
+        performance: performanceCookies.checked
+      });
     }
 
+    // CCPA: Do Not Sell
     function doNotSell() {
-      // Simulate opting out of data selling (CCPA requirement)
       const preferences = JSON.parse(localStorage.getItem('cookiePreferences')) || {};
-      preferences.advertising = false; // Disable advertising cookies
+      preferences.advertising = false;
       localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
-      document.getElementById('advertisingCookies').checked = false;
+      advertisingCookies.checked = false;
       alert('You have opted out of the sale of your personal information.');
       window.parent.postMessage('preferencesUpdated', '*');
     }
 
+    // Adjust Iframe Height
     function adjustParentIframeHeight() {
-      const banner = document.getElementById('consentBanner');
-      const panel = document.getElementById('consentPanel');
-      let height = 0;
-      if (banner.style.display === 'block') {
-        height = banner.offsetHeight;
-      } else if (panel.classList.contains('open')) {
-        height = window.innerHeight;
-      }
-      window.parent.postMessage({ height: height }, '*');
+      const height = consentBanner.style.display === 'block' ? consentBanner.offsetHeight : (consentPanel.classList.contains('open') ? window.innerHeight : 0);
+      window.parent.postMessage({ height }, '*');
     }
 
-    window.addEventListener('message', function(event) {
+    // Handle Revoke Consent
+    window.addEventListener('message', (event) => {
       if (event.data === 'revokeConsent') {
-        document.getElementById('consentBanner').style.display = 'block';
+        consentBanner.style.display = 'block';
         const preferences = localStorage.getItem('cookiePreferences');
         if (preferences) {
           const parsedPreferences = JSON.parse(preferences);
-          document.getElementById('functionalCookies').checked = parsedPreferences.functional;
-          document.getElementById('advertisingCookies').checked = parsedPreferences.advertising;
-          document.getElementById('performanceCookies').checked = parsedPreferences.performance;
+          functionalCookies.checked = parsedPreferences.functional;
+          advertisingCookies.checked = parsedPreferences.advertising;
+          performanceCookies.checked = parsedPreferences.performance;
         }
         adjustParentIframeHeight();
       }
     });
 
-    window.onload = function() {
-      detectUserRegion();
-    };
-
+    // Initialize on Load
+    window.addEventListener('load', detectUserRegion);
     window.addEventListener('resize', adjustParentIframeHeight);
   </script>
 </body>
