@@ -327,6 +327,29 @@
       nextBtn.disabled = scrollPosition >= maxScroll;
  }
   </script>
+
+  <!-- Consent Banner -->
+<div id="cookieConsent" class="fixed bottom-0 w-full bg-gray-800 text-white p-4 text-center z-50 hidden">
+  This website uses cookies to ensure you get the best experience.
+  <button id="acceptCookies" class="ml-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-1 px-3 rounded">
+    Accept
+  </button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const consent = localStorage.getItem('cookieConsent');
+    if (!consent) {
+      document.getElementById('cookieConsent').classList.remove('hidden');
+    }
+
+    document.getElementById('acceptCookies').addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'true');
+      document.getElementById('cookieConsent').classList.add('hidden');
+    });
+  });
+</script>
+
 </body>
 
 </html>
