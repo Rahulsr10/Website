@@ -303,8 +303,6 @@
   </p> -->
 </footer>
 
-<!-- Consent Iframe -->
-<iframe id="consentIframe" src="consent.html" class="hidden"></iframe>
 
   <!-- Carousel JavaScript -->
   <script>
@@ -327,28 +325,32 @@
       nextBtn.disabled = scrollPosition >= maxScroll;
  }
   </script>
-
-  <!-- Consent Banner -->
-<div id="cookieConsent" class="fixed bottom-0 w-full bg-gray-800 text-white p-4 text-center z-50 hidden">
-  This website uses cookies to ensure you get the best experience.
-  <button id="acceptCookies" class="ml-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-1 px-3 rounded">
-    Accept
-  </button>
-</div>
+  
+<!-- Consent Iframe -->
+<iframe id="consentIframe" src="consent.html" class="fixed bottom-0 w-full h-32 border-none z-50 hidden"></iframe>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const consent = localStorage.getItem('cookieConsent');
-    if (!consent) {
-      document.getElementById('cookieConsent').classList.remove('hidden');
+    // Only show consent iframe if user has not accepted
+    const hasConsented = localStorage.getItem('cookieConsent');
+
+    if (!hasConsented) {
+      // Show the iframe if consent not given
+      document.getElementById('consentIframe').classList.remove('hidden');
     }
 
-    document.getElementById('acceptCookies').addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'true');
-      document.getElementById('cookieConsent').classList.add('hidden');
+    // Listen for message from iframe
+    window.addEventListener('message', (event) => {
+      if (event.data === 'cookieAccepted') {
+        // Store consent in localStorage
+        localStorage.setItem('cookieConsent', 'true');
+        // Hide the consent iframe
+        document.getElementById('consentIframe').classList.add('hidden');
+      }
     });
   });
 </script>
+
 
 </body>
 
