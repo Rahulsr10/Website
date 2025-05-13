@@ -325,11 +325,13 @@
       nextBtn.disabled = scrollPosition >= maxScroll;
  }
   </script>
+
   
+
 <!-- Consent Iframe -->
 <iframe id="consentIframe" src="consent.html" class="fixed bottom-0 w-full h-32 border-none z-50 hidden"></iframe>
 
-<script>
+<!-- <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Only show consent iframe if user has not accepted
     const hasConsented = localStorage.getItem('cookieConsent');
@@ -349,7 +351,19 @@
       }
     });
   });
-</script>
+</script> -->
+<script>
+// Iframe Adjustment
+window.addEventListener('message', (event) => {
+  console.log('Received message:', event.data);
+  const iframe = document.getElementById('consentIframe');
+  if (event.data.height !== undefined) {
+    iframe.style.height = `${event.data.height}px`;
+  }
+  if (event.data.width !== undefined) {
+    iframe.style.width = event.data.width;
+  }
+});</script>
 
 
 </body>
