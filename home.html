@@ -409,11 +409,7 @@
 <!-- Footer -->
 <footer class="bg-purple-950 py-6 text-center text-purple-200">
   <p class="mb-2">
-    © <script>document.write(new Date().getFullYear())</script> PurpleWave. All rights reserved.
-  </p>
-  <!-- <p>
-    <a href="javascript:void(0)" onclick="revokeConsent()" class="underline hover:text-white">Manage Cookies</a>
-  </p> -->
+    © <script>document.write(new Date().getFullYear())</script> PurpleWave. All rights reserved.</p>
 </footer>
 
 <script>
@@ -457,117 +453,6 @@
       nextBtn.disabled = scrollPosition >= maxScroll;
  }
   </script>
-
-  
-
-<!-- Consent Iframe -->
-<iframe id="consentIframe" src="consent.html" class="fixed bottom-0 w-full h-32 border-none z-50 hidden"></iframe>
-
-<script>
-  // document.addEventListener('DOMContentLoaded', () => {
-  //   // Only show consent iframe if user has not accepted
-  //   const hasConsented = localStorage.getItem('cookieConsent');
-
-  //   if (!hasConsented) {
-  //     // Show the iframe if consent not given
-  //     document.getElementById('consentIframe').classList.remove('hidden');
-  //   }
-
-  //   // Listen for message from iframe
-  //   window.addEventListener('message', (event) => {
-  //     if (event.data === 'cookieAccepted') {
-  //       // Store consent in localStorage
-  //       localStorage.setItem('cookieConsent', 'true');
-  //       // Hide the consent iframe
-  //       document.getElementById('consentIframe').classList.add('hidden');
-  //     }
-  //   });
-  // });
-
-  // Iframe Adjustment
-  const consentIframe = document.getElementById('consentIframe');
-  window.addEventListener('message', (event) => {
-    console.log('Received message:', event.data);
-    if (event.data.height !== undefined) {
-      consentIframe.style.height = `${event.data.height}px`;
-    }
-    if (event.data.width !== undefined) {
-      consentIframe.style.width = event.data.width;
-    }
-    if (event.data === 'preferencesUpdated') {
-      // Hide the iframe when preferences are saved
-      consentIframe.style.height = '0'; // Ensure it's hidden by setting height to 0
-      consentIframe.style.width = '100%'; // Reset width
-      // Remove existing scripts and elements
-      const existingChatbotScript = document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]');
-      const existingChatbotDiv = document.querySelector('.elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730');
-      const existingTrackingScript = document.querySelector('script[src="https://1e2f308t.fragmatic.io/js-app/js/d8f6cb5f-tracker.js"]');
-      if (existingChatbotScript) existingChatbotScript.remove();
-      if (existingChatbotDiv) existingChatbotDiv.remove();
-      if (existingTrackingScript) existingTrackingScript.remove();
-      // Reload scripts based on new preferences
-      loadChatbot();
-      loadTrackingScript();
-    }
-  });
-
-  // Revoke Consent
-  function revokeConsent() {
-    const origin = window.location.hostname ? `https://${window.location.hostname}` : '*';
-    consentIframe.contentWindow.postMessage('revokeConsent', origin);
-  }
-
-  // Load Elfsight Chatbot Conditionally
-  function loadChatbot() {
-    const preferences = localStorage.getItem('cookiePreferences');
-    if (preferences) {
-      const parsedPreferences = JSON.parse(preferences);
-      if (parsedPreferences.advertising || parsedPreferences.performance) {
-        const script = document.createElement('script');
-        script.src = 'https://static.elfsight.com/platform/platform.js';
-        script.dataset.elfsightId = '4eb1b9ed-d66c-4229-bbc4-139798a3f730';
-        script.async = true;
-        document.body.appendChild(script);
-
-        const div = document.createElement('div');
-        div.className = 'elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730';
-        div.dataset.elfsightAppLazy = true;
-        document.body.appendChild(div);
-      }
-    }
-  }
-
-  // Load Tracking Script Conditionally
-  function loadTrackingScript() {
-    const preferences = localStorage.getItem('cookiePreferences');
-    if (preferences) {
-      const parsedPreferences = JSON.parse(preferences);
-      if (parsedPreferences.performance) {
-        const script = document.createElement('script');
-        script.id = 'FRGM-tracker';
-        script.src = 'https://1e2f308t.fragmatic.io/js-app/js/d8f6cb5f-tracker.js';
-        script.async = true;
-        document.head.appendChild(script);
-      }
-    }
-  }
-
-  // Initialize on Load
-  window.addEventListener('load', () => {
-    // Show iframe if preferences are not set
-    const preferences = localStorage.getItem('cookiePreferences');
-    if (!preferences) {
-      consentIframe.style.height = '0'; // Will be adjusted by consent.html
-      consentIframe.style.width = '100%';
-    } else {
-      consentIframe.style.height = '0'; // Keep hidden if preferences exist
-      consentIframe.style.width = '100%';
-      loadChatbot();
-      loadTrackingScript();
-    }
-  });
-</script>
-
 </script>
 
 
