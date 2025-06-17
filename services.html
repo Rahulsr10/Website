@@ -296,7 +296,20 @@
   </footer>
 
   <!-- JavaScript for Carousel -->
+
   <script>
+  const carouselInner = document.getElementById("galleryCarouselInner");
+  const scrollAmount = 300; // Pixels to scroll on each button click
+
+  function slideGallery(direction) {
+    carouselInner.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+</script>
+
+  <!-- <script>
     let galleryIndex = 0;
 
     function slideGallery(direction) {
@@ -317,6 +330,6 @@
       if (e.key === 'ArrowLeft') slideGallery(-1);
       if (e.key === 'ArrowRight') slideGallery(1);
     });
-  </script>
+  </script> -->
 </body>
 </html>
