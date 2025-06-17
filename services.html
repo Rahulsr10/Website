@@ -245,41 +245,49 @@
   </div>
 </section>
 
- <!-- Gallery Carousel (Horizontal, Image-Only) -->
-  <section class="py-20 bg-white-900 text-center">
-    <h2 class="text-3xl font-bold text-purple-200 mb-8">Our Projects</h2>
-    <div class="container mx-auto px-4">
-      <div class="carousel" id="galleryCarousel" tabindex="0">
-        <div class="carousel-inner" id="galleryCarouselInner">
-          <div class="carousel-tile">
-            <img loading="lazy" src="https://www.techosquare.com/images/blog/website-development-project-plan-home.jpg" alt="Website Development" />
-          </div>
-          <div class="carousel-tile">
-            <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe_2JC2NJHLTPyNaQ6BEm5Zo4jvYXZWgTYbA&s" alt="Project Ideas" />
-          </div>
-          <div class="carousel-tile">
-            <img loading="lazy" src="https://cdn-bclkb.nitrocdn.com/fiSPvbjtAHBnrLskqKEeXpMGQlSziTCT/assets/images/optimized/rev-585634e/www.techwyse.com/wp-content/uploads/2007/07/Web-Site-Development-Project-Approach.jpg" alt="App Developement" />
-          </div>
-          <div class="carousel-tile">
-            <img loading="lazy" src="https://img.freepik.com/free-vector/setup-concept-illustration_114360-5023.jpg?semt=ais_hybrid&w=740" alt="Website Templates" />
-          </div>
-          <div class="carousel-tile">
-            <img loading="lazy" src="https://www.digitalsilk.com/wp-content/uploads/2023/10/website-structure-hero-760x380.jpg" alt="Content Ideas" />
-          </div>
+<!-- Gallery Carousel Section -->
+<section class="py-20 bg-white text-center">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-purple-700 mb-10">Our Projects</h2>
+
+    <div id="galleryCarousel" class="relative overflow-hidden" tabindex="0">
+      <!-- Carousel Images -->
+      <div id="galleryCarouselInner" class="flex gap-4 transition-transform duration-500 ease-in-out">
+        <div class="min-w-[250px] flex-shrink-0">
+          <img src="https://www.techosquare.com/images/blog/website-development-project-plan-home.jpg" alt="Website Development" class="rounded-lg w-full h-48 object-cover" loading="lazy" />
         </div>
-        <div class="carousel-controls">a
-          <button class="carousel-btn prev" onclick="slideGallery(-1)" aria-label="Previous image" disabled>❮</button>
-          <button class="carousel-btn next" onclick="slideGallery(1)" aria-label="Next image">❯</button>
+        <div class="min-w-[250px] flex-shrink-0">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe_2JC2NJHLTPyNaQ6BEm5Zo4jvYXZWgTYbA&s" alt="Project Ideas" class="rounded-lg w-full h-48 object-cover" loading="lazy" />
         </div>
-        <noscript>
-          <p class="text-purple-400">JavaScript is required to view the carousel.</p>
-          <div class="flex flex-wrap justify-center gap-4">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJl8JJBWZnsoiDEm9Ehs5KuJ_DD2rIcaJnoQ&s" alt="Project 1" class="w-48 h-28 object-cover rounded" />
-          </div>
-        </noscript>
+        <div class="min-w-[250px] flex-shrink-0">
+          <img src="https://cdn-bclkb.nitrocdn.com/fiSPvbjtAHBnrLskqKEeXpMGQlSziTCT/assets/images/optimized/rev-585634e/www.techwyse.com/wp-content/uploads/2007/07/Web-Site-Development-Project-Approach.jpg" alt="App Development" class="rounded-lg w-full h-48 object-cover" loading="lazy" />
+        </div>
+        <div class="min-w-[250px] flex-shrink-0">
+          <img src="https://img.freepik.com/free-vector/setup-concept-illustration_114360-5023.jpg?semt=ais_hybrid&w=740" alt="Website Templates" class="rounded-lg w-full h-48 object-cover" loading="lazy" />
+        </div>
+        <div class="min-w-[250px] flex-shrink-0">
+          <img src="https://www.digitalsilk.com/wp-content/uploads/2023/10/website-structure-hero-760x380.jpg" alt="Content Ideas" class="rounded-lg w-full h-48 object-cover" loading="lazy" />
+        </div>
       </div>
+
+      <!-- Controls -->
+      <div class="absolute top-1/2 left-0 transform -translate-y-1/2 z-10">
+        <button onclick="slideGallery(-1)" aria-label="Previous" class="text-purple-600 hover:text-purple-800 text-3xl px-2">❮</button>
+      </div>
+      <div class="absolute top-1/2 right-0 transform -translate-y-1/2 z-10">
+        <button onclick="slideGallery(1)" aria-label="Next" class="text-purple-600 hover:text-purple-800 text-3xl px-2">❯</button>
+      </div>
+
+      <!-- Fallback -->
+      <noscript>
+        <p class="text-purple-500 mt-4">JavaScript is required to view the carousel.</p>
+        <div class="flex flex-wrap justify-center gap-4 mt-4">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJl8JJBWZnsoiDEm9Ehs5KuJ_DD2rIcaJnoQ&s" alt="Project 1" class="w-48 h-28 object-cover rounded" />
+        </div>
+      </noscript>
     </div>
-  </section>
+  </div>
+</section>
 
 
   <!-- Footer -->
