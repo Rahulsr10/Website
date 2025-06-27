@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="PurpleWave creates sleek, modern websites with a bold black and purple theme." />
@@ -107,6 +108,10 @@
     </div>
   </section>
 
+  <section>
+    
+  </section>
+
   <!-- Services Section -->
   <section class="py-20 bg-black">
     <div class="container mx-auto px-4">
@@ -151,6 +156,8 @@
     </div>
   </section>
 
+
+
  
 
   <section class="py-20 bg-black">
@@ -160,6 +167,18 @@
       Ready to take your brand to the next level? Contact us to discuss your project and see how our services can help.
     </p>
   </div>
+
+  <section class="py-20 bg-purple-950 text-center">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-purple-200 mb-4">Visitor Insights</h2>
+    <p class="text-lg text-purple-400 mb-6 max-w-2xl mx-auto">
+      An interactive look at our desktop and mobile traffic over the past few months.
+    </p>
+    <div class="bg-black p-6 rounded-lg shadow-lg">
+      <canvas id="areaChart" class="w-full max-w-5xl mx-auto" height="250"></canvas>
+    </div>
+  </div>
+</section>
 
  <!-- News letter form  -->
 
@@ -423,5 +442,72 @@
     }
   });
 </script>
+
+<script>
+  const ctx = document.getElementById('areaChart').getContext('2d');
+
+  const labels = [
+    "Apr 1", "Apr 5", "Apr 10", "Apr 15", "Apr 20", "Apr 25", "Apr 30",
+    "May 5", "May 10", "May 15", "May 20", "May 25", "May 30",
+    "Jun 5", "Jun 10", "Jun 15", "Jun 20", "Jun 25", "Jun 30"
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Desktop",
+        data: [222, 373, 261, 120, 243, 215, 454, 481, 293, 473, 177, 294, 178, 88, 155, 307, 408, 434, 446],
+        fill: true,
+        backgroundColor: 'rgba(168, 85, 247, 0.2)',
+        borderColor: 'rgba(168, 85, 247, 1)',
+        tension: 0.4,
+      },
+      {
+        label: "Mobile",
+        data: [150, 290, 190, 170, 180, 250, 380, 390, 310, 380, 230, 220, 200, 140, 200, 350, 450, 380, 490],
+        fill: true,
+        backgroundColor: 'rgba(236, 72, 153, 0.2)',
+        borderColor: 'rgba(236, 72, 153, 1)',
+        tension: 0.4,
+      }
+    ]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: {
+            color: '#d8b4fe',
+            font: {
+              weight: 'bold',
+            }
+          }
+        },
+        tooltip: {
+          mode: 'index',
+          intersect: false,
+        }
+      },
+      scales: {
+        x: {
+          ticks: { color: '#d8b4fe' },
+          grid: { color: 'rgba(255, 255, 255, 0.1)' },
+        },
+        y: {
+          ticks: { color: '#d8b4fe' },
+          grid: { color: 'rgba(255, 255, 255, 0.1)' },
+        }
+      }
+    }
+  };
+
+  new Chart(ctx, config);
+</script>
+
 </body>
 </html>
