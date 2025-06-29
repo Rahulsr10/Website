@@ -15,6 +15,12 @@
 
   <script id="FRGM-tracker" src="https://preprod-1e2f308t.fragmatic.io/js-app/js/77e28c28-tracker.js" defer> </script>
 
+  <style>
+  .filter-btn:focus {
+  outline: none;
+}
+</style>
+
   <!-- Custom CSS for Carousel and Service Cards -->
   <style>
     .carousel {
@@ -168,9 +174,16 @@
     </p>
   </div>
 
-  <section class="py-20 bg-purple-950 text-center">
+  <!-- insight chart -->
   <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-purple-200 mb-4">Visitor Insights</h2>
+ <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
+  <h2 class="text-3xl font-bold text-purple-200">Visitor Insights</h2>
+  <div class="flex space-x-3">
+    <button onclick="updateChart('7')" id="btn-7" class="filter-btn bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-lg transition">Last 7 Days</button>
+    <button onclick="updateChart('30')" id="btn-30" class="filter-btn bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-lg transition">30 Days</button>
+    <button onclick="updateChart('90')" id="btn-90" class="filter-btn bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-lg transition">90 Days</button>
+  </div>
+</div>
     <p class="text-lg text-purple-400 mb-6 max-w-2xl mx-auto">
       An interactive look at our desktop and mobile traffic over the past few months.
     </p>
@@ -432,82 +445,97 @@
     });
   </script> -->
 
-  <script>
-  document.getElementById('contactForm').addEventListener('submit', function (event) {
-    if (!event.target.checkValidity()) {
-      event.preventDefault();
-      alert('Please ensure all required fields are filled correctly.');
-    } else {
-      alert('Form submitted successfully!');
-    }
-  });
-</script>
-
-<script>
+ <script>
   const ctx = document.getElementById('areaChart').getContext('2d');
 
-  const labels = [
+  const fullLabels = [
     "Apr 1", "Apr 5", "Apr 10", "Apr 15", "Apr 20", "Apr 25", "Apr 30",
     "May 5", "May 10", "May 15", "May 20", "May 25", "May 30",
     "Jun 5", "Jun 10", "Jun 15", "Jun 20", "Jun 25", "Jun 30"
   ];
 
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-        label: "Desktop",
-        data: [222, 373, 261, 120, 243, 215, 454, 481, 293, 473, 177, 294, 178, 88, 155, 307, 408, 434, 446],
-        fill: true,
-        backgroundColor: 'rgba(168, 85, 247, 0.2)',
-        borderColor: 'rgba(168, 85, 247, 1)',
-        tension: 0.4,
-      },
-      {
-        label: "Mobile",
-        data: [150, 290, 190, 170, 180, 250, 380, 390, 310, 380, 230, 220, 200, 140, 200, 350, 450, 380, 490],
-        fill: true,
-        backgroundColor: 'rgba(236, 72, 153, 0.2)',
-        borderColor: 'rgba(236, 72, 153, 1)',
-        tension: 0.4,
-      }
-    ]
-  };
+  const fullDesktopData = [222, 373, 261, 120, 243, 215, 454, 481, 293, 473, 177, 294, 178, 88, 155, 307, 408, 434, 446];
+  const fullMobileData = [150, 290, 190, 170, 180, 250, 380, 390, 310, 380, 230, 220, 200, 140, 200, 350, 450, 380, 490];
 
-  const config = {
-    type: 'line',
-    data: data,
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          labels: {
-            color: '#d8b4fe',
-            font: {
-              weight: 'bold',
+  let chartInstance;
+
+  function createChart(labels, desktopData, mobileData) {
+    if (chartInstance) chartInstance.destroy();
+
+    chartInstance = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Desktop",
+            data: desktopData,
+            fill: true,
+            backgroundColor: 'rgba(168, 85, 247, 0.2)',
+            borderColor: 'rgba(168, 85, 247, 1)',
+            tension: 0.4,
+          },
+          {
+            label: "Mobile",
+            data: mobileData,
+            fill: true,
+            backgroundColor: 'rgba(236, 72, 153, 0.2)',
+            borderColor: 'rgba(236, 72, 153, 1)',
+            tension: 0.4,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#d8b4fe',
+              font: { weight: 'bold' }
             }
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false,
           }
         },
-        tooltip: {
-          mode: 'index',
-          intersect: false,
-        }
-      },
-      scales: {
-        x: {
-          ticks: { color: '#d8b4fe' },
-          grid: { color: 'rgba(255, 255, 255, 0.1)' },
-        },
-        y: {
-          ticks: { color: '#d8b4fe' },
-          grid: { color: 'rgba(255, 255, 255, 0.1)' },
+        scales: {
+          x: {
+            ticks: { color: '#d8b4fe' },
+            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+          },
+          y: {
+            ticks: { color: '#d8b4fe' },
+            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+          }
         }
       }
-    }
-  };
+    });
+  }
 
-  new Chart(ctx, config);
+  function updateChart(days) {
+    // Remove 'active' class from all buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.classList.remove('bg-purple-900', 'ring-2', 'ring-purple-500');
+    });
+
+    // Add highlight to selected button
+    document.getElementById(`btn-${days}`).classList.add('bg-purple-900', 'ring-2', 'ring-purple-500');
+
+    let start = 0;
+    if (days === '7') start = fullLabels.length - 7;
+    if (days === '30') start = fullLabels.length - 13;
+    if (days === '90') start = 0;
+
+    const labels = fullLabels.slice(start);
+    const desktop = fullDesktopData.slice(start);
+    const mobile = fullMobileData.slice(start);
+
+    createChart(labels, desktop, mobile);
+  }
+
+  // Initialize default view as 30 Days
+  updateChart('30');
 </script>
-
 </body>
 </html>
