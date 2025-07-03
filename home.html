@@ -440,44 +440,36 @@
     </div>
   </section>
 
-  <!-- Footer with Newsletter in Bottom-Left -->
+  <!-- Footer with Bottom-Left Newsletter Form -->
 <footer class="bg-purple-950 text-purple-200 relative px-6 py-12">
 
-  <!-- Newsletter Form Positioned Bottom-Left -->
-  <div class="absolute bottom-6 left-6 w-full max-w-sm bg-purple-900 bg-opacity-90 p-6 rounded-lg shadow-lg text-left hidden md:block">
+  <!-- Newsletter Form -->
+  <div class="absolute bottom-6 left-6 w-full max-w-sm bg-purple-900 bg-opacity-90 p-6 rounded-lg shadow-lg hidden md:block">
     <h3 class="text-xl font-bold mb-2 text-purple-100">Subscribe to Our Newsletter</h3>
-    <p class="text-sm mb-4 text-purple-300">Stay updated with our latest tips and insights.</p>
+    <p class="text-sm mb-4 text-purple-300">Stay updated with the latest from PurpleWave.</p>
 
-    <form
-      action="/"
-      method="post"
-      id="simplenews-subscriptions-block-custom"
-      accept-charset="UTF-8"
-      data-ct-track-form="true"
-      data-ct-css="form.ct_-11c61d2c"
-      data-ct-formname="Official Tourism Site of Washington DC | Newsletter Signup"
-      data-redirect-url="https://washington.org/dc-insider-newsletter"
-      class="space-y-3"
-    >
+    <form id="newsletterForm" class="space-y-3">
       <!-- Email Input -->
       <input
         type="email"
-        name="mail[0][value]"
-        placeholder="Enter Email"
+        name="email"
+        id="newsletterEmail"
+        placeholder="Enter your email"
         required
         class="w-full px-4 py-2 rounded-md border border-gray-700 bg-black text-white focus:ring-purple-500 focus:border-purple-500"
       />
 
       <!-- Submit Button -->
-      <input
+      <button
         type="submit"
-        value="Subscribe"
-        class="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white py-2 rounded-md font-semibold transition duration-200 cursor-pointer"
-      />
+        class="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white py-2 rounded-md font-semibold transition duration-200"
+      >
+        Subscribe
+      </button>
     </form>
   </div>
 
-  <!-- Centered Footer Content -->
+  <!-- Centered Footer Copyright -->
   <div class="text-center mt-6 md:mt-0">
     <p>
       © <script>document.write(new Date().getFullYear())</script> PurpleWave. All rights reserved.
@@ -529,24 +521,23 @@
 
   <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form[id^="simplenews-subscriptions-block"]');
-    if (!form) return;
-
-    const emailInput = form.querySelector('input[type="email"]');
-    const redirectUrl = form.dataset.redirectUrl || 'https://washington.org/dc-insider-newsletter';
+    const form = document.getElementById('newsletterForm');
+    const emailInput = document.getElementById('newsletterEmail');
 
     form.addEventListener('submit', function (e) {
-      e.preventDefault(); // Prevent default form submission
+      e.preventDefault();
 
-      const email = emailInput?.value.trim();
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      const email = emailInput.value.trim();
+      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if (!isValid) {
         alert("Please enter a valid email address.");
         return;
       }
 
-      // Redirect with optional email query param
-      const finalUrl = `${redirectUrl}?email=${encodeURIComponent(email)}`;
-      window.location.href = finalUrl;
+      // Redirect to a real thank-you/contact page (can update this URL)
+      const redirectURL = `contact.html?newsletter_email=${encodeURIComponent(email)}`;
+      window.location.href = redirectURL;
     });
   });
 </script>
