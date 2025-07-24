@@ -474,16 +474,50 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-20">
-    <div class="container mx-auto text-center px-4">
-      <h2 class="text-3xl font-bold text-purple-200 mb-4">About Us</h2>
-      <p class="text-lg text-purple-400 max-w-2xl mx-auto">
-        PurpleWave is a creative agency specializing in sleek, modern websites with a bold black and purple aesthetic.
-        We empower brands to stand out with innovative design and seamless functionality.
-      </p>
+  <!-- 🔮 About Us -->
+<section id="about" class="relative isolate overflow-hidden py-24 bg-gradient-to-b from-black via-purple-950 to-black">
+  <!-- blurred background accent -->
+  <div class="pointer-events-none absolute -top-40 left-1/2 h-[40rem] w-[40rem] -translate-x-1/2 blur-3xl">
+    <div class="h-full w-full rounded-full bg-purple-700/40"></div>
+  </div>
+
+  <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
+    <!-- headline -->
+    <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-transparent
+               bg-clip-text bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400 mb-8">
+      About <span class="whitespace-nowrap">PurpleWave</span>
+    </h2>
+
+    <!-- description -->
+    <p class="mx-auto max-w-2xl text-lg sm:text-xl text-purple-200/90 leading-relaxed">
+      We’re a creative studio crafting <span class="font-semibold text-purple-100">bold, high-impact</span> digital
+      experiences. From concept to launch, our team blends design finesse with modular, performant code so your brand
+      shines across every screen.
+    </p>
+
+    <!-- stats strip -->
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div class="flex flex-col items-center">
+        <span class="text-4xl font-extrabold text-purple-300 drop-shadow-lg">120+</span>
+        <span class="mt-1 text-sm text-purple-400 uppercase tracking-wide">Projects Delivered</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <span class="text-4xl font-extrabold text-purple-300 drop-shadow-lg">30%</span>
+        <span class="mt-1 text-sm text-purple-400 uppercase tracking-wide">Avg. Conversion Lift</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <span class="text-4xl font-extrabold text-purple-300 drop-shadow-lg">4.9★</span>
+        <span class="mt-1 text-sm text-purple-400 uppercase tracking-wide">Client Rating</span>
+      </div>
     </div>
-  </section>
+  </div>
+
+  <!-- decorative wave divider -->
+  <svg class="absolute bottom-0 left-0 w-full pointer-events-none" height="80" viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path fill="#0b0115" d="M0,40 C480,120 960,0 1440,80 L1440,80 L0,80 Z"></path>
+  </svg>
+</section>
+
 
   <!-- Video Carousel -->
   <section class="py-20 bg-black">
