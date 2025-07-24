@@ -1,546 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="PurpleWave creates sleek, modern websites with a bold black and purple theme." />
+  <meta name="description" content="PurpleWave creates sleek, modern websites with a bold black-and-purple theme." />
   <meta name="keywords" content="web design, branding, purplewave, modern websites" />
-  <title>PurpleWave - Modern Web Design</title>
-  <link rel="icon" type="image/png" href="https://cdn-icons-png.freepik.com/256/4424/4424616.png?semt=ais_hybrid">
+  <title>PurpleWave – Modern Web Design</title>
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.freepik.com/256/4424/4424616.png" />
+
+  <!-- Pre-connect & Tailwind (replace with a purged build for production) -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Custom CSS -->
+  <!-- Global utility styles -->
   <style>
-    .carousel {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-    }
+    /* Hide scrollbars while keeping keyboard focus */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
 
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-
-    .carousel-tile {
-      flex: 0 0 300px;
-      margin-right: 16px;
-    }
-
-    .carousel-tile img {
-      width: 100%;
-      height: 170px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .carousel-controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 8px;
-    }
-
-    .carousel-btn {
-      background: rgba(0, 0, 0, 0.7);
-      color: #d8b4fe;
-      border: none;
-      padding: 8px;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .carousel-btn:hover {
-      background: rgba(0, 0, 0, 0.9);
-    }
-
-    .carousel-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    @media (max-width: 640px) {
-      .carousel-tile {
-        flex: 0 0 200px;
-      }
-
-      .carousel-tile img {
-        height: 120px;
-      }
+    /* Re-usable gallery tiles */
+    .carousel-tile   { flex:0 0 300px; margin-right:16px; }
+    .carousel-tile img { width:100%; height:170px; object-fit:cover; border-radius:8px; }
+    @media (max-width:640px){
+      .carousel-tile   { flex:0 0 200px; }
+      .carousel-tile img{ height:120px; }
     }
   </style>
 
-  <!-- AI Chatbot -->
+  <!-- AI Chatbot platform loader -->
   <script src="https://static.elfsight.com/platform/platform.js" async></script>
-  <div class="elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730" data-elfsight-app-lazy></div>
-
-  <!-- Tracking Script -->
-
-  <script id="FRGM-tracker" src="https://preprod-1e2f308t.fragmatic.io/js-app/js/77e28c28-tracker.js" defer> </script>
-
-
-  <script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"></script>
-  <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="OtV3rsIz-f-y7P"
-    async></script>
-
-
 </head>
 
-<body class="bg-black text-purple-300 font-sans">
+<body class="bg-black text-purple-100 font-sans scroll-smooth">
+
+  <!-- Chatbot embed -->
+  <div class="elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730" data-elfsight-app-lazy></div>
+
   <!-- Navbar -->
   <nav class="bg-purple-950 shadow-lg sticky top-0 z-50">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <a href="https://purplewave.netlify.app">
-        <h1 class="text-2xl font-bold text-purple-200">PurpleWave</h1>
+        <span class="text-2xl font-bold text-purple-200">PurpleWave</span>
       </a>
-      <ul class="flex space-x-6 text-purple-200">
-        <li><a href="home.html" class="hover:text-white transition">Home</a></li>
-        <li><a href="aboutus.html" class="hover:text-white transition">About</a></li>
-        <li><a href="services.html" class="hover:text-white transition">Services</a></li>
-        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+      <ul class="flex space-x-6">
+        <li><a href="home.html"      class="hover:text-white transition">Home</a></li>
+        <li><a href="aboutus.html"   class="hover:text-white transition">About</a></li>
+        <li><a href="services.html"  class="hover:text-white transition">Services</a></li>
+        <li><a href="contact.html"   class="hover:text-white transition">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="min-h-screen bg-cover bg-center flex items-center justify-center"
-    style="background-image: url('https://img.goodfon.com/original/1920x1080/d/f4/anime-art-final-fantazi-fioletovyi-fon-demon-ubiitsa-oruzhie.jpg');">
-    <div class="container mx-auto text-center px-6 bg-black bg-opacity-60 p-8 rounded-xl">
-      <h1 class="text-5xl font-bold text-purple-200 mb-4">Welcome to PurpleWave</h1>
-      <p class="text-xl text-purple-400 mb-6">Crafting bold, modern websites for your brand</p>
-      <a href="aboutus.html" class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">Get
-        Started</a>
-    </div>
-  </section>
+  <!-- MAIN wrapper -->
+  <main>
 
-  <section class="bg-white py-12 px-4 md:px-16">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-      <!-- Image -->
-      <div>
-        <img src="https://wallpapercave.com/wp/wp5472897.jpg" alt="Article Image" class="rounded-lg shadow-lg w-full">
+    <!-- Hero -->
+    <section id="home" class="min-h-screen bg-cover bg-center flex items-center justify-center"
+             style="background-image:url('https://img.goodfon.com/original/1920x1080/d/f4/anime-art-final-fantazi-fioletovyi-fon-demon-ubiitsa-oruzhie.jpg');">
+      <div class="relative px-6 py-8 bg-black/60 rounded-xl text-center max-w-xl">
+        <h1 class="text-5xl font-bold mb-4">Welcome to PurpleWave</h1>
+        <p class="text-xl text-purple-300 mb-6">Crafting bold, modern websites for your brand</p>
+        <a href="aboutus.html"
+           class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">Get Started</a>
       </div>
+    </section>
 
-      <!-- Article Content -->
-      <div>
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">How PurpleWave Is Transforming Online Experiences</h2>
-        <p class="text-gray-600 mb-4">
-          PurpleWave is leading the way in digital transformation by combining elegant design with performance-focused
-          development. Our team is constantly innovating to ensure your brand shines in the digital space.
+    <!-- Article block -->
+    <section class="bg-white py-12 px-4 md:px-16">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <img src="https://wallpapercave.com/wp/wp5472897.jpg" alt="Article Image"
+               class="rounded-lg shadow-lg w-full">
+        </div>
+        <div>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">How PurpleWave Is Transforming Online Experiences</h2>
+          <p class="text-gray-600 mb-4">
+            PurpleWave is leading the way in digital transformation by combining elegant design with performance-focused
+            development. Our team is constantly innovating to ensure your brand shines in the digital space.
+          </p>
+          <p class="text-gray-600">
+            From custom websites to powerful analytics integrations, we provide tools that help businesses grow with
+            confidence. Join the wave of transformation with PurpleWave.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED CASES -->
+    <section class="relative bg-gradient-to-r from-[#500024] to-[#0b0115] py-16 text-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-10">Our Featured Cases</h2>
+
+        <div class="relative overflow-hidden">
+          <!-- Scrollable cards -->
+          <div id="featuredCarousel"
+               class="flex gap-6 overflow-x-auto no-scrollbar scroll-snap-x scroll-snap-mandatory">
+
+            <!-- Card 1 -->
+            <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center
+                        scroll-snap-start rounded-xl shadow-lg"
+                 style="background-image:url('https://wallpapers.com/images/thumbnail/dark-anime-guy-4k-phone-axewwxcp1z1szqwl.webp');">
+              <div class="absolute inset-0 bg-black/40 rounded-xl p-4 flex flex-col justify-between">
+                <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
+                <div>
+                  <h3 class="text-xl font-bold mb-1">The Name Game</h3>
+                  <p class="text-sm">VISMA</p>
+                </div>
+                <a href="#" class="underline text-sm">DISCOVER CASE</a>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center
+                        scroll-snap-start rounded-xl shadow-lg"
+                 style="background-image:url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...');">
+              <div class="absolute inset-0 bg-black/40 rounded-xl p-4 flex flex-col justify-between">
+                <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Customer case</span>
+                <div>
+                  <h3 class="text-xl font-bold mb-1">Ziggo Sport</h3>
+                  <p class="text-sm">Entertainment</p>
+                </div>
+                <a href="#" class="underline text-sm">DISCOVER CASE</a>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center
+                        scroll-snap-start rounded-xl shadow-lg"
+                 style="background-image:url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...');">
+              <div class="absolute inset-0 bg-black/40 rounded-xl p-4 flex flex-col justify-between">
+                <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
+                <div>
+                  <h3 class="text-xl font-bold mb-1">The Blame Game</h3>
+                  <p class="text-sm">VISMA</p>
+                </div>
+                <a href="#" class="underline text-sm">FREEDOM CASE</a>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center
+                        scroll-snap-start rounded-xl shadow-lg"
+                 style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmxBeH_TekL-Jt4wKPnuCoQHQhOU6uTLIAUQ&s');">
+              <div class="absolute inset-0 bg-black/40 rounded-xl p-4 flex flex-col justify-between">
+                <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
+                <div>
+                  <h3 class="text-xl font-bold mb-1">The Fame Game</h3>
+                  <p class="text-sm">VISMA</p>
+                </div>
+                <a href="#" class="underline text-sm">CELEBRITY CASE</a>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center
+                        scroll-snap-start rounded-xl shadow-lg"
+                 style="background-image:url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...');">
+              <div class="absolute inset-0 bg-black/40 rounded-xl p-4 flex flex-col justify-between">
+                <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
+                <div>
+                  <h3 class="text-xl font-bold mb-1">The Rage</h3>
+                  <p class="text-sm">VISMA</p>
+                </div>
+                <a href="#" class="underline text-sm">RAGE CASE</a>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center
+                        scroll-snap-start rounded-xl shadow-lg"
+                 style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb5o1hIpacdSDsaGBsQjyMNGgH5ZTAuy_94Q&s');">
+              <div class="absolute inset-0 bg-black/40 rounded-xl p-4 flex flex-col justify-between">
+                <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
+                <div>
+                  <h3 class="text-xl font-bold mb-1">The Beauty Game</h3>
+                  <p class="text-sm">VISMA</p>
+                </div>
+                <a href="#" class="underline text-sm">AURA CASE</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <button aria-label="Scroll left"
+                  onclick="scrollFeatured(-1)"
+                  class="absolute left-0 top-1/2 -translate-y-1/2 bg-white text-black p-2 rounded-full shadow z-10">&larr;</button>
+          <button aria-label="Scroll right"
+                  onclick="scrollFeatured(1)"
+                  class="absolute right-0 top-1/2 -translate-y-1/2 bg-white text-black p-2 rounded-full shadow z-10">&rarr;</button>
+
+          <!-- Progress bar -->
+          <div class="w-full mt-6">
+            <div class="h-[2px] bg-gray-700 relative">
+              <div id="progressBar" class="absolute top-0 left-0 h-full bg-pink-500 transition-all duration-500 w-0"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT CARDS -->
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-purple-200 text-center mb-10">Our Work</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <div class="bg-white text-black p-6 rounded-lg shadow-lg flex flex-col">
+            <img loading="lazy"
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkf6RAmp6hjzfGHfLZpj-VjKZQMiMM8kTrmg&s"
+                 alt="Smart Watch" class="rounded mb-4">
+            <a href="#" class="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg text-center">Learn More</a>
+          </div>
+
+          <div class="bg-gradient-to-b from-purple-800 to-purple-600 text-white p-6 rounded-lg shadow-lg flex flex-col">
+            <img loading="lazy"
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCtoQTGOjrbsmCSmC9MBMy8M_sA1lMmia8RA&s"
+                 alt="Smartphone" class="rounded mb-4">
+            <a href="#" class="bg-white text-purple-800 hover:bg-gray-200 py-2 px-4 rounded-lg text-center">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="py-20 bg-purple-900 text-center">
+      <h2 class="text-3xl font-bold text-purple-200 mb-8">Gallery</h2>
+      <div class="container mx-auto px-4">
+        <div id="galleryCarousel" class="flex overflow-x-auto gap-4 no-scrollbar scroll-snap-x scroll-snap-mandatory">
+
+          <div class="carousel-tile scroll-snap-start">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJl8JJBWZnsoiDEm9Ehs5KuJ_DD2rIcaJnoQ&s"
+                 alt="Gallery Image 1">
+          </div>
+          <div class="carousel-tile scroll-snap-start">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSra6qDK2JUyjLK0ch-oqgQOe-fwgOy8x9Qpg&s"
+                 alt="Gallery Image 2">
+          </div>
+          <div class="carousel-tile scroll-snap-start">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdW8T-KHCbZohGaXwKo-ska1FRItY1-0w-pQ&s"
+                 alt="Gallery Image 3">
+          </div>
+          <div class="carousel-tile scroll-snap-start">
+            <img src="https://wallpapercave.com/w200/wp5954897.jpg" alt="Gallery Image 4">
+          </div>
+          <div class="carousel-tile scroll-snap-start">
+            <img src="https://wallpapercave.com/fuwp/uwp4778690.jpeg" alt="Gallery Image 5">
+          </div>
+          <div class="carousel-tile scroll-snap-start">
+            <img src="https://wallpapercave.com/w200/wp6554427.jpg" alt="Gallery Image 6">
+          </div>
+        </div>
+
+        <!-- Gallery controls -->
+        <div class="carousel-controls mt-6 flex justify-between max-w-3xl mx-auto">
+          <button class="carousel-btn bg-black/70 text-purple-200 p-2 rounded-full text-xl"
+                  onclick="slideGallery(-1)" aria-label="Previous image" disabled>❮</button>
+          <button class="carousel-btn bg-black/70 text-purple-200 p-2 rounded-full text-xl"
+                  onclick="slideGallery(1)" aria-label="Next image">❯</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-20">
+      <div class="container mx-auto text-center px-4">
+        <h2 class="text-3xl font-bold text-purple-200 mb-4">About Us</h2>
+        <p class="text-lg text-purple-400 max-w-2xl mx-auto">
+          PurpleWave is a creative agency specializing in sleek, modern websites with a bold black-and-purple aesthetic.
+          We empower brands to stand out with innovative design and seamless functionality.
         </p>
-        <p class="text-gray-600">
-          From custom websites to powerful analytics integrations, we provide tools that help businesses grow with
-          confidence. Join the wave of transformation with PurpleWave.
-        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- VIDEO STRIP -->
+    <section class="py-20 bg-black">
+      <h2 class="text-3xl font-bold text-purple-200 text-center mb-8">Trending Now</h2>
+      <div class="container mx-auto px-4">
+        <div class="flex overflow-x-auto gap-4 no-scrollbar scroll-snap-x scroll-snap-mandatory">
 
-  <section class="relative bg-gradient-to-r from-[#500024] to-[#0b0115] py-16 text-white">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold mb-10">Our Featured Cases</h2>
-
-      <!-- Carousel -->
-      <div class="relative overflow-hidden">
-        <!-- Scrollable Cards -->
-        <div id="carousel" class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory">
-
-          <!-- Card 1 -->
-          <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
-            style="background-image: url('https://wallpapers.com/images/thumbnail/dark-anime-guy-4k-phone-axewwxcp1z1szqwl.webp');">
-            <div
-              class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
-              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
-              <div>
-                <h2 class="text-xl font-bold mb-1">The Name Game</h2>
-                <p class="text-sm">VISMA</p>
-              </div>
-              <a href="#" class="underline text-sm">DISCOVER CASE</a>
-            </div>
+          <div class="flex-none w-60 rounded-lg overflow-hidden scroll-snap-start">
+            <video autoplay muted loop playsinline class="w-full h-36 object-cover rounded">
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+            </video>
           </div>
 
-          <!-- Card 2 -->
-          <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
-            style="background-image: url('data:image/jpeg;base64,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');">
-            <div
-              class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
-              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Customer case</span>
-              <div>
-                <h2 class="text-xl font-bold mb-1">Ziggo Sport</h2>
-                <p class="text-sm">Entertainment</p>
-              </div>
-              <a href="#" class="underline text-sm">DISCOVER CASE</a>
-            </div>
+          <div class="flex-none w-60 rounded-lg overflow-hidden scroll-snap-start">
+            <video autoplay muted loop playsinline class="w-full h-36 object-cover rounded">
+              <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+            </video>
           </div>
 
-          <!-- Card 3 -->
-          <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
-            style="background-image: url('data:image/jpeg;base64,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');">
-            <div
-              class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
-              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
-              <div>
-                <h2 class="text-xl font-bold mb-1">The Blame Game</h2>
-                <p class="text-sm">VISMA</p>
-              </div>
-              <a href="#" class="underline text-sm">Freedom CASE</a>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
-            style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmxBeH_TekL-Jt4wKPnuCoQHQhOU6uTLIAUQ&s');">
-            <div
-              class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
-              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
-              <div>
-                <h2 class="text-xl font-bold mb-1">The Fame Game</h2>
-                <p class="text-sm">VISMA</p>
-              </div>
-              <a href="#" class="underline text-sm">Celibrity CASE</a>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
-            style="background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhMSExIWFRUWFxcVFhIWGBUbFRcYHxcWGBcXFRcYHSggGRolHhUTITEhJikrLi4uGR8zODMuNygtLjIBCgoKDg0OFxAQGy0gHyUtLS0rLS4tLS0rLS0tLS0tLS0tLS0tLystLS0tKy0tKy0tLS0tLS8tLS0tLS0tLSstLf/AABEIASsAqAMBIgACEQEDEQH/xAAbAAEAAQUBAAAAAAAAAAAAAAAABQECAwQGB//EADwQAAEDAgQDBQUGBQQDAAAAAAEAAhEDIQQSMUEFUWETInGBkQYyobHwM0JSYsHRFBVygvFDkqLhI3Oz/8QAFwEBAQEBAAAAAAAAAAAAAAAAAAECA//EACERAQEAAwEAAgEFAAAAAAAAAAABAhESIQMxYRMjMkFR/9oADAMBAAIRAxEAPwDw1ERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBEVUFEVSEhBRFWEhBRFc1qqWG/TVBYiuc2I9VagIrzTgT0lWwgoivyG3VWoKIqwhCCiKoCu7M77GP3QWKsLcw+Ac6NiXMaBBPvaT6t9VmxOB7Ok15N3iQC2+Uk5TJ2IBKCNVFkZTJIA1JAHjb90QY1mOWLEzb5fOViAutnBtDjBE6eO4/UILGUw5wAIE81QUScxGjbk7RIH6hbDsCYJnQX6ECSFjo1i0ZSO6S2ecCTp578kVacMRTzm1w0dZzT8ln4nhSyo5nJrDH9rR+pU5RrU8TiMPTpyKbSXkOsbe608zDWi34irONQcUc/ezN7OPwmGkeXeAnqSptrnxBYSgTJ5bcyTYfAqlRhJdB1JvzAuXeGhUtXoNYMgvLpc4HXuiQOndcZ2IC3OA8GNbNVqDuGSQBEt1DG8hMfBNpr+kDisNAnQaidSL3I2+6tV1ODG9lL8e7tYMJJyxn/4yI/tC0aLS5zn27tyTpJNvifgqlnrHih3i3lb0tCsME9APh9fNZnUtXQYEE/06CTzJ+axMYXENGrrnoNfQCSgtptBPjYcpmL9NVfWomQ0SeXykeJW9hKTXuzAG3da3oAMxJHOSfNX8PpnKahktN7eYE8pJIGn3tICGkW5kK/A4R1Woym3VzgPDmfISfJbGUudOWXPOVjRpcwI+Q811OA4L2bZBDSB2eeO92jwDVdy7jSWjqCNTKlqzHbnqdAdqHAQBUpimMp7zQ54Luv2Z3vdZuFcObWcC52Wm2alQz7rc1x/UQGAdXhb3tLiaLKkU3A5GMY1rLhuVtdt3bkFzCfEqL4Zw+rWLKYMCq4DkCAJJPgAhfK3f5jTAblBzFzngAXbmDg1okbA0x5DkrvaKqXspAMqAMpgZXNyhoae8fAZmgG3vHz7LgPs1RokPzyXPNNgiWhglrqj7WBl3gIAM3UX7VBr3MZSdm7dxLnaOFOmQA6JsHOzuA3hvJVnbjcMGtbOuZuXQSO8wueCdNXAb2KKX4lWaxjZa0lggEN7lR2Y5bTYBobbeL62IOZfqVfRbfWFaVY4XRWw5tnd6LxEG8i5lZG4Z9yMro5EfX+VqlhHgtgY3ukOY0/mggjlpb4KDA4XmCDqFmbjHEy/vdT733Rr4NWUuoEWNRp2BAI9Qf0Wo9omxB66KiZYwV6gbTIBqENP5WxcdTlbc+W69LwOFYMlJogUwOUfltzmfTqvHaLnNIcxxaRoQbqf4f7Y1mAte0PB1OhPjFj9aqWLtg9rKzX4is9ohuYU2nS7GtDx8vgsdBgbTpteSA8mo+BJLdGj0/wDoFZVxAr/w9GcoaXl7nQO852Z7v9rW+i3OL1g2SAJnIwRoGiAAPQeLeiEReNebsnughz457N8pIHmtnhOHLgWN+0rd2fwsnvT1dEeErQDZBna5PM6efIealsDUDaZMwSQ5zhqABoLWgWHilJ9t1+DJ7jJzPlrDe1FvvP6T7o5z4LXxNOT2TYy2LiNm8uriB6RoCqfztrM7ss1HH3bkNA+zZ/SJkjcxyURVx9R0xIklzju5x3J5qaW2JPCYllCt2lS5ZdtMEEgkQ0HawF/Gy1uJcdq1hlLslMaU2zHMlx1cSb33WgzDzckebgPmVe1rBq4DwuVU3fpSnFobPPwUpS4pXc9rqYDC1pY0NE7y433sL9FpDE0Q1wDHOcZDXONhyMbndbVL2hqMaWUadOmCA2Q2Xxb7zpuY1EIiUdgcW6C+o/vCQD3QY/MSBGt9Pe6rTxApscB25qGIc5tm7iGu+8wX6X8Vq1WV8Q4vr1XENaSSb5WiLNaLAe6ALBRlFm5t9aou0hj6+YXJyNd3ebjF77wGgeaLFiaxIbIhjLMbztJPnY+aKpWrVF0a2RHK4VQ0kDpKzVcO5gY7YiR15j65qCWpcL7Wg97DIbSNU87E5h5QCoM0e7IO0n69fRSXC+LGgKrdWVWPZfbMINlk4lRpU3GpQqNfSeSRTzf+Snc91zTBPj6qXevG/j561l9IUaLb4ZwmriHZKTMzuUtGxI1P5SsTuz1E+C2MHTqPdFLuwCS+coaBqc30Skq5YyT2xdjuAYmiAalItBuDIIPgQbqODua9A4tjsPSw7aHbmu5vec8kuLnRBAmS1vpt1K4bEPB03JIjYclXKfTA1vktyiXVXtm+UAW6CPU2utUibDRb+BwpecrZFu87kP3KLGfCYZrnVHm7WCABoXRAt+ELQdTdJG0w7lP/AEuoZwIlzKNEEvLQXkaMBPvO68h57LS4vgAwBjbTIHPLNj4mEVAClbNsd/mVY0FxhoW7VgkC8CwHIBbXDsRTo1WudBAt4beSbNIvE4V1N2VwIMA35LGWQvV+P8NwWPwtN9GtTZiaY7oc4BtQE/Zk85NjtebXHnePwdSiTSxFJzHA67f2uFnDqFLavxzHLct0jCF6Twb2C4dUZSc7i9LtHloFIBk5yR3A0vzEzA0C8+L2D3RPiuh9k+IYbCP/AI2sRVrMBNDDt0zEEB9V4sAJ0F58IVh8uOp5ffw7L2+wmGwTH0aZLq2IDaYFpyj3nHYD7t+Z2BXnGHwoc8M+4273azuR5aRzPVU4lxitiKz8RVMvcIECw5Bo2AUzwPhruys2XPcAAd45nZs3J6DmlZwn+oys+nUqU2uJDA4lxtZghzy2NyBAHJreaKTxDKTe1rNBf2DZZI7ri9wbTqu2941Kkf8AqbpMUVS+uWoVcplTOIcxzLTMiI0EjRQYNoUjhQRfmII2I5yDZw1UrUZHcPe0aQNenxWahwy4Dm8tl1PBqLHin2jgMhuTBD3TcCJsQAfVdBVp0D/5C/K0725wDe4HPks7bmLkaNHDtEOoUnEWEMeD5w6PgoziVCnEtoBo8IHlcleiHB0cs5SGxM8/DeL6rR4jgGOhrWt/CXa9TH1yTa8R5k7DuiQyBrJEW53WsxhJ6/V/Rddx8U2Dsm3cYc9xNyP9OmI0zETHJpWth8CwMimQ+pBLnfdaToI3MRbbfrdsXH1A5MpHP6uV0vCsM6kC0NzVX+6DMAbvf+UaddBqoyvgSzJuXwddpsXHkSF3/AuHtpiScz3Xc86ui2mwE2G3iSplW8Md10nsRwUUmgQXOec1SqYlzo0I1iDYaCFwXtu9tSs5zBlhzmeYJED916lwpwDYm/Lu67XK8vfDqlSmYntqrhJuBmB0PQjVXfjjJ+5Y5ajwio4W33JiegWB/CaomBoY2/yu7FDK1oafO3wvf/tYv4cNDJZBdAzTLpMa2sLuOqz078OFZg3GZaJHMW9Qr6bA33qVvCQu5bgqBs+o0Hu2sDJgDUzyC28JwoBwAdY3g/hgXg9TunR+m4Km9h/0wB0pNJ/5FbmD4K+roH5RyY0D0FoXoDeD0ReWeQBPSw10UuzA0gfs2TsSMrgYO4kyLnQWPRXbNxkeeN9kjmZkIIiC8kZRIOmxtK608FAaKQcMoAFRxvLSYDGge8TeR1E2WX2k4jVpACnUItmIIa4ASGzmy6D9NlF4XiU2rOdnzFwJLQ4h1pYLgXAvEWstSOdyrFxbBtdVbg7EOxAq1ZIg0aFBlnHkalWuPJFE8bxLWMrVGVM7nl9JrniXBpdUqvLHSZcTVYyRpA6KirMcE1y2KdUCIAPObz4rVV7XIrpuB8QAaGiWmSLWEHw31W3xXixdFMOhtw6RmuLm+otFjyXJ0MQWG0K44s36+FvA7LOm+vHfYTjFJtNrSb2bJDco0zQABlFp0G3gsWP4mynne1/edLgRNyYAABMD7tua4YVZBF45I15MQdNE5XtKNcS/PVLiTLjBEg+6IjSIaPXRSmHxWWAyecEnK0WvlAtq62p9I5b+KeTrMxba1gFu0MU3LfWRE39fIfEK2JK6bD0mvIOvfzOJ1MTFufw2U3/MwCQ6JA7g5yYkE2/aVxtPG2inBmxzOcIOwAm+mqy1OL5b/eFnAi5PTbZYsdMctPR8NxOH02tbn7r3OyQbiRAkQRd8noBF1ydLiWR1QVWODi4lzngS42EEW/ysHBvaVlJsE623lkiZEiSCbWuFZxHj1J5JDgAbgQQfqxuta805z+W1mM9oKYcWtyyJuBraNRptfosreOOc7QBsF2sze5/26LlIYS50yTJE76zIWq5xtBIH1unMXuu4fxhlhNibTEE7d2JvA9FlpcZa0E3B/IIcTG7dN3ei4J9Z1gTMafsgxLogWnUiU5O677+Zsc4PblJNjeHG4kQYE6GwCi+Ie0FcDuF1pBcHOkiZEgGBYDSFyzcREWmOZsq/xZuIsdjEdFdM9JWr7TVnBskSyYtEgkkhwBuL6LBS4qCHAgAOM6TBExPMd489TZRZcPBWKozV6lzBETNgB8kWBEQREQEREFZVcxVqIKykqiIMraxAiT6p2x6fW/isSIMgqdFkqYlxESY8fmtdEFSUlURBUlJVEQVlJVEQVlUREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERB//Z');">
-            <div
-              class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
-              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
-              <div>
-                <h2 class="text-xl font-bold mb-1">The Rage</h2>
-                <p class="text-sm">VISMA</p>
-              </div>
-              <a href="#" class="underline text-sm">Rage CASE</a>
-            </div>
-          </div>
-
-          <!-- Card 6 -->
-          <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
-            style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb5o1hIpacdSDsaGBsQjyMNGgH5ZTAuy_94Q&s');">
-            <div
-              class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
-              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
-              <div>
-                <h2 class="text-xl font-bold mb-1">The Beauty Game</h2>
-                <p class="text-sm">VISMA</p>
-              </div>
-              <a href="#" class="underline text-sm">Aura CASE</a>
-            </div>
-          </div>
-
-
-
-          <!-- Add more cards similarly -->
-
-        </div>
-
-        <!-- Arrows -->
-        <button onclick="scrollCarousel(-1)"
-          class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow z-10">&larr;</button>
-        <button onclick="scrollCarousel(1)"
-          class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow z-10">&rarr;</button>
-
-        <!-- Progress Bar -->
-        <div class="w-full mt-6">
-          <div class="h-[2px] bg-gray-700 relative">
-            <div id="progressBar" class="absolute top-0 left-0 h-full bg-pink-500 transition-all duration-500"
-              style="width: 0%;"></div>
+          <div class="flex-none w-60 rounded-lg overflow-hidden scroll-snap-start">
+            <video autoplay muted loop playsinline class="w-full h-36 object-cover rounded">
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <style>
-    #carousel {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
+    <!-- SERVICES -->
+    <section id="services" class="py-20 bg-purple-950">
+      <div class="container mx-auto text-center px-4">
+        <h2 class="text-3xl font-bold text-purple-200 mb-10">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-    #carousel::-webkit-scrollbar {
-      display: none;
-    }
-  </style>
-
-  <!-- Product Cards -->
-  <section class="py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-purple-200 text-center mb-10">Our Work</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white text-black p-6 rounded-lg shadow-lg flex flex-col">
-          <img loading="lazy"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkf6RAmp6hjzfGHfLZpj-VjKZQMiMM8kTrmg&s"
-            alt="Smart Watch" class="rounded mb-4">
-          <a href="#" class="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg text-center">Learn
-            More</a>
-        </div>
-        <div class="bg-gradient-to-b from-purple-800 to-purple-600 text-white p-6 rounded-lg shadow-lg flex flex-col">
-          <img loading="lazy"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCtoQTGOjrbsmCSmC9MBMy8M_sA1lMmia8RA&s"
-            alt="Smartphone" class="rounded mb-4">
-          <a href="#" class="bg-white text-purple-800 hover:bg-gray-200 py-2 px-4 rounded-lg text-center">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Carousel -->
-  <section class="py-20 bg-purple-900 text-center">
-    <h2 class="text-3xl font-bold text-purple-200 mb-8">Gallery</h2>
-    <div class="container mx-auto px-4">
-      <div class="carousel" id="galleryCarousel">
-        <div class="carousel-inner" id="galleryCarouselInner">
-          <!-- Carousel images -->
-          <div class="carousel-tile"><img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJl8JJBWZnsoiDEm9Ehs5KuJ_DD2rIcaJnoQ&s"
-              alt="Gallery Image 1" /></div>
-          <div class="carousel-tile"><img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSra6qDK2JUyjLK0ch-oqgQOe-fwgOy8x9Qpg&s"
-              alt="Gallery Image 2" /></div>
-          <div class="carousel-tile"><img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdW8T-KHCbZohGaXwKo-ska1FRItY1-0w-pQ&s"
-              alt="Gallery Image 3" /></div>
-          <div class="carousel-tile"><img src="https://wallpapercave.com/w200/wp5954897.jpg" alt="Gallery Image 4" />
+          <div class="bg-black p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-semibold text-purple-200 mb-2">Web Design</h3>
+            <p class="text-purple-400">Responsive, modern, and elegant websites tailored to your needs.</p>
           </div>
-          <div class="carousel-tile"><img src="https://wallpapercave.com/fuwp/uwp4778690.jpeg" alt="Gallery Image 5" />
+
+          <div class="bg-black p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-semibold text-purple-200 mb-2">Brand Identity</h3>
+            <p class="text-purple-400">Color themes, logos, and brand kits to establish your presence.</p>
           </div>
-          <div class="carousel-tile"><img src="https://wallpapercave.com/w200/wp6554427.jpg" alt="Gallery Image 6" />
+
+          <div class="bg-black p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-semibold text-purple-200 mb-2">Hosting & Support</h3>
+            <p class="text-purple-400">Fast hosting and reliable ongoing support for your site.</p>
           </div>
         </div>
-        <div class="carousel-controls">
-          <button class="carousel-btn prev" onclick="slideGallery(-1)" aria-label="Previous image" disabled>❮</button>
-          <button class="carousel-btn next" onclick="slideGallery(1)" aria-label="Next image">❯</button>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER (mid-page) -->
+    <section class="py-16 bg-purple-950">
+      <div class="container mx-auto px-4 text-center max-w-xl">
+        <h2 class="text-3xl font-bold text-purple-200 mb-4">Stay Updated</h2>
+        <p class="mb-6 text-purple-400">Subscribe to our newsletter for the latest updates and designs.</p>
+
+        <form id="newsletterForm" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <input type="email" name="email" id="newsletterEmail" placeholder="Enter your email" required
+                 class="w-full sm:w-auto px-4 py-2 rounded-lg text-black
+                        focus:outline-none focus:ring-2 focus:ring-purple-500" />
+          <button type="submit"
+                  class="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-lg transition">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 bg-black relative">
+      <div class="container mx-auto text-center px-4">
+        <h2 class="text-3xl font-bold text-purple-200 mb-6">Contact Us</h2>
+        <p class="text-purple-400 mb-6">Let's bring your ideas to life. Reach out today.</p>
+        <a href="mailto:contact@purplewave.com"
+           class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">Email Us</a>
+      </div>
+
+      <!-- Social icons -->
+      <div class="absolute bottom-4 right-4">
+        <div class="flex space-x-4 text-purple-300">
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg class="w-6 h-6 hover:text-blue-500 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.75 0 5-2.24 5-5V5c0-2.76-2.25-5-5-5zm-11 19H5V9h3v10zm-1.5-11.25C5.53 7.75 4.75 6.97 4.75 6s.78-1.75 1.75-1.75S8.25 5.03 8.25 6 7.47 7.75 6.5 7.75zm13.5 11.25h-3v-5.5c0-1.32-.03-3-1.83-3s-2.12 1.43-2.12 2.91v5.59h-3V9h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.03 0 3.59 1.99 3.59 4.58v5.62z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg class="w-6 h-6 hover:text-pink-500 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 1.5C5.4 3.5 3.5 5.4 3.5 7.75v8.5C3.5 18.6 5.4 20.5 7.75 20.5h8.5c2.35 0 4.25-1.9 4.25-4.25v-8.5C20.5 5.4 18.6 3.5 16.25 3.5h-8.5zM12 7.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.5a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8zm4.6-2.2a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg class="w-6 h-6 hover:text-blue-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-6.99H7.9v-2.89h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.89h-2.34v6.99C18.34 21.13 22 17 22 12z"/>
+            </svg>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- About Section -->
-  <section id="about" class="py-20">
-    <div class="container mx-auto text-center px-4">
-      <h2 class="text-3xl font-bold text-purple-200 mb-4">About Us</h2>
-      <p class="text-lg text-purple-400 max-w-2xl mx-auto">
-        PurpleWave is a creative agency specializing in sleek, modern websites with a bold black and purple aesthetic.
-        We empower brands to stand out with innovative design and seamless functionality.
-      </p>
-    </div>
-  </section>
+  <!-- FOOTER -->
+  <footer class="bg-purple-950 text-purple-200 relative px-6 py-12">
 
-  <!-- Video Carousel -->
-  <section class="py-20 bg-black">
-    <h2 class="text-3xl font-bold text-purple-200 text-center mb-8">Trending Now</h2>
-    <div class="container mx-auto px-4">
-      <div class="flex overflow-x-auto gap-4 no-scrollbar scroll-smooth snap-x snap-mandatory">
-        <!-- Video Item -->
-        <div class="flex-none w-60 rounded-lg overflow-hidden snap-start">
-          <video autoplay muted loop playsinline class="w-full h-36 object-cover rounded">
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <!-- Video Item -->
-        <div class="flex-none w-60 rounded-lg overflow-hidden snap-start">
-          <video autoplay muted loop playsinline class="w-full h-36 object-cover rounded">
-            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <!-- Video Item -->
-        <div class="flex-none w-60 rounded-lg overflow-hidden snap-start">
-          <video autoplay muted loop playsinline class="w-full h-36 object-cover rounded">
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Bottom-left newsletter (desktop) -->
+    <div class="absolute bottom-6 left-6 w-full max-w-sm bg-purple-900/90 p-6 rounded-lg shadow-lg hidden md:block">
+      <h3 class="text-xl font-bold mb-2 text-purple-100">Subscribe to Our Newsletter</h3>
+      <p class="text-sm mb-4 text-purple-300">Stay updated with the latest from PurpleWave.</p>
 
-  <!-- Services Section -->
-  <section id="services" class="py-20 bg-purple-950">
-    <div class="container mx-auto text-center px-4">
-      <h2 class="text-3xl font-bold text-purple-200 mb-10">Our Services</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Service Item -->
-        <div class="bg-black p-6 rounded-xl shadow-md">
-          <h3 class="text-xl font-semibold text-purple-200 mb-2">Web Design</h3>
-          <p class="text-purple-400">Responsive, modern, and elegant websites tailored to your needs.</p>
-        </div>
-        <!-- Service Item -->
-        <div class="bg-black p-6 rounded-xl shadow-md">
-          <h3 class="text-xl font-semibold text-purple-200 mb-2">Brand Identity</h3>
-          <p class="text-purple-400">Color themes, logos, and brand kits to establish your presence.</p>
-        </div>
-        <!-- Service Item -->
-        <div class="bg-black p-6 rounded-xl shadow-md">
-          <h3 class="text-xl font-semibold text-purple-200 mb-2">Hosting & Support</h3>
-          <p class="text-purple-400">Fast hosting and reliable ongoing support for your site.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter Section -->
-  <section class="py-16 bg-purple-950">
-    <div class="container mx-auto px-4 text-center max-w-xl">
-      <h2 class="text-3xl font-bold text-purple-200 mb-4">Stay Updated</h2>
-      <p class="mb-6 text-purple-400">Subscribe to our newsletter for the latest updates and designs.</p>
-      <form class="flex flex-col sm:flex-row items-center justify-center gap-4" onsubmit="return validateEmail()">
-        <input type="email" id="emailInput" placeholder="Enter your email"
-          class="w-full sm:w-auto px-4 py-2 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-purple-500"
-          required />
+      <form class="space-y-3" onsubmit="return false;">
+        <input type="email" placeholder="Enter your email" required
+               class="w-full px-4 py-2 rounded-md border border-gray-700 bg-black
+                      text-white focus:ring-purple-500 focus:border-purple-500" />
         <button type="submit"
-          class="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-lg transition">
+                class="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600
+                       text-white py-2 rounded-md font-semibold transition">
           Subscribe
         </button>
       </form>
     </div>
-  </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-black relative">
-    <div class="container mx-auto text-center px-4">
-      <h2 class="text-3xl font-bold text-purple-200 mb-6">Contact Us</h2>
-      <p class="text-purple-400 mb-6">Let's bring your ideas to life. Reach out today.</p>
-      <a href="mailto:contact@purplewave.com"
-        class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">Email Us</a>
+    <div class="text-center">
+      <p>&copy; <span id="year"></span> PurpleWave. All rights reserved.</p>
     </div>
+  </footer>
 
-    <!-- Social Icons -->
-    <div class="absolute bottom-4 right-4">
-      <div class="flex space-x-4 text-purple-300">
-        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-          <svg class="w-6 h-6 hover:text-blue-500 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.75 0 5-2.24 5-5v-14c0-2.76-2.25-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.25h-3v-5.5c0-1.32-.03-3-1.83-3s-2.12 1.43-2.12 2.91v5.59h-3v-10h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.03 0 3.59 1.99 3.59 4.58v5.62z" />
-          </svg>
-        </a>
-        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-          <svg class="w-6 h-6 hover:text-pink-500 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 1.5C5.4 3.5 3.5 5.4 3.5 7.75v8.5C3.5 18.6 5.4 20.5 7.75 20.5h8.5c2.35 0 4.25-1.9 4.25-4.25v-8.5C20.5 5.4 18.6 3.5 16.25 3.5h-8.5zM12 7.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 1.5a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8zm4.6-2.2a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-          </svg>
-        </a>
-        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-          <svg class="w-6 h-6 hover:text-blue-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-6.99H7.9v-2.89h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.89h-2.34v6.99C18.34 21.13 22 17 22 12z" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- ========== SCRIPTS ========== -->
 
-  <!-- Footer with Bottom-Left Newsletter Form -->
-<footer class="bg-purple-950 text-purple-200 relative px-6 py-12">
+  <!-- Dynamic year -->
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-  <!-- Newsletter Form -->
-  <div class="absolute bottom-6 left-6 w-full max-w-sm bg-purple-900 bg-opacity-90 p-6 rounded-lg shadow-lg hidden md:block">
-    <h3 class="text-xl font-bold mb-2 text-purple-100">Subscribe to Our Newsletter</h3>
-    <p class="text-sm mb-4 text-purple-300">Stay updated with the latest from PurpleWave.</p>
-
-    <form id="newsletterForm" class="space-y-3">
-      <!-- Email Input -->
-      <input
-        type="email"
-        name="email"
-        id="newsletterEmail"
-        placeholder="Enter your email"
-        required
-        class="w-full px-4 py-2 rounded-md border border-gray-700 bg-black text-white focus:ring-purple-500 focus:border-purple-500"
-      />
-
-      <!-- Submit Button -->
-      <button
-        type="submit"
-        class="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white py-2 rounded-md font-semibold transition duration-200"
-      >
-        Subscribe
-      </button>
-    </form>
-  </div>
-
-  <!-- Centered Footer Copyright -->
-  <div class="text-center mt-6 md:mt-0">
-    <p>
-      © <script>document.write(new Date().getFullYear())</script> PurpleWave. All rights reserved.
-    </p>
-  </div>
-</footer>
-
-
+  <!-- Featured cases logic -->
   <script>
-    const carousel = document.getElementById('carousel');
-    const progressBar = document.getElementById('progressBar');
+    const featured  = document.getElementById('featuredCarousel');
+    const progressB = document.getElementById('progressBar');
 
-    function scrollCarousel(direction) {
-      const scrollAmount = 320;
-      carousel.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
-      updateProgress();
+    function scrollFeatured(dir){
+      featured.scrollBy({ left: 320*dir, behavior:'smooth' });
     }
-
-    function updateProgress() {
-      const totalScroll = carousel.scrollWidth - carousel.clientWidth;
-      const progress = (carousel.scrollLeft / totalScroll) * 100;
-      progressBar.style.width = `${Math.min(progress + 25, 100)}%`;
+    function syncProgress(){
+      const total = featured.scrollWidth - featured.clientWidth;
+      progressB.style.width = total ? (featured.scrollLeft/total)*100 + '%' : '0%';
     }
-
-    carousel.addEventListener('scroll', updateProgress);
+    featured.addEventListener('scroll', syncProgress);
   </script>
 
-  <!-- Carousel JavaScript -->
+  <!-- Gallery slider logic -->
   <script>
-    const carousel = document.getElementById('galleryCarousel');
-    const carouselInner = document.getElementById('galleryCarouselInner');
-    const prevBtn = carousel.querySelector('.prev');
-    const nextBtn = carousel.querySelector('.next');
+    const gallery     = document.getElementById('galleryCarousel');
+    const prevBtn     = document.querySelector('.carousel-btn[aria-label="Previous image"]');
+    const nextBtn     = document.querySelector('.carousel-btn[aria-label="Next image"]');
+    let galleryPos    = 0;
 
-    let scrollPosition = 0;
+    function slideGallery(dir){
+      const tileWidth = gallery.querySelector('.carousel-tile').offsetWidth + 16;
+      galleryPos += dir * tileWidth;
 
-    function slideGallery(direction) {
-      const tileWidth = carouselInner.querySelector('.carousel-tile').offsetWidth + 16;
-      scrollPosition += direction * tileWidth;
+      const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+      galleryPos = Math.max(0, Math.min(galleryPos, maxScroll));
 
-      const maxScroll = (carouselInner.scrollWidth - carousel.clientWidth);
-      scrollPosition = Math.max(0, Math.min(scrollPosition, maxScroll));
-
-      carouselInner.style.transform = `translateX(-${scrollPosition}px)`;
-      prevBtn.disabled = scrollPosition === 0;
-      nextBtn.disabled = scrollPosition >= maxScroll;
+      gallery.scrollTo({ left: galleryPos, behavior:'smooth' });
+      prevBtn.disabled = galleryPos === 0;
+      nextBtn.disabled = galleryPos >= maxScroll;
     }
   </script>
 
- <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('newsletterForm');
-    const emailInput = document.getElementById('newsletterEmail');
-
-    form.addEventListener('submit', function (e) {
+  <!-- Newsletter form validation -->
+  <script>
+    document.getElementById('newsletterForm')?.addEventListener('submit', e=>{
       e.preventDefault();
-
-      const email = emailInput.value.trim();
-      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-      if (!isValid) {
-        alert("Please enter a valid email address.");
-        return;
+      const email = e.target.email.value.trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+        alert('Please enter a valid email address.'); return;
       }
-
-      // Redirect to a real thank-you/contact page (can update this URL)
-      const redirectURL = `?newsletter_email=${encodeURIComponent(email)}`;
-      window.location.href = redirectURL;
+      window.location.href = '/thank-you.html';
     });
-  });
-</script>
+  </script>
 
+  <!-- GDPR-compliant tracker (loads only after consent) -->
+  <script type="text/plain" data-usercentrics="Marketing"
+          src="https://preprod-1e2f308t.fragmatic.io/js-app/js/77e28c28-tracker.js" defer></script>
+  <script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"></script>
+  <script id="usercentrics-cmp"
+          src="https://web.cmp.usercentrics.eu/ui/loader.js"
+          data-settings-id="OtV3rsIz-f-y7P" async></script>
 </body>
 </html>
