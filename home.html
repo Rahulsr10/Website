@@ -252,26 +252,34 @@
 </style>
 
 
-<!-- 🌟 Feature Story -->
+
+<!-- 🔮 Feature Story with top wave -->
 <section class="relative py-20 bg-gradient-to-b from-white via-purple-50 to-white overflow-hidden">
+
+  <!-- 🌊 Top wave divider (flipped version of hero wave) -->
+  <svg class="absolute top-0 left-0 w-full rotate-180 pointer-events-none"
+       viewBox="0 0 1440 100" height="100" preserveAspectRatio="none">
+    <!-- ​Use the hero’s fill colour so the join is invisible -->
+    <path fill="#0b0115"
+          d="M0,20 C480,120 960,0 1440,80 L1440,100 L0,100 Z"/>
+  </svg>
+
   <div class="container mx-auto px-4 md:px-16 grid gap-14 lg:grid-cols-2 lg:items-center">
 
-    <!-- Image (left on desktop, right on mobile thanks to order classes) -->
+    <!-- Image -->
     <div class="order-2 lg:order-1">
       <div class="relative rounded-3xl overflow-hidden shadow-xl group">
-        <!-- decorative gradient ring -->
         <span class="absolute inset-0 rounded-3xl bg-gradient-to-br
                      from-purple-600/30 via-fuchsia-500/20 to-transparent
                      group-hover:blur-sm transition"></span>
 
-        <!-- main photo -->
         <img src="https://wallpapercave.com/wp/wp5472897.jpg"
              alt="Team brainstorming around futuristic UI"
              class="relative z-10 w-full h-full object-cover" loading="lazy" />
       </div>
     </div>
 
-    <!-- Content -->
+    <!-- Text block -->
     <div class="order-1 lg:order-2">
       <div class="relative z-10 backdrop-blur-md/30 bg-white/70
                   rounded-3xl p-10 shadow-lg">
@@ -310,9 +318,9 @@
 
   </div>
 
-  <!-- subtle background blob -->
-  <div class="pointer-events-none absolute -bottom-48 -left-40 h-[36rem] w-[36rem] rounded-full
-              bg-purple-500/20 blur-3xl"></div>
+  <!-- Background blob -->
+  <div class="pointer-events-none absolute -bottom-48 -left-40 h-[36rem] w-[36rem]
+              rounded-full bg-purple-500/20 blur-3xl"></div>
 </section>
 
 
