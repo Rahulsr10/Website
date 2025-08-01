@@ -2,29 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PurpleWave | Event Registration</title>
 
-    <!-- Tracking Script -->
-
-  <script id="FRGM-tracker" src="https://preprod-1e2f308t.fragmatic.io/js-app/js/77e28c28-tracker.js" defer> </script>
-
+  <!-- Tracking Script -->
+  <script id="FRGM-tracker" src="https://preprod-1e2f308t.fragmatic.io/js-app/js/77e28c28-tracker.js" defer></script>
   <!-- Tailwind (replace with purged build in prod) -->
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <link id="frgm-css" rel="stylesheet" href="https://preprod-1e2f308t.fragmatic.io/js-app/css/77e28c28/frgm-no-flicker.css" as="style" crossorigin="anonymous" fetchpriority="high" disabled="">
 
   <!-- Shared utilities -->
   <style>
     @layer utilities{
       @keyframes pulse-slow{0%,100%{transform:scale(.95);opacity:.35}50%{transform:scale(1.05);opacity:.55}}
       .animate-pulse-slow{animation:pulse-slow 9s ease-in-out infinite}
+      .card-shadow { box-shadow: 0 4px 32px 0 rgba(115,0,255,0.08), 0 2px 4px 0 rgba(135,80,220,0.10);}
     }
   </style>
 </head>
 
 <body class="bg-[#0b0115] text-purple-100 font-sans scroll-smooth">
 
-<!-- NAVBAR  -->
+<!-- NAVBAR -->
 <nav class="bg-purple-950 shadow-lg sticky top-0 z-50">
   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
     <a href="index.html" class="flex items-center gap-2">
@@ -36,22 +37,19 @@
       <li><a href="home.html"     class="hover:text-white transition">Home</a></li>
       <li><a href="aboutus.html"  class="hover:text-white transition">About</a></li>
       <li><a href="services.html" class="hover:text-white transition">Services</a></li>
-      <li><a href="events.html"   class="hover:text-white transition">Events</a></li>
+      <li><a href="events.html"   class="text-pink-400 font-semibold transition">Events</a></li>
       <li><a href="contact.html"  class="hover:text-white transition">Contact</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- HERO -->
-<header class="relative isolate flex items-center justify-center min-h-[60vh] bg-cover bg-top"
+<header class="relative isolate flex flex-col items-center justify-center min-h-[60vh] bg-cover bg-top"
         style="background-image:url('https://img.goodfon.com/original/1920x1080/d/f4/anime-art-final-fantazi-fioletovyi-fon-demon-ubiitsa-oruzhie.jpg');">
-  <!-- Dark overlay -->
-  <!-- <span class="absolute inset-0 bg-black/70 backdrop-blur-sm"></span> -->
-
-  <!-- Heading Text -->
+  <span class="absolute inset-0 bg-black/80 backdrop-blur-sm"></span>
   <h1 class="relative z-10 text-4xl sm:text-5xl md:text-6xl text-center font-extrabold bg-clip-text text-transparent
              bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400">
-    PurpleWave — Upcoming Event
+    PurpleWave — Upcoming Events
   </h1>
 </header>
 
@@ -59,17 +57,17 @@
 <section class="py-24 bg-gradient-to-b from-[#13051d] via-purple-900/90 to-[#0b0115]">
   <div class="container mx-auto px-4 max-w-3xl">
 
-    <!-- Today's Highlighted Event (with image) -->
+    <!-- Today's Highlighted Event -->
     <div id="todayEventCard"
-         class="rounded-3xl bg-white/5 backdrop-blur-sm shadow-2xl ring-1 ring-purple-700/40 p-7 mb-10 transition-all flex items-center gap-6">
+         class="rounded-3xl bg-white/5 backdrop-blur-sm shadow-2xl card-shadow ring-1 ring-purple-700/40 p-7 mb-12 transition-all flex flex-col sm:flex-row items-center gap-8">
       <!-- Filled by JS below -->
     </div>
 
-    <!-- This week's event line-up (every event gets its image) -->
-    <h3 class="text-xl font-bold mb-6 text-center bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400 text-transparent bg-clip-text">
+    <!-- This week's event line-up (every event gets image, clickable) -->
+    <h3 class="text-xl font-bold mb-8 text-center bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400 text-transparent bg-clip-text">
       This Week's Lineup
     </h3>
-    <div class="grid sm:grid-cols-2 gap-6" id="weekEvents"></div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="weekEvents"></div>
 
   </div>
 </section>
@@ -78,78 +76,84 @@
 const weeklyEvents = [
   {
     day: "Monday",
+    path: "events/monday.html",
     title: "UI Design Bootcamp",
     time: "10:00 AM – 11:30 AM",
     desc: "Learn the secrets of purple-gradient UI design with live Figma & Tailwind demos.",
     speaker: "Alex Vega",
     highlight: "Workshop",
-    img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=300&q=80"
+    img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80"
   },
   {
     day: "Tuesday",
+    path: "events/tuesday.html",
     title: "Frontend Fun with AI",
     time: "12:00 PM – 1:30 PM",
     desc: "Harness generative AI for code, copy, and color schemes in real-world sites.",
     speaker: "Mira Patel",
     highlight: "Talk",
-    img: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=300&q=80"
+    img: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
   },
   {
     day: "Wednesday",
+    path: "events/wednesday.html",
     title: "Brand Lab Live",
     time: "2:00 PM – 3:00 PM",
     desc: "Rebranding a local business: logo, fonts, and purplewave identity in action.",
     speaker: "Chris Huang",
     highlight: "Case Study",
-    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=300&q=80"
+    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
   },
   {
     day: "Thursday",
+    path: "events/thursday.html",
     title: "No-Code Power Hour",
     time: "11:00 AM – 12:30 PM",
     desc: "Build a full-featured landing page—no code, all sass—with Framer & Tailwind Play.",
     speaker: "Dana O’Leary",
     highlight: "Demo",
-    img: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=300&q=80"
+    img: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80"
   },
   {
     day: "Friday",
+    path: "events/friday.html",
     title: "Web Animation 101",
     time: "3:00 PM – 4:00 PM",
     desc: "Make your site pop with micro-interactions, gradient motion, and smooth SVG waves.",
     speaker: "PurpleWave Crew",
     highlight: "Live Coding",
-    img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=300&q=80"
+    img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80"
   },
   {
     day: "Saturday",
+    path: "events/saturday.html",
     title: "Ask Me Anything",
     time: "6:00 PM – 7:30 PM",
     desc: "A fun, open Q&A with all speakers—bring your code, your ideas, and your memes.",
     speaker: "All Panelists",
     highlight: "AMA",
-    img: "https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=300&q=80"
+    img: "https://images.unsplash.com/photo-1519985176271-adb1088fa94c?auto=format&fit=crop&w=600&q=80"
   },
   {
     day: "Sunday",
+    path: "events/sunday.html",
     title: "Next-Gen Web",
     time: "4:00 PM – 5:15 PM",
     desc: "Future-of-web lightning talks & purplewave afterparty music session. Don’t miss it!",
     speaker: "Special Guests",
     highlight: "Lightning Talks",
-    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=300&q=80"
+    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
   }
 ];
 
-// Determine current weekday (local to user)
-const today = new Date().getDay(); // 0 = Sunday, 1 = Monday, ...
+const today = new Date().getDay(); // 0 = Sunday, 1 = Monday,...
 const eventIndex = today === 0 ? 6 : today - 1;
 const event = weeklyEvents[eventIndex];
 
-// "Today's event" with image
+// Today's event card with image
 document.getElementById('todayEventCard').innerHTML = `
-  <img src="${event.img}" alt="${event.title}" class="h-24 w-24 rounded-2xl object-cover ring-2 ring-purple-400 shadow-lg flex-none">
-  <div>
+  <img src="${event.img}" alt="${event.title}" class="h-36 w-36 rounded-2xl object-cover ring-2 ring-purple-400 shadow-lg flex-none mb-4 sm:mb-0"/>
+  <div class="flex-1">
     <div class="mb-2 flex items-center gap-2">
       <span class="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-400 text-white text-xs font-semibold">
         ${event.day} • ${event.highlight}
@@ -158,119 +162,29 @@ document.getElementById('todayEventCard').innerHTML = `
     </div>
     <h2 class="text-2xl font-bold mb-1 bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400 text-transparent bg-clip-text">${event.title}</h2>
     <p class="text-purple-200/90 mb-2">${event.desc}</p>
-    <div class="text-sm text-purple-400">Speaker: <span class="font-semibold text-purple-200">${event.speaker}</span></div>
+    <div class="text-sm text-purple-400 mb-4">Speaker: <span class="font-semibold text-purple-200">${event.speaker}</span></div>
+    <a href="${event.path}" class="inline-block mt-1 px-7 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold shadow-lg hover:brightness-110 transition">
+      View This Event
+    </a>
   </div>
 `;
 
-// Weekly grid (every day with image, highlight today)
+// Week grid: every event, image, clickable
 document.getElementById('weekEvents').innerHTML = weeklyEvents.map((ev, i) => `
-  <div class="bg-white/5 backdrop-blur-sm rounded-xl ring-1 ring-purple-700/30 shadow-lg p-5 flex gap-4 items-center transition-all ${i===eventIndex ? 'ring-2 ring-pink-400 scale-105' : ''}">
-    <img src="${ev.img}" alt="${ev.title}" class="h-16 w-16 rounded-lg object-cover ring-2 ring-purple-700/60 flex-none">
-    <div>
+  <a href="${ev.path}" class="block group bg-white/5 card-shadow rounded-xl overflow-hidden transition ring-1 ring-purple-700/30 hover:scale-105 hover:ring-pink-400 shadow-lg p-0 ${i===eventIndex ? 'ring-2 ring-pink-400 scale-105 border-t-4 border-pink-400' : ''}">
+    <img src="${ev.img}" alt="${ev.title}" class="h-40 w-full object-cover group-hover:brightness-110 transition"/>
+    <div class="p-5">
       <div class="flex items-center gap-2 mb-1">
         <span class="text-xs px-2 py-0.5 rounded-full bg-gradient-to-r from-purple-700 to-pink-500 text-white">${ev.day}</span>
         <span class="text-xs text-purple-300 ml-auto font-mono">${ev.time}</span>
       </div>
       <div class="font-semibold text-purple-100">${ev.title}</div>
-      <div class="text-xs text-purple-300">${ev.desc}</div>
+      <div class="text-xs text-purple-300 mb-2">${ev.desc}</div>
+      <span class="inline-block mt-2 px-4 py-1 rounded-full bg-white/10 text-purple-200 text-xs font-medium">${ev.speaker}</span>
     </div>
-  </div>
+  </a>
 `).join('');
 </script>
-
-
-<script>
-const weeklyEvents = [
-  {
-    day: "Monday",
-    title: "UI Design Bootcamp",
-    time: "10:00 AM – 11:30 AM",
-    desc: "Learn the secrets of purple-gradient UI design with live Figma & Tailwind demos.",
-    speaker: "Alex Vega",
-    highlight: "Workshop"
-  },
-  {
-    day: "Tuesday",
-    title: "Frontend Fun with AI",
-    time: "12:00 PM – 1:30 PM",
-    desc: "Harness generative AI for code, copy, and color schemes in real-world sites.",
-    speaker: "Mira Patel",
-    highlight: "Talk"
-  },
-  {
-    day: "Wednesday",
-    title: "Brand Lab Live",
-    time: "2:00 PM – 3:00 PM",
-    desc: "Rebranding a local business: logo, fonts, and purplewave identity in action.",
-    speaker: "Chris Huang",
-    highlight: "Case Study"
-  },
-  {
-    day: "Thursday",
-    title: "No-Code Power Hour",
-    time: "11:00 AM – 12:30 PM",
-    desc: "Build a full-featured landing page—no code, all sass—with Framer and Tailwind Play.",
-    speaker: "Dana O’Leary",
-    highlight: "Demo"
-  },
-  {
-    day: "Friday",
-    title: "Web Animation 101",
-    time: "3:00 PM – 4:00 PM",
-    desc: "Make your site pop with micro-interactions, gradient motion, and smooth SVG waves.",
-    speaker: "PurpleWave Crew",
-    highlight: "Live Coding"
-  },
-  {
-    day: "Saturday",
-    title: "Ask Me Anything",
-    time: "6:00 PM – 7:30 PM",
-    desc: "A fun, open Q&A with all speakers—bring your code, your ideas, and your memes.",
-    speaker: "All Panelists",
-    highlight: "AMA"
-  },
-  {
-    day: "Sunday",
-    title: "Next-Gen Web",
-    time: "4:00 PM – 5:15 PM",
-    desc: "Future-of-web lightning talks & purplewave afterparty music session. Don’t miss it!",
-    speaker: "Special Guests",
-    highlight: "Lightning Talks"
-  }
-];
-
-// --- pick today's based on user's timezone ---
-const today = new Date().getDay(); // 0 = Sunday, 1 = Monday, etc.
-const eventIndex = today === 0 ? 6 : today - 1; // So Monday=0, Sunday=6
-const event = weeklyEvents[eventIndex];
-
-// --- build the "today's event" card ---
-document.getElementById('todayEventCard').innerHTML = `
-  <div class="mb-4 flex items-center gap-3">
-    <span class="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-400 text-white text-xs font-semibold">
-      ${event.day} • ${event.highlight}
-    </span>
-    <span class="ml-auto text-purple-300 font-mono tracking-wide text-xs">${event.time}</span>
-  </div>
-  <h2 class="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400 text-transparent bg-clip-text">${event.title}</h2>
-  <p class="text-purple-200/90 mb-4">${event.desc}</p>
-  <div class="text-sm text-purple-400">Speaker: <span class="font-semibold text-purple-200">${event.speaker}</span></div>
-`;
-
-// --- build week strip ---
-document.getElementById('weekEvents').innerHTML = weeklyEvents.map((ev, i) => `
-  <div class="rounded-2xl bg-black/40 backdrop-blur-sm shadow-md ring-1 ring-purple-800/40 p-5
-              transition-all ${i===eventIndex ? 'ring-2 ring-pink-400 scale-105' : ''}">
-    <div class="flex items-center gap-2 mb-2">
-      <span class="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-purple-700 to-pink-500 text-white">${ev.day}</span>
-      <span class="text-xs text-purple-300 ml-auto font-mono">${ev.time}</span>
-    </div>
-    <div class="font-semibold text-purple-100 mb-1">${ev.title}</div>
-    <div class="text-xs text-purple-300">${ev.desc}</div>
-  </div>
-`).join('');
-</script>
-
 
 <!-- EVENT DETAILS (with images)  -->
 <section class="py-24 bg-gradient-to-b from-[#13051d] via-purple-900/90 to-[#0b0115]">
