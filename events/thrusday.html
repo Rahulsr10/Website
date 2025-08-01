@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>...<|diff_marker|> PATCH B
-<|diff_marker|> COM
-Generate full event detail page code for Wednesday–Sunday, using all improvements described above; one block per weekday.
-<|diff_marker|> --- thursday.html
-<|diff_marker|> ***
+<head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PurpleWave | Thursday: No-Code Power Hour</title>
   <link rel="preconnect" href="https://cdn.tailwindcss.com" />
@@ -14,6 +10,7 @@ Generate full event detail page code for Wednesday–Sunday, using all improveme
   </style>
 </head>
 <body class="bg-[#0b0115] text-purple-100 font-sans scroll-smooth">
+  <!-- Navbar -->
   <nav class="bg-purple-950 shadow-lg sticky top-0 z-50">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <a href="../events.html" class="flex items-center gap-2 focus-outline">
@@ -24,6 +21,7 @@ Generate full event detail page code for Wednesday–Sunday, using all improveme
       <a href="../events.html" class="hover:text-white transition focus-outline">← Back to Events</a>
     </div>
   </nav>
+  <!-- Hero -->
   <section class="relative pt-14 pb-8 flex flex-col items-center bg-gradient-to-b from-[#2c1142]/80 via-purple-900/80 to-[#0b0115]">
     <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80"
       alt="No-Code Power Hour"
@@ -41,6 +39,7 @@ Generate full event detail page code for Wednesday–Sunday, using all improveme
       Register Now
     </a>
   </section>
+  <!-- Timeline -->
   <section class="py-16 bg-black/40 backdrop-blur-lg">
     <div class="container mx-auto max-w-3xl px-4">
       <h2 class="text-3xl font-extrabold text-purple-300 mb-10 text-center">
@@ -96,6 +95,7 @@ Generate full event detail page code for Wednesday–Sunday, using all improveme
       </div>
     </div>
   </section>
+  <!-- Speaker -->
   <section class="py-12 bg-gradient-to-b from-[#181134] via-purple-950 to-[#0b0115]">
     <div class="container mx-auto max-w-3xl px-4">
       <h2 class="text-3xl font-extrabold text-purple-300 mb-6 text-center">Meet the Host</h2>
@@ -111,6 +111,7 @@ Generate full event detail page code for Wednesday–Sunday, using all improveme
       </div>
     </div>
   </section>
+  <!-- FAQ -->
   <section class="py-20 bg-gradient-to-b from-[#0b0115] via-purple-950 to-[#0b0115]">
     <div class="container mx-auto max-w-3xl px-4 ">
       <h2 class="text-3xl font-extrabold text-center mb-10 bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400 text-transparent bg-clip-text">
@@ -126,6 +127,7 @@ Generate full event detail page code for Wednesday–Sunday, using all improveme
       </div>
     </div>
   </section>
+  <!-- Contact -->
   <section class="py-12 bg-purple-950 text-center">
     <h3 class="text-2xl font-bold mb-4">Questions?</h3>
     <p class="mb-6 text-purple-300">Drop us a line and we’ll get back within 24 hours.</p>
