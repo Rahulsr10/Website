@@ -203,9 +203,13 @@
     }
   </style>
 
-  <div id="header-placeholder"></div>
 <script>
   fetch('header.html')
+    .then(r => r.text())
+    .then(html => { document.head.innerHTML += html; });
+</script>
+<script>
+  fetch('navbar.html')
     .then(r => r.text())
     .then(html => { document.getElementById('header-placeholder').innerHTML = html; });
 </script>
@@ -217,6 +221,7 @@
   <div class="elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730" data-elfsight-app-lazy></div>
   <script src="https://static.elfsight.com/platform/platform.js" async></script>
 
+   <div id="header-placeholder"></div>
   <!-- Hero Section -->
   <section id="home"
     class="relative isolate flex min-h-screen items-center justify-center overflow-hidden bg-fixed bg-top bg-cover"
