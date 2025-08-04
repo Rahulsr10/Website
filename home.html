@@ -1,248 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="PurpleWave creates sleek, modern websites with a bold black and purple theme." />
   <meta name="keywords" content="web design, branding, purplewave, modern websites" />
   <title>PurpleWave - Modern Web Design</title>
-  <link rel="icon" type="image/png"
-    href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/ae9cf178-8df9-4332-a028-bec658ac4510.png" />
+  <link rel="icon" type="image/png" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/ae9cf178-8df9-4332-a028-bec658ac4510.png" />
 
-  
-  <!-- Tracking Script -->
-  <link id="frgm-css" rel="stylesheet"
-    href="https://preprod-1e2f308t.fragmatic.io/js-app/css/77e28c28/frgm-no-flicker.css" crossorigin="anonymous">
-  <script id="FRGM-tracker" src="https://preprod-1e2f308t.fragmatic.io/js-app/js/77e28c28-tracker.js" defer></script>
-
-    <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS CDN -->
   <link rel="preconnect" href="https://cdn.tailwindcss.com" />
   <script src="https://cdn.tailwindcss.com"></script>
 
-
+  <!-- Tracking Script -->
+  <link id="frgm-css" rel="stylesheet" href="https://preprod-1e2f308t.fragmatic.io/js-app/css/77e28c28/frgm-no-flicker.css" crossorigin="anonymous" fetchpriority="high" disabled="">
+  <script id="FRGM-tracker" src="https://preprod-1e2f308t.fragmatic.io/js-app/js/77e28c28-tracker.js" defer></script>
+ 
   <!-- Custom and Utility Styles -->
   <style>
     @layer utilities {
-
       /* Custom animations */
-      @keyframes pulse-slow {
-
-        0%,
-        100% {
-          transform: scale(.95);
-          opacity: .35
-        }
-
-        50% {
-          transform: scale(1.05);
-          opacity: .55
-        }
-      }
-
-      .animate-pulse-slow {
-        animation: pulse-slow 9s ease-in-out infinite
-      }
-
-      @keyframes wiggle {
-
-        0%,
-        100% {
-          transform: rotate(-4deg)
-        }
-
-        50% {
-          transform: rotate(4deg)
-        }
-      }
-
-      .animate-wiggle {
-        animation: wiggle 2.2s ease-in-out infinite
-      }
-
-      @keyframes bounce-slow {
-
-        0%,
-        100% {
-          transform: translateY(0)
-        }
-
-        50% {
-          transform: translateY(8px)
-        }
-      }
-
-      .animate-bounce-slow {
-        animation: bounce-slow 2s infinite
-      }
-
-      @keyframes spin-slow {
-        from {
-          --deg: 0deg
-        }
-
-        to {
-          --deg: 360deg
-        }
-      }
-
-      .animate-spin-slow {
-        animation: spin-slow 20s linear infinite
-      }
+      @keyframes pulse-slow {0%,100%{transform:scale(.95);opacity:.35}50%{transform:scale(1.05);opacity:.55}}
+      .animate-pulse-slow { animation:pulse-slow 9s ease-in-out infinite }
+      @keyframes wiggle {0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+      .animate-wiggle { animation:wiggle 2.2s ease-in-out infinite }
+      @keyframes bounce-slow {0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+      .animate-bounce-slow { animation:bounce-slow 2s infinite }
+      @keyframes spin-slow {from{--deg:0deg}to{--deg:360deg}}
+      .animate-spin-slow { animation:spin-slow 20s linear infinite }
 
       /* Scrollbar helpers */
-      .no-scrollbar {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-      }
-
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-
-      .purple-scroll::-webkit-scrollbar {
-        height: 6px;
-      }
-
-      .purple-scroll::-webkit-scrollbar-track {
-        background: transparent;
-      }
-
+      .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .purple-scroll::-webkit-scrollbar { height: 6px; }
+      .purple-scroll::-webkit-scrollbar-track { background: transparent; }
       .purple-scroll::-webkit-scrollbar-thumb {
-        background: linear-gradient(90deg, #7c3aed, #ec4899);
+        background: linear-gradient(90deg,#7c3aed,#ec4899);
         border-radius: 9999px;
       }
-
-      .purple-scroll {
-        scrollbar-width: thin;
-        scrollbar-color: #7c3aed transparent;
-      }
+      .purple-scroll { scrollbar-width: thin; scrollbar-color: #7c3aed transparent; }
 
       /* Touch scaling effect */
       .group:hover .group-hover\:scale-110,
-      .group:focus-within .group-hover\:scale-110 {
-        transform: scale(1.10);
-      }
+      .group:focus-within .group-hover\:scale-110 { transform: scale(1.10); }
 
       /* Card shadow */
-      .card-shadow {
-        box-shadow: 0 4px 32px 0 rgba(115, 0, 255, 0.08), 0 2px 4px 0 rgba(135, 80, 220, 0.10);
-      }
-
-      .focus-outline:focus {
-        outline: 2px solid #A78BFA;
-        outline-offset: 2px;
-      }
+      .card-shadow { box-shadow: 0 4px 32px 0 rgba(115,0,255,0.08), 0 2px 4px 0 rgba(135,80,220,0.10);}
+      .focus-outline:focus { outline:2px solid #A78BFA; outline-offset:2px;}
     }
-
     /* Carousel styles - scoped to avoid duplication */
-    .carousel {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-
-    .carousel-tile {
-      flex: 0 0 300px;
-      margin-right: 16px;
-    }
-
-    .carousel-tile img {
-      width: 100%;
-      height: 170px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
+    .carousel { position: relative; width: 100%; overflow: hidden; }
+    .carousel-inner { display: flex; transition: transform 0.5s ease; }
+    .carousel-tile { flex: 0 0 300px; margin-right: 16px; }
+    .carousel-tile img { width: 100%; height: 170px; object-fit: cover; border-radius: 8px; }
     .carousel-controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 8px;
+      position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between;
+      transform: translateY(-50%); padding: 0 8px;
     }
-
     .carousel-btn {
-      background: rgba(0, 0, 0, 0.7);
-      color: #d8b4fe;
-      border: none;
-      padding: 8px;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: background 0.3s;
+      background: rgba(0,0,0,0.7); color:#d8b4fe; border:none; padding:8px; border-radius:50%; font-size:1.5rem;
+      cursor: pointer; transition: background 0.3s;
     }
-
-    .carousel-btn:hover {
-      background: rgba(0, 0, 0, 0.9);
-    }
-
-    .carousel-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
+    .carousel-btn:hover {background:rgba(0,0,0,0.9);}
+    .carousel-btn:disabled {opacity:0.5;cursor:not-allowed;}
     @media (max-width: 640px) {
-      .carousel-tile {
-        flex: 0 0 200px;
-      }
-
-      .carousel-tile img {
-        height: 120px;
-      }
+      .carousel-tile { flex: 0 0 200px; }
+      .carousel-tile img { height: 120px; }
     }
-
     /* Hide default scrollbar for carousel (extra, since we use scroll-smooth etc.) */
-    #carousel {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    #carousel::-webkit-scrollbar {
-      display: none;
-    }
+    #carousel { -ms-overflow-style: none; scrollbar-width: none; }
+    #carousel::-webkit-scrollbar { display: none; }
   </style>
 </head>
 
 <body class="bg-black text-purple-300 font-sans">
 
-  <!-- AI Chatbot (outside head, inside body) -->
-  <div class="elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730" data-elfsight-app-lazy></div>
-  <script src="https://static.elfsight.com/platform/platform.js" async></script>
-
-  
-     <!-- Navbar -->
+  <!-- Navbar -->
   <nav class="bg-purple-950 shadow-lg sticky top-0 z-50">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <!-- Logo + Brand -->
       <a href="https://purplewave.netlify.app" class="flex items-center gap-2 focus-outline">
         <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/262379dc-7d7f-4f73-bbf9-fb5c7b3e8b18.png"
-          alt="PurpleWave logo" class="h-10 w-auto" loading="lazy" />
+             alt="PurpleWave logo" class="h-10 w-auto" loading="lazy"/>
         <span class="text-2xl font-bold text-purple-200">PurpleWave</span>
       </a>
       <!-- Navigation links -->
       <ul class="flex space-x-6 text-purple-200">
         <li><a href="https://purplewave.netlify.app" class="hover:text-white transition focus-outline">Home</a></li>
-        <li><a href="aboutus.html" class="hover:text-white transition focus-outline">About</a></li>
+        <li><a href="aboutus.html"  class="hover:text-white transition focus-outline">About</a></li>
         <li><a href="services.html" class="hover:text-white transition focus-outline">Services</a></li>
-        <li><a href="events.html" class="hover:text-white transition focus-outline">Events</a></li>
-        <li><a href="contact.html" class="hover:text-white transition focus-outline">Contact</a></li>
+        <li><a href="events.html"   class="hover:text-white transition focus-outline">Events</a></li>
+        <li><a href="contact.html"  class="hover:text-white transition focus-outline">Contact</a></li>
       </ul>
     </div>
   </nav>
 
+  <!-- AI Chatbot (outside head, inside body) -->
+  <div class="elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730" data-elfsight-app-lazy></div>
+  <script src="https://static.elfsight.com/platform/platform.js" async></script>
 
   <!-- Hero Section -->
   <section id="home"
-    class="relative isolate flex min-h-screen items-center justify-center overflow-hidden bg-fixed bg-top bg-cover"
-    style="background-image:url('https://img.goodfon.com/original/1920x1080/d/f4/anime-art-final-fantazi-fioletovyi-fon-demon-ubiitsa-oruzhie.jpg');">
+           class="relative isolate flex min-h-screen items-center justify-center overflow-hidden bg-fixed bg-center bg-cover"
+           style="background-image:url('https://img.goodfon.com/original/1920x1080/d/f4/anime-art-final-fantazi-fioletovyi-fon-demon-ubiitsa-oruzhie.jpg');">
     <!-- glassy overlay -->
     <span class="absolute inset-0 bg-gradient-to-br from-black/80 via-purple-900/70 to-black/90"></span>
     <!-- swirling light beam -->
@@ -262,12 +122,14 @@
       <p class="mt-6 text-lg sm:text-xl text-purple-200/90">
         Crafting bold, modern experiences <span class="inline-block animate-wiggle">🚀</span>
       </p>
-      <a href="aboutus.html" class="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r
+      <a href="aboutus.html"
+         class="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r
                 from-purple-600 to-pink-500 px-8 py-3 text-white font-semibold
                 shadow-lg ring-2 ring-transparent hover:ring-white/20 transition">
         Get Started
         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"/>
         </svg>
       </a>
     </div>
@@ -278,18 +140,18 @@
       </div>
     </div>
     <!-- bottom wave -->
-    <svg class="absolute bottom-0 left-0 w-full block -mb-px pointer-events-none" height="100" viewBox="0 0 1440 100"
-      preserveAspectRatio="none">
-      <path fill="#0b0115" d="M0,20 C480,120 960,0 1440,80 L1440,100 L0,100 Z" />
+    <svg class="absolute bottom-0 left-0 w-full block -mb-px pointer-events-none" height="100"
+         viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="#0b0115" d="M0,20 C480,120 960,0 1440,80 L1440,100 L0,100 Z"/>
     </svg>
   </section>
 
   <!-- PurpleWave Feature Story -->
   <section class="relative -mt-px py-24 bg-gradient-to-b from-[#13051d] via-purple-900 to-[#0b0115] overflow-hidden">
     <!-- Top wave -->
-    <svg class="absolute top-0 left-0 w-full rotate-180 block -mt-px pointer-events-none" viewBox="0 0 1440 100"
-      height="100" preserveAspectRatio="none">
-      <path fill="#0b0115" d="M0,20 C480,120 960,0 1440,80 L1440,100 L0,100 Z" />
+    <svg class="absolute top-0 left-0 w-full rotate-180 block -mt-px pointer-events-none"
+         viewBox="0 0 1440 100" height="100" preserveAspectRatio="none">
+      <path fill="#0b0115" d="M0,20 C480,120 960,0 1440,80 L1440,100 L0,100 Z"/>
     </svg>
     <div class="container mx-auto px-4 md:px-16 grid gap-16 lg:grid-cols-2 lg:items-center">
       <!-- Image -->
@@ -297,8 +159,9 @@
         <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
           <span class="absolute inset-0 rounded-3xl bg-gradient-to-br
                         from-purple-700/40 via-fuchsia-500/25 to-transparent group-hover:blur-sm transition"></span>
-          <img src="https://wallpapercave.com/wp/wp5472897.jpg" alt="Team brainstorming around futuristic UI"
-            class="relative z-10 w-full h-full object-cover" loading="lazy" />
+          <img src="https://wallpapercave.com/wp/wp5472897.jpg"
+               alt="Team brainstorming around futuristic UI"
+               class="relative z-10 w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
       <!-- Content -->
@@ -310,410 +173,448 @@
             How PurpleWave Is Transforming Online Experiences
           </h2>
           <p class="text-purple-200/90 leading-relaxed mb-4">
-            PurpleWave fuses cutting-edge design with performance-first engineering, ensuring every pixel works as hard
-            as it looks. Our team continually
+            PurpleWave fuses cutting-edge design with performance-first engineering, ensuring every pixel works as hard as it looks. Our team continually
             experiments with new stacks and motion design to keep your brand ahead of the curve.
           </p>
           <p class="text-purple-200/90 leading-relaxed mb-8">
-            From bespoke websites to real-time analytics, we deliver tools that let businesses grow with confidence and
-            measurable impact. Join the wave of
+            From bespoke websites to real-time analytics, we deliver tools that let businesses grow with confidence and measurable impact. Join the wave of
             digital transformation.
           </p>
-          <a href="#contact" class="inline-flex items-center gap-2 rounded-full px-7 py-3
+          <a href="#contact"
+             class="inline-flex items-center gap-2 rounded-full px-7 py-3
                     bg-gradient-to-r from-purple-600 to-pink-500 text-white
                     font-semibold shadow-lg hover:brightness-110 transition">
             Let’s Talk
-            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                 stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"/>
             </svg>
           </a>
         </div>
       </div>
     </div>
     <!-- bg blob -->
-    <div
-      class="pointer-events-none absolute -bottom-56 -right-44 h-[42rem] w-[42rem] rounded-full bg-fuchsia-600/20 blur-3xl">
-    </div>
+    <div class="pointer-events-none absolute -bottom-56 -right-44 h-[42rem] w-[42rem] rounded-full bg-fuchsia-600/20 blur-3xl"></div>
   </section>
 
 
 
+<!-- fetured cases  -->
+  <section class="relative bg-gradient-to-r from-[#500024] to-[#0b0115] py-16 text-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-10">Our Featured Cases</h2>
 
-  <!-- Featured Cases -->
-<section class="relative bg-gradient-to-r from-[#500024] to-[#0b0115] py-16 text-white overflow-x-hidden">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold mb-10">Our Featured Cases</h2>
+      <!-- Carousel -->
+      <div class="relative overflow-hidden">
+        <!-- Scrollable Cards -->
+        <div id="carousel" class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory">
 
-    <!-- Carousel -->
-    <div class="relative overflow-hidden">
-      <!-- Scrollable Cards -->
-      <div id="carousel" class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory">
+          <!-- Card 1 -->
+          <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
+            style="background-image: url('https://wallpapers.com/images/thumbnail/dark-anime-guy-4k-phone-axewwxcp1z1szqwl.webp');">
+            <div
+              class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
+              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
+              <div>
+                <h2 class="text-xl font-bold mb-1">The Name Game</h2>
+                <p class="text-sm">VISMA</p>
+              </div>
+              <a href="#" class="underline text-sm">DISCOVER CASE</a>
+            </div>
+          </div>
 
-        <!-- Card 1 -->
-        <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
-          style="background-image: url('https://wallpapers.com/images/thumbnail/dark-anime-guy-4k-phone-axewwxcp1z1szqwl.webp');">
-          <div class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
-            <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
-            <div>
-              <h2 class="text-xl font-bold mb-1">The Name Game</h2>
-              <p class="text-sm">VISMA</p>
+          <!-- Card 2 -->
+          <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
+            style="background-image: url('https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/39465ec3-449f-42f6-837c-2b6c1628eece.png');">
+            <div
+              class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
+              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Customer case</span>
+              <div>
+                <h2 class="text-xl font-bold mb-1">Ziggo Sport</h2>
+                <p class="text-sm">Entertainment</p>
+              </div>
+              <a href="#" class="underline text-sm">DISCOVER CASE</a>
             </div>
-            <a href="#" class="underline text-sm">DISCOVER CASE</a>
           </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
-          style="background-image: url('https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/39465ec3-449f-42f6-837c-2b6c1628eece.png');">
-          <div class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
-            <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Customer case</span>
-            <div>
-              <h2 class="text-xl font-bold mb-1">Ziggo Sport</h2>
-              <p class="text-sm">Entertainment</p>
+
+          <!-- Card 3 -->
+          <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
+            style="background-image: url('https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/13f2436c-57a0-41ba-868c-e38d124a5baf.png');">
+            <div class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
+              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
+              <div>
+                <h2 class="text-xl font-bold mb-1">The Blame Game</h2>
+                <p class="text-sm">VISMA</p>
+              </div>
+              <a href="#" class="underline text-sm">Freedom CASE</a>
             </div>
-            <a href="#" class="underline text-sm">DISCOVER CASE</a>
           </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
-          style="background-image: url('https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/13f2436c-57a0-41ba-868c-e38d124a5baf.png');">
-          <div class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
-            <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
-            <div>
-              <h2 class="text-xl font-bold mb-1">The Blame Game</h2>
-              <p class="text-sm">VISMA</p>
+
+          <!-- Card 4 -->
+          <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
+            style="background-image: url('https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/07ac20ea-dc9f-4b2e-ae12-64be86b875b6.png');">
+            <div
+              class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
+              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
+              <div>
+                <h2 class="text-xl font-bold mb-1">The Fame Game</h2>
+                <p class="text-sm">VISMA</p>
+              </div>
+              <a href="#" class="underline text-sm">Celibrity CASE</a>
             </div>
-            <a href="#" class="underline text-sm">Freedom CASE</a>
           </div>
-        </div>
-        <!-- Card 4 -->
-        <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
-          style="background-image: url('https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/07ac20ea-dc9f-4b2e-ae12-64be86b875b6.png');">
-          <div class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
-            <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
-            <div>
-              <h2 class="text-xl font-bold mb-1">The Fame Game</h2>
-              <p class="text-sm">VISMA</p>
+
+          <!-- Card 5 -->
+          <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
+            style="background-image: url('https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/31b9772e-440c-4e79-92ea-cdef765cf52a.png');">
+            <div
+              class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
+              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
+              <div>
+                <h2 class="text-xl font-bold mb-1">The Rage</h2>
+                <p class="text-sm">VISMA</p>
+              </div>
+              <a href="#" class="underline text-sm">Rage CASE</a>
             </div>
-            <a href="#" class="underline text-sm">Celibrity CASE</a>
           </div>
-        </div>
-        <!-- Card 5 -->
-        <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
-          style="background-image: url('https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/31b9772e-440c-4e79-92ea-cdef765cf52a.png');">
-          <div class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
-            <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
-            <div>
-              <h2 class="text-xl font-bold mb-1">The Rage</h2>
-              <p class="text-sm">VISMA</p>
+
+          <!-- Card 6 -->
+          <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
+            style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb5o1hIpacdSDsaGBsQjyMNGgH5ZTAuy_94Q&s');">
+            <div
+              class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
+              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
+              <div>
+                <h2 class="text-xl font-bold mb-1">The Beauty Game</h2>
+                <p class="text-sm">VISMA</p>
+              </div>
+              <a href="#" class="underline text-sm">Aura CASE</a>
             </div>
-            <a href="#" class="underline text-sm">Rage CASE</a>
           </div>
-        </div>
-        <!-- Card 6 -->
-        <div class="relative min-w-[300px] max-w-[300px] h-[400px] bg-cover bg-center snap-start rounded-xl shadow-lg"
-          style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb5o1hIpacdSDsaGBsQjyMNGgH5ZTAuy_94Q&s');">
-          <div class="absolute inset-0 bg-black bg-opacity-40 rounded-xl p-4 flex flex-col justify-between text-white">
-            <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
-            <div>
-              <h2 class="text-xl font-bold mb-1">The Beauty Game</h2>
-              <p class="text-sm">VISMA</p>
-            </div>
-            <a href="#" class="underline text-sm">Aura CASE</a>
-          </div>
+
+
+
+          <!-- Add more cards similarly -->
+
         </div>
 
-        <!-- Add more cards as needed... -->
+        <!-- Arrows -->
+        <button onclick="scrollCarousel(-1)"
+          class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow z-10">&larr;</button>
+        <button onclick="scrollCarousel(1)"
+          class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow z-10">&rarr;</button>
+
+        <!-- Progress Bar -->
+        <div class="w-full mt-6">
+          <div class="h-[2px] bg-gray-700 relative">
+            <div id="progressBar" class="absolute top-0 left-0 h-full bg-pink-500 transition-all duration-500"
+              style="width: 0%;"></div>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Arrows -->
-      <button onclick="scrollCarousel(-1)"
-        class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow z-10">
-        &larr;
-      </button>
-      <button onclick="scrollCarousel(1)"
-        class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow z-10">
-        &rarr;
-      </button>
+  <style>
+    #carousel {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    #carousel::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+
+<!-- Our Work Block -->
+<section id="work" class="py-20 bg-gradient-to-b from-black via-purple-950 to-black">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-extrabold text-purple-200 text-center mb-12 tracking-wide">
+      Our Work
+    </h2>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- Card 1 -->
+      <article class="group relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-purple-800/40">
+        <!-- image -->
+        <img
+          src="https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-9c1c-61f7-ae1b-94f18cfe92b8/raw?se=2025-07-24T10%3A49%3A25Z&sp=r&sv=2024-08-04&sr=b&scid=2ccebc8e-c73d-5814-b2ae-48eb9f2e27eb&skoid=864daabb-d06a-46b3-a747-d35075313a83&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-23T19%3A46%3A30Z&ske=2025-07-24T19%3A46%3A30Z&sks=b&skv=2024-08-04&sig=yJsWGrSQU3yjajRSbGneEjPA/oAIVQef726h9s%2BJVIU%3D"
+          alt="Smart Watch"
+          class="h-60 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          loading="lazy"
+        />
+        <!-- glass overlay -->
+        <span class="absolute inset-0 bg-black/10 backdrop-blur-sm opacity-0
+                     group-hover:opacity-100 transition-opacity duration-700"></span>
+        <!-- CTA -->
+        <div class="absolute inset-x-0 bottom-6 flex justify-center translate-y-8
+                    group-hover:translate-y-0 transition duration-700">
+          <a href="#"
+             class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r
+                    from-purple-600 to-fuchsia-500 px-6 py-2 text-sm font-semibold text-white
+                    shadow-lg hover:scale-105 hover:brightness-110 transition">
+            Learn More
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="group relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-purple-800/40">
+        <img
+          src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/d6e4378f-cb48-4794-ab59-0359090f2096.png"
+          alt="Smartphone"
+          class="h-60 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          loading="lazy"
+        />
+        <span class="absolute inset-0 bg-black/10 backdrop-blur-sm opacity-0
+                     group-hover:opacity-100 transition-opacity duration-700"></span>
+        <div class="absolute inset-x-0 bottom-6 flex justify-center translate-y-8
+                    group-hover:translate-y-0 transition duration-700">
+          <a href="#"
+             class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r
+                    from-purple-600 to-fuchsia-500 px-6 py-2 text-sm font-semibold text-white
+                    shadow-lg hover:scale-105 hover:brightness-110 transition">
+            Learn More
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 3 (duplicate either image or add a new one) -->
+      <article class="group relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-purple-800/40">
+        <img
+          src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/41b652e5-1ab5-4c3a-86ab-5d067b407e04.png"
+          alt="Headphones"
+          class="h-60 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          loading="lazy"
+        />
+        <span class="absolute inset-0 bg-black/10 backdrop-blur-sm opacity-0
+                     group-hover:opacity-100 transition-opacity duration-700"></span>
+        <div class="absolute inset-x-0 bottom-6 flex justify-center translate-y-8
+                    group-hover:translate-y-0 transition duration-700">
+          <a href="#"
+             class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r
+                    from-purple-600 to-fuchsia-500 px-6 py-2 text-sm font-semibold text-white
+                    shadow-lg hover:scale-105 hover:brightness-110 transition">
+            Learn More
+          </a>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
 
-<style>
-  #carousel {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  #carousel::-webkit-scrollbar {
-    display: none;
-  }
-</style>
-
-
-  <!-- Our Work Block -->
-  <section id="work" class="py-20 bg-gradient-to-b from-black via-purple-950 to-black">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-extrabold text-purple-200 text-center mb-12 tracking-wide">
-        Our Work
-      </h2>
-
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-
-        <!-- Card 1 -->
-        <article class="group relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-purple-800/40">
-          <!-- image -->
-          <img
-            src="https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-9c1c-61f7-ae1b-94f18cfe92b8/raw?se=2025-07-24T10%3A49%3A25Z&sp=r&sv=2024-08-04&sr=b&scid=2ccebc8e-c73d-5814-b2ae-48eb9f2e27eb&skoid=864daabb-d06a-46b3-a747-d35075313a83&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-23T19%3A46%3A30Z&ske=2025-07-24T19%3A46%3A30Z&sks=b&skv=2024-08-04&sig=yJsWGrSQU3yjajRSbGneEjPA/oAIVQef726h9s%2BJVIU%3D"
-            alt="Smart Watch" class="h-60 w-full object-cover transition-transform duration-700 group-hover:scale-110"
-            loading="lazy" />
-          <!-- glass overlay -->
-          <span class="absolute inset-0 bg-black/10 backdrop-blur-sm opacity-0
-                     group-hover:opacity-100 transition-opacity duration-700"></span>
-          <!-- CTA -->
-          <div class="absolute inset-x-0 bottom-6 flex justify-center translate-y-8
-                    group-hover:translate-y-0 transition duration-700">
-            <a href="#" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r
-                    from-purple-600 to-fuchsia-500 px-6 py-2 text-sm font-semibold text-white
-                    shadow-lg hover:scale-105 hover:brightness-110 transition">
-              Learn More
-            </a>
-          </div>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="group relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-purple-800/40">
-          <img
-            src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/d6e4378f-cb48-4794-ab59-0359090f2096.png"
-            alt="Smartphone" class="h-60 w-full object-cover transition-transform duration-700 group-hover:scale-110"
-            loading="lazy" />
-          <span class="absolute inset-0 bg-black/10 backdrop-blur-sm opacity-0
-                     group-hover:opacity-100 transition-opacity duration-700"></span>
-          <div class="absolute inset-x-0 bottom-6 flex justify-center translate-y-8
-                    group-hover:translate-y-0 transition duration-700">
-            <a href="#" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r
-                    from-purple-600 to-fuchsia-500 px-6 py-2 text-sm font-semibold text-white
-                    shadow-lg hover:scale-105 hover:brightness-110 transition">
-              Learn More
-            </a>
-          </div>
-        </article>
-
-        <!-- Card 3 (duplicate either image or add a new one) -->
-        <article class="group relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-purple-800/40">
-          <img
-            src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/41b652e5-1ab5-4c3a-86ab-5d067b407e04.png"
-            alt="Headphones" class="h-60 w-full object-cover transition-transform duration-700 group-hover:scale-110"
-            loading="lazy" />
-          <span class="absolute inset-0 bg-black/10 backdrop-blur-sm opacity-0
-                     group-hover:opacity-100 transition-opacity duration-700"></span>
-          <div class="absolute inset-x-0 bottom-6 flex justify-center translate-y-8
-                    group-hover:translate-y-0 transition duration-700">
-            <a href="#" class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r
-                    from-purple-600 to-fuchsia-500 px-6 py-2 text-sm font-semibold text-white
-                    shadow-lg hover:scale-105 hover:brightness-110 transition">
-              Learn More
-            </a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
 
   <!-- 🔮 About Us -->
-  <section id="about"
-    class="relative isolate overflow-hidden py-24 bg-gradient-to-b from-black via-purple-950 to-black">
-    <!-- blurred background accent -->
-    <div class="pointer-events-none absolute -top-40 left-1/2 h-[40rem] w-[40rem] -translate-x-1/2 blur-3xl">
-      <div class="h-full w-full rounded-full bg-purple-700/40"></div>
-    </div>
+<section id="about" class="relative isolate overflow-hidden py-24 bg-gradient-to-b from-black via-purple-950 to-black">
+  <!-- blurred background accent -->
+  <div class="pointer-events-none absolute -top-40 left-1/2 h-[40rem] w-[40rem] -translate-x-1/2 blur-3xl">
+    <div class="h-full w-full rounded-full bg-purple-700/40"></div>
+  </div>
 
-    <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
-      <!-- headline -->
-      <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-transparent
+  <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
+    <!-- headline -->
+    <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-transparent
                bg-clip-text bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400 mb-8">
-        About <span class="whitespace-nowrap">PurpleWave</span>
-      </h2>
-
-      <!-- description -->
-      <p class="mx-auto max-w-2xl text-lg sm:text-xl text-purple-200/90 leading-relaxed">
-        We’re a creative studio crafting <span class="font-semibold text-purple-100">bold, high-impact</span> digital
-        experiences. From concept to launch, our team blends design finesse with modular, performant code so your brand
-        shines across every screen.
-      </p>
-
-      <!-- stats strip -->
-      <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8">
-        <div class="flex flex-col items-center">
-          <span class="text-4xl font-extrabold text-purple-300 drop-shadow-lg">120+</span>
-          <span class="mt-1 text-sm text-purple-400 uppercase tracking-wide">Projects Delivered</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <span class="text-4xl font-extrabold text-purple-300 drop-shadow-lg">30%</span>
-          <span class="mt-1 text-sm text-purple-400 uppercase tracking-wide">Avg. Conversion Lift</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <span class="text-4xl font-extrabold text-purple-300 drop-shadow-lg">4.9★</span>
-          <span class="mt-1 text-sm text-purple-400 uppercase tracking-wide">Client Rating</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- decorative wave divider -->
-    <svg class="absolute bottom-0 left-0 w-full pointer-events-none" height="80" viewBox="0 0 1440 80"
-      preserveAspectRatio="none">
-      <path fill="#0b0115" d="M0,40 C480,120 960,0 1440,80 L1440,80 L0,80 Z"></path>
-    </svg>
-  </section>
-
-
-  <!-- 📸 Gallery (scrollbar hidden) -->
-  <section id="gallery" class="relative py-24 bg-gradient-to-b from-purple-900 via-purple-950 to-black overflow-hidden">
-
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12
-             text-transparent bg-clip-text
-             bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400">
-      Gallery
+      About <span class="whitespace-nowrap">PurpleWave</span>
     </h2>
 
-    <div class="container mx-auto px-4 relative">
+    <!-- description -->
+    <p class="mx-auto max-w-2xl text-lg sm:text-xl text-purple-200/90 leading-relaxed">
+      We’re a creative studio crafting <span class="font-semibold text-purple-100">bold, high-impact</span> digital
+      experiences. From concept to launch, our team blends design finesse with modular, performant code so your brand
+      shines across every screen.
+    </p>
 
-      <!-- ← Arrow -->
-      <button aria-label="Scroll left" onclick="scrollGallery(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 z-10
+    <!-- stats strip -->
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div class="flex flex-col items-center">
+        <span class="text-4xl font-extrabold text-purple-300 drop-shadow-lg">120+</span>
+        <span class="mt-1 text-sm text-purple-400 uppercase tracking-wide">Projects Delivered</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <span class="text-4xl font-extrabold text-purple-300 drop-shadow-lg">30%</span>
+        <span class="mt-1 text-sm text-purple-400 uppercase tracking-wide">Avg. Conversion Lift</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <span class="text-4xl font-extrabold text-purple-300 drop-shadow-lg">4.9★</span>
+        <span class="mt-1 text-sm text-purple-400 uppercase tracking-wide">Client Rating</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- decorative wave divider -->
+  <svg class="absolute bottom-0 left-0 w-full pointer-events-none" height="80" viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path fill="#0b0115" d="M0,40 C480,120 960,0 1440,80 L1440,80 L0,80 Z"></path>
+  </svg>
+</section>
+
+
+<!-- 📸 Gallery (scrollbar hidden) -->
+<section id="gallery"
+         class="relative py-24 bg-gradient-to-b from-purple-900 via-purple-950 to-black overflow-hidden">
+
+  <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12
+             text-transparent bg-clip-text
+             bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400">
+    Gallery
+  </h2>
+
+  <div class="container mx-auto px-4 relative">
+
+    <!-- ← Arrow -->
+    <button aria-label="Scroll left"
+            onclick="scrollGallery(-1)"
+            class="absolute left-0 top-1/2 -translate-y-1/2 z-10
                    p-3 bg-purple-600/80 hover:bg-purple-600 text-white
                    rounded-full shadow-lg transition">
-        ❮
-      </button>
+      ❮
+    </button>
 
-      <!-- Carousel track – note the “no-scrollbar” class -->
-      <div id="galleryTrack" class="flex gap-6 overflow-x-auto scroll-snap-x scroll-snap-mandatory no-scrollbar">
+    <!-- Carousel track – note the “no-scrollbar” class -->
+    <div id="galleryTrack"
+         class="flex gap-6 overflow-x-auto scroll-snap-x scroll-snap-mandatory no-scrollbar">
 
-        <!-- one image card -->
-        <figure class="group relative w-72 h-44 flex-none snap-start rounded-xl overflow-hidden shadow-lg">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJl8JJBWZnsoiDEm9Ehs5KuJ_DD2rIcaJnoQ&s"
-            alt="Gallery Image 1"
-            class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
-          <figcaption class="absolute inset-0 flex items-end p-4
+      <!-- one image card -->
+      <figure class="group relative w-72 h-44 flex-none snap-start rounded-xl overflow-hidden shadow-lg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJl8JJBWZnsoiDEm9Ehs5KuJ_DD2rIcaJnoQ&s"
+             alt="Gallery Image 1"
+             class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <figcaption
+          class="absolute inset-0 flex items-end p-4
                  bg-gradient-to-t from-black/70 via-black/10 to-transparent
                  opacity-0 group-hover:opacity-100 transition">
-            <span class="text-sm text-purple-100">Vibrant Sunset</span>
-          </figcaption>
-        </figure>
+          <span class="text-sm text-purple-100">Vibrant Sunset</span>
+        </figcaption>
+      </figure>
 
-        <!-- …repeat figure blocks for other images… -->
-
-      </div>
-
-      <!-- → Arrow -->
-      <button aria-label="Scroll right" onclick="scrollGallery(1)" class="absolute right-0 top-1/2 -translate-y-1/2 z-10
-                   p-3 bg-purple-600/80 hover:bg-purple-600 text-white
-                   rounded-full shadow-lg transition">
-        ❯
-      </button>
+      <!-- …repeat figure blocks for other images… -->
 
     </div>
-  </section>
+
+    <!-- → Arrow -->
+    <button aria-label="Scroll right"
+            onclick="scrollGallery(1)"
+            class="absolute right-0 top-1/2 -translate-y-1/2 z-10
+                   p-3 bg-purple-600/80 hover:bg-purple-600 text-white
+                   rounded-full shadow-lg transition">
+      ❯
+    </button>
+
+  </div>
+</section>
 
 
 
 
 
   <!-- 🎥 Trending Now Carousel -->
-  <section id="trending" class="py-20 bg-black relative isolate overflow-hidden">
-    <!-- Section Title -->
-    <h2 class="text-3xl font-extrabold text-center mb-8
+<section id="trending" class="py-20 bg-black relative isolate overflow-hidden">
+  <!-- Section Title -->
+  <h2 class="text-3xl font-extrabold text-center mb-8
              bg-clip-text text-transparent
              bg-gradient-to-r from-purple-300 via-purple-400 to-pink-400">
-      Trending Now
-    </h2>
+    Trending Now
+  </h2>
 
-    <div class="relative container mx-auto px-4">
-      <!-- Left Arrow -->
-      <button onclick="scrollVideo(-1)" aria-label="Scroll left" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10
+  <div class="relative container mx-auto px-4">
+    <!-- Left Arrow -->
+    <button onclick="scrollVideo(-1)"
+            aria-label="Scroll left"
+            class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10
                    p-3 bg-purple-600/80 hover:bg-purple-600 text-white
                    rounded-full shadow-lg transition">
-        &larr;
-      </button>
+      &larr;
+    </button>
 
-      <!-- Carousel Wrapper -->
-      <div id="videoCarousel" class="flex gap-6 overflow-x-auto no-scrollbar scroll-snap-x scroll-snap-mandatory">
-        <!-- Video Item 1 -->
-        <div class="flex-none w-80 snap-start group">
-          <div class="relative pb-[56.25%] overflow-hidden rounded-xl shadow-lg
+    <!-- Carousel Wrapper -->
+    <div id="videoCarousel"
+         class="flex gap-6 overflow-x-auto no-scrollbar scroll-snap-x scroll-snap-mandatory">
+      <!-- Video Item 1 -->
+      <div class="flex-none w-80 snap-start group">
+        <div class="relative pb-[56.25%] overflow-hidden rounded-xl shadow-lg
                     transition-transform duration-500 group-hover:scale-105">
-            <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
-              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-            </video>
-            <!-- Play Overlay -->
-            <div class="absolute inset-0 flex items-center justify-center
+          <video class="absolute inset-0 w-full h-full object-cover"
+                 autoplay muted loop playsinline>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+          </video>
+          <!-- Play Overlay -->
+          <div class="absolute inset-0 flex items-center justify-center
                       bg-black bg-opacity-30 opacity-0 group-hover:opacity-100
                       transition">
-              <svg class="w-12 h-12 text-white" viewBox="0 0 84 84" fill="none">
-                <circle cx="42" cy="42" r="42" fill="currentColor" opacity="0.6" />
-                <path d="M33 27l23 15-23 15V27z" fill="#fff" />
-              </svg>
-            </div>
+            <svg class="w-12 h-12 text-white" viewBox="0 0 84 84" fill="none">
+              <circle cx="42" cy="42" r="42" fill="currentColor" opacity="0.6"/>
+              <path d="M33 27l23 15-23 15V27z" fill="#fff"/>
+            </svg>
           </div>
         </div>
-
-        <!-- Video Item 2 -->
-        <div class="flex-none w-80 snap-start group">
-          <div class="relative pb-[56.25%] overflow-hidden rounded-xl shadow-lg
-                    transition-transform duration-500 group-hover:scale-105">
-            <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
-              <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
-            </video>
-            <div class="absolute inset-0 flex items-center justify-center
-                      bg-black bg-opacity-30 opacity-0 group-hover:opacity-100
-                      transition">
-              <svg class="w-12 h-12 text-white" viewBox="0 0 84 84" fill="none">
-                <circle cx="42" cy="42" r="42" fill="currentColor" opacity="0.6" />
-                <path d="M33 27l23 15-23 15V27z" fill="#fff" />
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <!-- Video Item 3 -->
-        <div class="flex-none w-80 snap-start group">
-          <div class="relative pb-[56.25%] overflow-hidden rounded-xl shadow-lg
-                    transition-transform duration-500 group-hover:scale-105">
-            <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
-              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-            </video>
-            <div class="absolute inset-0 flex items-center justify-center
-                      bg-black bg-opacity-30 opacity-0 group-hover:opacity-100
-                      transition">
-              <svg class="w-12 h-12 text-white" viewBox="0 0 84 84" fill="none">
-                <circle cx="42" cy="42" r="42" fill="currentColor" opacity="0.6" />
-                <path d="M33 27l23 15-23 15V27z" fill="#fff" />
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <!-- Add more <div class="flex-none w-80 ..."> items as needed -->
       </div>
 
-      <!-- Right Arrow -->
-      <button onclick="scrollVideo(1)" aria-label="Scroll right" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10
+      <!-- Video Item 2 -->
+      <div class="flex-none w-80 snap-start group">
+        <div class="relative pb-[56.25%] overflow-hidden rounded-xl shadow-lg
+                    transition-transform duration-500 group-hover:scale-105">
+          <video class="absolute inset-0 w-full h-full object-cover"
+                 autoplay muted loop playsinline>
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                    type="video/mp4" />
+          </video>
+          <div class="absolute inset-0 flex items-center justify-center
+                      bg-black bg-opacity-30 opacity-0 group-hover:opacity-100
+                      transition">
+            <svg class="w-12 h-12 text-white" viewBox="0 0 84 84" fill="none">
+              <circle cx="42" cy="42" r="42" fill="currentColor" opacity="0.6"/>
+              <path d="M33 27l23 15-23 15V27z" fill="#fff"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Item 3 -->
+      <div class="flex-none w-80 snap-start group">
+        <div class="relative pb-[56.25%] overflow-hidden rounded-xl shadow-lg
+                    transition-transform duration-500 group-hover:scale-105">
+          <video class="absolute inset-0 w-full h-full object-cover"
+                 autoplay muted loop playsinline>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+          </video>
+          <div class="absolute inset-0 flex items-center justify-center
+                      bg-black bg-opacity-30 opacity-0 group-hover:opacity-100
+                      transition">
+            <svg class="w-12 h-12 text-white" viewBox="0 0 84 84" fill="none">
+              <circle cx="42" cy="42" r="42" fill="currentColor" opacity="0.6"/>
+              <path d="M33 27l23 15-23 15V27z" fill="#fff"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more <div class="flex-none w-80 ..."> items as needed -->
+    </div>
+
+    <!-- Right Arrow -->
+    <button onclick="scrollVideo(1)"
+            aria-label="Scroll right"
+            class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10
                    p-3 bg-purple-600/80 hover:bg-purple-600 text-white
                    rounded-full shadow-lg transition">
-        &rarr;
-      </button>
-    </div>
-  </section>
+      &rarr;
+    </button>
+  </div>
+</section>
 
-  <!-- Carousel Script -->
-  <script>
-    function scrollVideo(dir) {
-      const carousel = document.getElementById('videoCarousel');
-      const card = carousel.querySelector('.flex-none');
-      const gap = parseInt(getComputedStyle(carousel).gap) || 0;
-      const step = card.offsetWidth + gap;
-      carousel.scrollBy({ left: step * dir, behavior: 'smooth' });
-    }
-  </script>
+<!-- Carousel Script -->
+<script>
+  function scrollVideo(dir) {
+    const carousel = document.getElementById('videoCarousel');
+    const card   = carousel.querySelector('.flex-none');
+    const gap    = parseInt(getComputedStyle(carousel).gap) || 0;
+    const step   = card.offsetWidth + gap;
+    carousel.scrollBy({ left: step * dir, behavior: 'smooth' });
+  }
+</script>
 
 
   <!-- Services Section -->
@@ -792,35 +693,41 @@
   </section>
 
   <!-- Footer with Bottom-Left Newsletter Form -->
-  <footer class="bg-purple-950 text-purple-200 relative px-6 py-12">
+<footer class="bg-purple-950 text-purple-200 relative px-6 py-12">
 
-    <!-- Newsletter Form -->
-    <div
-      class="absolute bottom-6 left-6 w-full max-w-sm bg-purple-900 bg-opacity-90 p-6 rounded-lg shadow-lg hidden md:block">
-      <h3 class="text-xl font-bold mb-2 text-purple-100">Subscribe to Our Newsletter</h3>
-      <p class="text-sm mb-4 text-purple-300">Stay updated with the latest from PurpleWave.</p>
+  <!-- Newsletter Form -->
+  <div class="absolute bottom-6 left-6 w-full max-w-sm bg-purple-900 bg-opacity-90 p-6 rounded-lg shadow-lg hidden md:block">
+    <h3 class="text-xl font-bold mb-2 text-purple-100">Subscribe to Our Newsletter</h3>
+    <p class="text-sm mb-4 text-purple-300">Stay updated with the latest from PurpleWave.</p>
 
-      <form id="newsletterForm" class="space-y-3">
-        <!-- Email Input -->
-        <input type="email" name="email" id="newsletterEmail" placeholder="Enter your email" required
-          class="w-full px-4 py-2 rounded-md border border-gray-700 bg-black text-white focus:ring-purple-500 focus:border-purple-500" />
+    <form id="newsletterForm" class="space-y-3">
+      <!-- Email Input -->
+      <input
+        type="email"
+        name="email"
+        id="newsletterEmail"
+        placeholder="Enter your email"
+        required
+        class="w-full px-4 py-2 rounded-md border border-gray-700 bg-black text-white focus:ring-purple-500 focus:border-purple-500"
+      />
 
-        <!-- Submit Button -->
-        <button type="submit"
-          class="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white py-2 rounded-md font-semibold transition duration-200">
-          Subscribe
-        </button>
-      </form>
-    </div>
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white py-2 rounded-md font-semibold transition duration-200"
+      >
+        Subscribe
+      </button>
+    </form>
+  </div>
 
-    <!-- Centered Footer Copyright -->
-    <div class="text-center mt-6 md:mt-0">
-      <p>
-        ©
-        <script>document.write(new Date().getFullYear())</script> PurpleWave. All rights reserved.
-      </p>
-    </div>
-  </footer>
+  <!-- Centered Footer Copyright -->
+  <div class="text-center mt-6 md:mt-0">
+    <p>
+      © <script>document.write(new Date().getFullYear())</script> PurpleWave. All rights reserved.
+    </p>
+  </div>
+</footer>
 
 
   <script>
@@ -864,29 +771,28 @@
     }
   </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const form = document.getElementById('newsletterForm');
-      const emailInput = document.getElementById('newsletterEmail');
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('newsletterForm');
+    const emailInput = document.getElementById('newsletterEmail');
 
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-        const email = emailInput.value.trim();
-        const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      const email = emailInput.value.trim();
+      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-        if (!isValid) {
-          alert("Please enter a valid email address.");
-          return;
-        }
+      if (!isValid) {
+        alert("Please enter a valid email address.");
+        return;
+      }
 
-        // Redirect to a real thank-you/contact page (can update this URL)
-        const redirectURL = `?newsletter_email=${encodeURIComponent(email)}`;
-        window.location.href = redirectURL;
-      });
+      // Redirect to a real thank-you/contact page (can update this URL)
+      const redirectURL = `?newsletter_email=${encodeURIComponent(email)}`;
+      window.location.href = redirectURL;
     });
-  </script>
+  });
+</script>
 
 </body>
-
 </html>
