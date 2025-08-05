@@ -26,15 +26,33 @@
 
 <body class="bg-[#0b0115] text-purple-100 font-sans scroll-smooth">
 
-<!-- HERO -->
-<header class="relative isolate flex flex-col items-center justify-center min-h-[60vh] bg-cover bg-top"
-        style="background-image:url('https://img.goodfon.com/original/1920x1080/d/f4/anime-art-final-fantazi-fioletovyi-fon-demon-ubiitsa-oruzhie.jpg');">
-  <span class="absolute inset-0 bg-black/80 backdrop-blur-sm"></span>
-  <h1 class="relative z-10 text-4xl sm:text-5xl md:text-6xl text-center font-extrabold bg-clip-text text-transparent
-             bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400">
+<!-- HERO section-->
+<header class="relative isolate flex flex-col items-center justify-center min-h-[60vh] overflow-hidden">
+
+  <!-- VIDEO as Background -->
+  <video
+    autoplay
+    loop
+    muted
+    playsinline
+    class="absolute inset-0 w-full h-full object-cover z-0"
+    poster="https://img.goodfon.com/original/1920x1080/d/f4/anime-art-final-fantazi-fioletovyi-fon-demon-ubiitsa-oruzhie.jpg"
+  >
+    <source src="https://cdn.pixabay.com/video/2020/11/14/56375-479358459_large.mp4" type="video/mp4" />
+    <!-- fallback image or message -->
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Overlay for darkening and readability -->
+  <!-- <span class="absolute inset-0 bg-black/80 backdrop-blur-sm z-10"></span> -->
+
+  <!-- Hero Text Content -->
+  <h1 class="relative z-20 text-4xl sm:text-5xl md:text-6xl text-center font-extrabold bg-clip-text text-transparent
+    bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400">
     PurpleWave — Upcoming Events
   </h1>
 </header>
+
 
 <!-- DYNAMIC WEEKLY EVENTS WITH IMAGES -->
 <section class="py-24 bg-gradient-to-b from-[#13051d] via-purple-900/90 to-[#0b0115]">
