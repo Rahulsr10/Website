@@ -346,5 +346,66 @@
       if (e.key === 'ArrowRight') slideGallery(1);
     });
   </script>
+
+  
+  <!-- PRODUCT DOCUMENTATION (near footer area) -->
+  <section id="product-doc" class="relative isolate overflow-hidden py-20 bg-gradient-to-b from-black via-purple-950 to-black">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h3 class="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-fuchsia-400 to-pink-400 mb-6">
+        Product Documentation
+      </h3>
+      <div id="doc-container" class="prose"></div>
+    </div>
+    <div class="pointer-events-none absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0b0115] text-purple-300 py-10">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/262379dc-7d7f-4f73-bbf9-fb5c7b3e8b18.png"
+               alt="PurpleWave logo" class="h-8 w-auto" loading="lazy" />
+          <span class="font-semibold">PurpleWave</span>
+        </div>
+        <nav class="flex gap-6">
+          <a href="/" class="hover:text-white transition">Home</a>
+          <a href="aboutus.html" class="hover:text-white transition">About</a>
+          <a href="services.html" class="hover:text-white transition">Services</a>
+          <a href="events.html" class="hover:text-white transition">Events</a>
+          <a href="contact.html" class="hover:text-white transition">Contact</a>
+        </nav>
+      </div>
+      <p class="mt-6 text-sm text-purple-400/80">© <span id="year"></span> PurpleWave. All rights reserved.</p>
+    </div>
+  </footer>
+
+   <!-- Markdown renderer (for Product Documentation) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    // Update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Load and render Markdown docs
+    (function () {
+      const target = document.getElementById('d');
+      if (!target) return;
+
+      fetch('Product Doc\Fragmatic.docx.md ', { cache: 'no-store' })
+        .then(r => {
+          if (!r.ok) throw new Error('Failed to load docs/product-doc.md');
+          return r.text();
+        })
+        .then(md => {
+          const html = marked.parse(md, { mangle: false, headerIds: false });
+          target.innerHTML = html;
+        })
+        .catch(err => {
+          console.error(err);
+          target.innerHTML = '<p class="text-purple-300/80">Documentation is currently unavailable.</p>';
+        });
+    })();
+  </script>
+
 </body>
 </html>
