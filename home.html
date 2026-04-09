@@ -56,99 +56,426 @@
   <!-- Critical inline CSS (minimal) -->
   <style>
     /* Critical above-fold styles only */
-    body{background:#000;color:#c084fc;font-family:system-ui,-apple-system,sans-serif;margin:0}
-    .hero-bg{background-image:url('https://img.goodfon.com/original/1920x1080/d/f4/anime-art-final-fantazi-fioletovyi-fon-demon-ubiitsa-oruzhie.jpg');background-size:cover;background-position:center;min-height:100vh;position:relative;overflow:hidden}
-    .hero-bg::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(0,0,0,0.8) 0%,rgba(88,28,135,0.6) 50%,rgba(0,0,0,0.9) 100%);z-index:1}
-    .nav-sticky{position:sticky;top:0;z-index:50;background:#581c87;backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.1)}
-    .container{max-width:1200px;margin:0 auto;padding:0 1rem}
-    .btn-primary{background:linear-gradient(135deg,#9333ea 0%,#ec4899 50%,#f97316 100%);color:#fff;padding:0.75rem 2rem;border-radius:9999px;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;font-weight:600;letter-spacing:0.025em;transition:all 0.3s ease;transform:translateY(0);box-shadow:0 4px 15px rgba(147,51,234,0.3)}
-    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(147,51,234,0.4)}
-    .text-gradient{background:linear-gradient(135deg,#d8b4fe 0%,#f472b6 50%,#fb7185 100%);background-clip:text;-webkit-background-clip:text;color:transparent;font-weight:700}
-    .glass-card{background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:1rem}
-    .service-card{background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);border:1px solid rgba(147,51,234,0.2);border-radius:1rem;padding:2rem;transition:all 0.3s ease}
-    .service-card:hover{transform:translateY(-5px);border-color:#9333ea;box-shadow:0 10px 30px rgba(147,51,234,0.2)}
-    .floating-animation{animation:float 6s ease-in-out infinite}
-    @keyframes float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-10px)}}
+    body{background:#0a0a0a;color:#e5e7eb;font-family:'Inter',system-ui,-apple-system,sans-serif;margin:0;overflow-x:hidden}
+    .hero-bg{background:linear-gradient(135deg,#0a0a0a 0%,#1a0a2e 50%,#0a0a0a 100%);min-height:100vh;position:relative;overflow:hidden}
+    .nav-blur{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,10,10,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(147,51,234,0.2)}
+    .container{max-width:1400px;margin:0 auto;padding:0 2rem}
+    .btn-ai{background:linear-gradient(135deg,#8b5cf6 0%,#ec4899 50%,#06b6d4 100%);color:#fff;padding:1rem 2.5rem;border-radius:50px;text-decoration:none;display:inline-flex;align-items:center;gap:0.75rem;font-weight:600;letter-spacing:0.025em;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);transform:translateY(0);box-shadow:0 8px 32px rgba(139,92,246,0.3);border:1px solid rgba(255,255,255,0.1)}
+    .btn-ai:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(139,92,246,0.4);background:linear-gradient(135deg,#7c3aed 0%,#db2777 50%,#0891b2 100%)}
+    .btn-secondary{background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);color:#e5e7eb;padding:1rem 2.5rem;border-radius:50px;text-decoration:none;display:inline-flex;align-items:center;gap:0.75rem;font-weight:500;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease}
+    .btn-secondary:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px)}
+    .text-gradient-ai{background:linear-gradient(135deg,#8b5cf6,#ec4899,#06b6d4,#10b981);background-clip:text;-webkit-background-clip:text;color:transparent;font-weight:700;background-size:200% 200%;animation:gradient-shift 8s ease-in-out infinite}
+    @keyframes gradient-shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+    .glass-card{background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:2.5rem;transition:all 0.4s ease}
+    .glass-card:hover{background:rgba(255,255,255,0.05);transform:translateY(-8px);box-shadow:0 25px 50px rgba(0,0,0,0.25)}
+    .feature-card{background:linear-gradient(135deg,rgba(139,92,246,0.1) 0%,rgba(236,72,153,0.1) 100%);border:1px solid rgba(139,92,246,0.2);border-radius:20px;padding:2rem;transition:all 0.4s ease;position:relative;overflow:hidden}
+    .feature-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);transition:all 0.5s ease}
+    .feature-card:hover::before{left:100%}
+    .feature-card:hover{transform:translateY(-8px);border-color:#8b5cf6;box-shadow:0 20px 40px rgba(139,92,246,0.2)}
+    .floating-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+    .particle{position:absolute;background:radial-gradient(circle,rgba(139,92,246,0.3) 0%,transparent 70%);border-radius:50%;animation:float-particle 20s linear infinite}
+    .particle:nth-child(1){width:4px;height:4px;top:10%;left:10%;animation-delay:0s}
+    .particle:nth-child(2){width:6px;height:6px;top:20%;left:80%;animation-delay:2s}
+    .particle:nth-child(3){width:3px;height:3px;top:60%;left:20%;animation-delay:4s}
+    .particle:nth-child(4){width:5px;height:5px;top:80%;left:70%;animation-delay:6s}
+    .particle:nth-child(5){width:4px;height:4px;top:40%;left:90%;animation-delay:8s}
+    @keyframes float-particle{0%{transform:translateY(0px) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh) rotate(360deg);opacity:0}}
+    .ai-glow{position:relative}
+    .ai-glow::after{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,#8b5cf6,#ec4899,#06b6d4);border-radius:inherit;z-index:-1;opacity:0.3;filter:blur(8px);animation:pulse-glow 4s ease-in-out infinite}
+    @keyframes pulse-glow{0%,100%{opacity:0.3;transform:scale(1)}50%{opacity:0.6;transform:scale(1.02)}}
+    .typing-effect{overflow:hidden;border-right:2px solid #8b5cf6;animation:typing 3.5s steps(40,end),blink-caret 0.75s step-end infinite}
+    @keyframes typing{from{width:0}to{width:100%}}
+    @keyframes blink-caret{from,to{border-color:#8b5cf6}50%{border-color:transparent}}
+    .scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:bounce 2s infinite}
+    @keyframes bounce{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}40%{transform:translateX(-50%) translateY(-10px)}60%{transform:translateX(-50%) translateY(-5px)}}
+    @keyframes grid-move{0%{transform:translate(0,0)}100%{transform:translate(60px,60px)}}
   </style>
 
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="nav-sticky shadow-lg">
-    <div class="container flex justify-between items-center py-4">
-      <a href="https://purplewave.netlify.app" class="flex items-center gap-2">
-        <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/262379dc-7d7f-4f73-bbf9-fb5c7b3e8b18.png"
-             alt="PurpleWave logo" class="h-10 w-auto" width="40" height="40" loading="eager"/>
-        <span class="text-2xl font-bold text-purple-200">PurpleWave</span>
+  <!-- Navigation -->
+  <nav class="nav-blur">
+    <div class="container flex justify-between items-center py-6">
+      <a href="https://purplewave.netlify.app" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+          <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/262379dc-7d7f-4f73-bbf9-fb5c7b3e8b18.png"
+               alt="PurpleWave logo" class="h-8 w-auto" loading="eager"/>
+        </div>
+        <span class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">PurpleWave</span>
       </a>
-      
-      <ul class="flex space-x-6 text-purple-200">
-        <li><a href="https://purplewave.netlify.app" class="hover:text-white transition">Home</a></li>
-        <li><a href="aboutus.html" class="hover:text-white transition">About</a></li>
-        <li><a href="services.html" class="hover:text-white transition">Services</a></li>
-        <li><a href="events.html" class="hover:text-white transition">Events</a></li>
-        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+
+      <ul class="hidden md:flex space-x-8 text-gray-300">
+        <li><a href="https://purplewave.netlify.app" class="hover:text-white transition-colors relative group">Home
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></span></a></li>
+        <li><a href="aboutus.html" class="hover:text-white transition-colors relative group">About
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></span></a></li>
+        <li><a href="services.html" class="hover:text-white transition-colors relative group">Services
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></span></a></li>
+        <li><a href="events.html" class="hover:text-white transition-colors relative group">Events
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></span></a></li>
+        <li><a href="contact.html" class="hover:text-white transition-colors relative group">Contact
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></span></a></li>
       </ul>
+
+      <button class="md:hidden text-gray-300 hover:text-white">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero-bg relative flex items-center justify-center">
-    <!-- Animated background elements -->
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl floating-animation"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl floating-animation" style="animation-delay:2s"></div>
+  <section class="hero-bg relative flex items-center justify-center min-h-screen">
+    <!-- Floating Particles -->
+    <div class="floating-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
     </div>
-    
+
+    <!-- Animated Background Grid -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(139,92,246,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+    </div>
+
     <!-- Content -->
-    <div class="relative z-10 container text-center py-20">
-      <div class="animate-fade-in">
-        <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold text-gradient mb-6 leading-tight">
-          Welcome to <span class="whitespace-nowrap block sm:inline">PurpleWave</span>
+    <div class="relative z-10 container text-center">
+      <div class="max-w-6xl mx-auto">
+        <!-- Status Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-300 text-sm font-medium mb-8">
+          <div class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+          AI-Powered Web Solutions
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 leading-tight">
+          <span class="text-gradient-ai">PurpleWave</span>
+          <br>
+          <span class="text-white text-4xl md:text-6xl lg:text-7xl font-light">AI Web Studio</span>
         </h1>
-        <p class="text-xl sm:text-2xl text-purple-200/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-          Crafting bold, modern experiences that captivate and convert 🚀
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="aboutus.html" class="btn-primary group">
-            Get Started
-            <svg class="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+
+        <!-- Typing Effect Subtitle -->
+        <div class="text-xl md:text-2xl text-gray-300 mb-12 h-16 flex items-center justify-center">
+          <span class="typing-effect">Crafting the future of digital experiences with AI precision</span>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+          <a href="services.html" class="btn-ai group">
+            <svg class="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
             </svg>
+            Explore AI Services
           </a>
-          <a href="services.html" class="text-purple-200 hover:text-white transition-colors underline underline-offset-4">
-            View Our Work
+          <a href="contact.html" class="btn-secondary group">
+            <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
+            Start Conversation
+          </a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+          <div class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+            <div class="w-1 h-3 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full mt-2 animate-bounce"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Features Section -->
+  <section class="py-32 bg-gradient-to-b from-gray-900/50 to-black relative overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-900/20 via-transparent to-pink-900/20"></div>
+      <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay:2s"></div>
+    </div>
+
+    <div class="container relative z-10">
+      <div class="text-center mb-20">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-full text-purple-300 text-sm font-medium mb-6">
+          <div class="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
+          AI-Powered Capabilities
+        </div>
+        <h2 class="text-5xl lg:text-6xl font-bold mb-6">
+          <span class="text-gradient-ai">Next-Gen</span>
+          <br>
+          <span class="text-white">Web Intelligence</span>
+        </h2>
+        <p class="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
+          Harnessing the power of artificial intelligence to create websites that learn, adapt, and evolve with your business needs.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="feature-card group">
+          <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+            <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">Smart Analytics</h3>
+          <p class="text-gray-300 leading-relaxed">AI-driven insights that predict user behavior and optimize your website performance in real-time.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card group">
+          <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+            <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">Adaptive Design</h3>
+          <p class="text-gray-300 leading-relaxed">Self-optimizing layouts that automatically adjust to user preferences and device capabilities.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card group">
+          <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+            <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">Instant Deployment</h3>
+          <p class="text-gray-300 leading-relaxed">Lightning-fast deployment with automated testing, optimization, and performance monitoring.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Showcase Section -->
+  <section class="py-32 bg-gradient-to-r from-purple-900/20 via-black to-cyan-900/20 relative overflow-hidden">
+    <!-- Animated Grid Background -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(139,92,246,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.3) 1px, transparent 1px); background-size: 60px 60px; animation: grid-move 20s linear infinite;"></div>
+    </div>
+
+    <div class="container relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Content -->
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 rounded-full text-cyan-300 text-sm font-medium mb-6">
+            <div class="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-pulse"></div>
+            Neural Networks
+          </div>
+          <h2 class="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            Powered by
+            <span class="text-gradient-ai block">Advanced AI</span>
+          </h2>
+          <p class="text-gray-300 text-lg leading-relaxed mb-8">
+            Our proprietary AI algorithms analyze millions of data points to create websites that not only look stunning but perform exceptionally across all metrics.
+          </p>
+
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-4">
+              <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <span class="text-gray-300">99.9% Uptime Guarantee</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <span class="text-gray-300">Lightning Fast Load Times</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+              </div>
+              <span class="text-gray-300">AI-Powered Optimization</span>
+            </div>
+          </div>
+
+          <a href="aboutus.html" class="btn-ai">
+            Learn More About Our AI
+          </a>
+        </div>
+
+        <!-- Visual Element -->
+        <div class="relative">
+          <div class="ai-glow rounded-3xl p-8">
+            <div class="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50">
+              <!-- AI Brain Visualization -->
+              <div class="relative h-80 flex items-center justify-center">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-32 h-32 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-full flex items-center justify-center animate-pulse">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-cyan-400 rounded-full flex items-center justify-center">
+                      <svg class="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Neural Network Connections -->
+                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 320">
+                  <defs>
+                    <linearGradient id="neural-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.3"/>
+                      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.3"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Connection lines with animation -->
+                  <path d="M100,100 L200,80 L300,120" stroke="url(#neural-gradient)" stroke-width="2" fill="none" class="animate-pulse"/>
+                  <path d="M120,200 L200,160 L280,180" stroke="url(#neural-gradient)" stroke-width="2" fill="none" class="animate-pulse" style="animation-delay:1s"/>
+                  <path d="M80,150 L200,120 L320,140" stroke="url(#neural-gradient)" stroke-width="2" fill="none" class="animate-pulse" style="animation-delay:2s"/>
+                  <path d="M140,250 L200,200 L260,220" stroke="url(#neural-gradient)" stroke-width="2" fill="none" class="animate-pulse" style="animation-delay:0.5s"/>
+
+                  <!-- Nodes -->
+                  <circle cx="100" cy="100" r="4" fill="#8b5cf6" class="animate-ping"/>
+                  <circle cx="200" cy="80" r="4" fill="#ec4899" class="animate-ping" style="animation-delay:0.5s"/>
+                  <circle cx="300" cy="120" r="4" fill="#06b6d4" class="animate-ping" style="animation-delay:1s"/>
+                  <circle cx="120" cy="200" r="4" fill="#10b981" class="animate-ping" style="animation-delay:1.5s"/>
+                  <circle cx="200" cy="160" r="4" fill="#f59e0b" class="animate-ping" style="animation-delay:2s"/>
+                  <circle cx="280" cy="180" r="4" fill="#ef4444" class="animate-ping" style="animation-delay:2.5s"/>
+                </svg>
+              </div>
+
+              <div class="text-center mt-6">
+                <h3 class="text-xl font-bold text-white mb-2">Neural Processing</h3>
+                <p class="text-gray-400 text-sm">Real-time AI optimization active</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-24 bg-gradient-to-b from-black via-gray-900/50 to-black">
+    <div class="container">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="text-4xl lg:text-5xl font-bold text-gradient-ai mb-2">500+</div>
+          <div class="text-gray-400">AI Websites Created</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl lg:text-5xl font-bold text-gradient-ai mb-2">99.9%</div>
+          <div class="text-gray-400">Uptime Guarantee</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl lg:text-5xl font-bold text-gradient-ai mb-2">0.8s</div>
+          <div class="text-gray-400">Average Load Time</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl lg:text-5xl font-bold text-gradient-ai mb-2">24/7</div>
+          <div class="text-gray-400">AI Monitoring</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-32 bg-gradient-to-r from-purple-900 via-violet-900 to-purple-900 relative overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_40%,rgba(139,92,246,0.3),transparent_50%)] bg-[radial-gradient(circle_at_70%_60%,rgba(236,72,153,0.2),transparent_50%)]"></div>
+    </div>
+
+    <div class="container relative z-10 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          Ready to Experience
+          <span class="text-gradient-ai block">AI-Powered Web Design?</span>
+        </h2>
+        <p class="text-gray-300 text-xl mb-12 leading-relaxed">
+          Join hundreds of businesses that have transformed their online presence with our cutting-edge AI technology.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <a href="contact.html" class="btn-ai group">
+            <svg class="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+            Start Your AI Journey
+          </a>
+          <a href="services.html" class="btn-secondary group">
+            <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.586a1 1 0 01.707.293l.707.707A1 1 0 0012.414 11H15m2 0h1.586a1 1 0 01.707.293l.707.707A1 1 0 0020.414 12H21"/>
+            </svg>
+            View AI Services
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Feature Story -->
-  <section class="py-24 bg-gradient-to-b from-gray-900 via-purple-900/50 to-black relative overflow-hidden">
-    <!-- Background decoration -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(147,51,234,0.1),transparent_50%)] bg-[radial-gradient(circle_at_70%_80%,rgba(236,72,153,0.1),transparent_50%)]"></div>
-    
-    <div class="container relative z-10 grid gap-16 lg:grid-cols-2 lg:items-center">
-      
-      <div class="order-2 lg:order-1">
-        <div class="rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10 floating-animation">
-          <img src="https://wallpapercave.com/wp/wp5472897.jpg"
-               alt="Team brainstorming around futuristic UI"
-               class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
-               width="600" height="400" loading="lazy" />
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-gray-900 via-black to-gray-900 text-gray-300 py-16 relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: linear-gradient(45deg, rgba(139,92,246,0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(139,92,246,0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(139,92,246,0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(139,92,246,0.1) 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px;"></div>
+    </div>
+
+    <div class="container relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/262379dc-7d7f-4f73-bbf9-fb5c7b3e8b18.png"
+                   alt="PurpleWave logo" class="h-8 w-auto"/>
+            </div>
+            <span class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">PurpleWave</span>
+          </div>
+          <p class="text-gray-400 leading-relaxed max-w-md mb-6">
+            Pioneering the future of web design with artificial intelligence. Creating experiences that adapt, learn, and evolve.
+          </p>
+          <div class="flex gap-4">
+            <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+              <span class="text-white text-sm font-bold">AI</span>
+            </div>
+            <div class="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+              <span class="text-white text-sm font-bold">⚡</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-white mb-4">AI Services</h4>
+          <ul class="space-y-3">
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Smart Web Design</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">AI Analytics</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Neural Optimization</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Adaptive UX</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-white mb-4">Company</h4>
+          <ul class="space-y-3">
+            <li><a href="aboutus.html" class="text-gray-400 hover:text-white transition-colors">About AI</a></li>
+            <li><a href="events.html" class="text-gray-400 hover:text-white transition-colors">AI Events</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+            <li><a href="privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
+          </ul>
         </div>
       </div>
-      
-      <div class="order-1 lg:order-2">
-        <div class="glass-card p-10 lg:p-12">
-          <div class="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 rounded-full text-purple-200 text-sm font-medium mb-6">
-            <span class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></span>
-            Innovation at Scale
-          </div>
-          <h2 class="text-4xl lg:text-5xl font-extrabold mb-6 text-gradient leading-tight">
-            How PurpleWave Is Transforming Online Experiences
+
+      <div class="border-t border-gray-800 pt-8 text-center">
+        <p class="text-gray-500">© <span id="year"></span> PurpleWave AI. Powered by next-generation artificial intelligence. | Built for the future</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
           </h2>
           <p class="text-purple-200/90 leading-relaxed mb-4 text-lg">
             PurpleWave fuses cutting-edge design with performance-first engineering, ensuring every pixel works as hard as it looks.
@@ -366,20 +693,6 @@
     // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Optimized carousel function with debouncing
-    let scrollTimeout;
-    function scrollCarousel(direction) {
-      if (scrollTimeout) return;
-      
-      const carousel = document.getElementById('carousel');
-      const scrollAmount = 320;
-      carousel.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
-      
-      scrollTimeout = setTimeout(() => {
-        scrollTimeout = null;
-      }, 300);
-    }
-
     // Intersection Observer for animations
     const observerOptions = {
       threshold: 0.1,
@@ -396,8 +709,34 @@
 
     // Observe elements for animation
     document.addEventListener('DOMContentLoaded', () => {
-      const animateElements = document.querySelectorAll('.glass-card, .service-card');
+      const animateElements = document.querySelectorAll('.glass-card, .feature-card');
       animateElements.forEach(el => observer.observe(el));
+    });
+
+    // Typing effect
+    document.addEventListener('DOMContentLoaded', () => {
+      const typingElement = document.querySelector('.typing-effect');
+      if (typingElement) {
+        const text = typingElement.textContent;
+        typingElement.textContent = '';
+        let i = 0;
+        const typeWriter = () => {
+          if (i < text.length) {
+            typingElement.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+          }
+        };
+        setTimeout(typeWriter, 1000);
+      }
+    });
+
+    // Particle animation enhancement
+    document.addEventListener('DOMContentLoaded', () => {
+      const particles = document.querySelectorAll('.particle');
+      particles.forEach((particle, index) => {
+        particle.style.animationDelay = `${index * 0.5}s`;
+      });
     });
 
     // Load Elfsight chatbot after page load
@@ -407,7 +746,7 @@
         div.className = 'elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730';
         div.setAttribute('data-elfsight-app-lazy', '');
         document.body.appendChild(div);
-         
+
         const script = document.createElement('script');
         script.src = 'https://static.elfsight.com/platform/platform.js';
         script.async = true;
@@ -421,55 +760,64 @@
       link.rel = 'stylesheet';
       link.href = 'data:text/css;base64,' + btoa(`
         /* Additional animations and styles */
-        @keyframes fadeIn { 
-          from { 
-            opacity: 0; 
-            transform: translateY(20px); 
-          } 
-          to { 
-            opacity: 1; 
-            transform: translateY(0); 
-          } 
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        .animate-fade-in { 
-          animation: fadeIn 0.8s ease-out forwards; 
-          opacity: 0; 
+        .animate-fade-in {
+          animation: fadeIn 0.8s ease-out forwards;
+          opacity: 0;
         }
-        
+
         /* Smooth scrolling */
         html { scroll-behavior: smooth }
-        
+
         /* Focus states */
-        a:focus, button:focus { 
-          outline: 2px solid #a78bfa; 
-          outline-offset: 2px 
+        a:focus, button:focus {
+          outline: 2px solid #a78bfa;
+          outline-offset: 2px
         }
-        
+
         /* Enhanced hover effects */
-        .btn-primary:hover { 
-          transform: translateY(-2px); 
-          box-shadow: 0 10px 25px rgba(147,51,234,0.3) 
+        .btn-ai:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 20px 40px rgba(139,92,246,0.4);
+          background: linear-gradient(135deg,#7c3aed 0%,#db2777 50%,#0891b2 100%);
         }
-        
-        .service-card:hover .service-icon {
+
+        .feature-card:hover .service-icon {
           transform: scale(1.1) rotate(5deg);
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 640px) {
           .hero-bg { background-attachment: scroll }
-          .text-5xl { font-size: 2.5rem }
-          .text-7xl { font-size: 3rem }
-          .container { padding: 0 0.5rem }
+          .text-6xl { font-size: 2.5rem }
+          .text-8xl { font-size: 3rem }
+          .text-9xl { font-size: 3.5rem }
+          .container { padding: 0 1rem }
         }
-        
-        /* Custom scrollbar for carousel */
-        #carousel::-webkit-scrollbar {
-          display: none;
+
+        /* Neural network pulse effect */
+        .neural-node {
+          animation: neural-pulse 2s ease-in-out infinite;
         }
-        #carousel {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
+
+        @keyframes neural-pulse {
+          0%, 100% {
+            transform: scale(1);
+            opacity: 0.7;
+          }
+          50% {
+            transform: scale(1.2);
+            opacity: 1;
+          }
         }
       `);
       document.head.appendChild(link);
