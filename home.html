@@ -1,828 +1,614 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="PurpleWave creates sleek, modern websites with a bold black and purple theme." />
-  <meta name="keywords" content="web design, branding, purplewave, modern websites" />
-  <title>PurpleWave - Modern Web Design</title>
-  
-  <!-- Preload critical resources -->
-  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://user-gen-media-assets.s3.amazonaws.com">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PurpleWave provides professional black, purple, and white web design for businesses." />
+  <meta name="keywords" content="purple web design, branding, black purple website, professional website" />
+  <title>PurpleWave — Professional Web Studio</title>
   <link rel="icon" type="image/png" href="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/ae9cf178-8df9-4332-a028-bec658ac4510.png" />
 
-        <link
-          id="frgm-css"
-          rel="stylesheet"
-          href="https://preprod-1e2f308t.fragmatic.io/js-app/css/ce0014ec/frgm-no-flicker.css"
-          crossOrigin="anonymous"
-        />
-        <script
-          id="frgm-tracker"
-          src="https://preprod-1e2f308t.fragmatic.io/js-app/js/ce0014ec-tracker.js"
-          defer>
-        </script>
-      
-      
-
-  <!-- Load Tailwind asynchronously -->
-  <script>
-    (function() {
-      const script = document.createElement('script');
-      script.src = 'https://cdn.tailwindcss.com';
-      script.async = true;
-      document.head.appendChild(script);
-    })();
-  </script>
-  
-  <!-- Google tag (gtag.js) - Deferred loading -->
-  <script>
-    window.addEventListener('load', function() {
-      const script = document.createElement('script');
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-YMPCVDJBLZ';
-      script.async = true;
-      document.head.appendChild(script);
-      
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-YMPCVDJBLZ');
-    });
-  </script>
-
-  <!-- Critical inline CSS (minimal) -->
   <style>
-    /* Critical above-fold styles only */
-    body{background:#0a0a0a;color:#e5e7eb;font-family:'Inter',system-ui,-apple-system,sans-serif;margin:0;overflow-x:hidden}
-    .hero-bg{background:linear-gradient(135deg,#0a0a0a 0%,#1a0a2e 50%,#0a0a0a 100%);min-height:100vh;position:relative;overflow:hidden}
-    .nav-blur{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,10,10,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(147,51,234,0.2)}
-    .container{max-width:1400px;margin:0 auto;padding:0 2rem}
-    .btn-ai{background:linear-gradient(135deg,#8b5cf6 0%,#ec4899 50%,#06b6d4 100%);color:#fff;padding:1rem 2.5rem;border-radius:50px;text-decoration:none;display:inline-flex;align-items:center;gap:0.75rem;font-weight:600;letter-spacing:0.025em;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);transform:translateY(0);box-shadow:0 8px 32px rgba(139,92,246,0.3);border:1px solid rgba(255,255,255,0.1)}
-    .btn-ai:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(139,92,246,0.4);background:linear-gradient(135deg,#7c3aed 0%,#db2777 50%,#0891b2 100%)}
-    .btn-secondary{background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);color:#e5e7eb;padding:1rem 2.5rem;border-radius:50px;text-decoration:none;display:inline-flex;align-items:center;gap:0.75rem;font-weight:500;border:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease}
-    .btn-secondary:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px)}
-    .text-gradient-ai{background:linear-gradient(135deg,#8b5cf6,#ec4899,#06b6d4,#10b981);background-clip:text;-webkit-background-clip:text;color:transparent;font-weight:700;background-size:200% 200%;animation:gradient-shift 8s ease-in-out infinite}
-    @keyframes gradient-shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-    .glass-card{background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:2.5rem;transition:all 0.4s ease}
-    .glass-card:hover{background:rgba(255,255,255,0.05);transform:translateY(-8px);box-shadow:0 25px 50px rgba(0,0,0,0.25)}
-    .feature-card{background:linear-gradient(135deg,rgba(139,92,246,0.1) 0%,rgba(236,72,153,0.1) 100%);border:1px solid rgba(139,92,246,0.2);border-radius:20px;padding:2rem;transition:all 0.4s ease;position:relative;overflow:hidden}
-    .feature-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);transition:all 0.5s ease}
-    .feature-card:hover::before{left:100%}
-    .feature-card:hover{transform:translateY(-8px);border-color:#8b5cf6;box-shadow:0 20px 40px rgba(139,92,246,0.2)}
-    .floating-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-    .particle{position:absolute;background:radial-gradient(circle,rgba(139,92,246,0.3) 0%,transparent 70%);border-radius:50%;animation:float-particle 20s linear infinite}
-    .particle:nth-child(1){width:4px;height:4px;top:10%;left:10%;animation-delay:0s}
-    .particle:nth-child(2){width:6px;height:6px;top:20%;left:80%;animation-delay:2s}
-    .particle:nth-child(3){width:3px;height:3px;top:60%;left:20%;animation-delay:4s}
-    .particle:nth-child(4){width:5px;height:5px;top:80%;left:70%;animation-delay:6s}
-    .particle:nth-child(5){width:4px;height:4px;top:40%;left:90%;animation-delay:8s}
-    @keyframes float-particle{0%{transform:translateY(0px) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh) rotate(360deg);opacity:0}}
-    .ai-glow{position:relative}
-    .ai-glow::after{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,#8b5cf6,#ec4899,#06b6d4);border-radius:inherit;z-index:-1;opacity:0.3;filter:blur(8px);animation:pulse-glow 4s ease-in-out infinite}
-    @keyframes pulse-glow{0%,100%{opacity:0.3;transform:scale(1)}50%{opacity:0.6;transform:scale(1.02)}}
-    .typing-effect{overflow:hidden;border-right:2px solid #8b5cf6;animation:typing 3.5s steps(40,end),blink-caret 0.75s step-end infinite}
-    @keyframes typing{from{width:0}to{width:100%}}
-    @keyframes blink-caret{from,to{border-color:#8b5cf6}50%{border-color:transparent}}
-    .scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:bounce 2s infinite}
-    @keyframes bounce{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}40%{transform:translateX(-50%) translateY(-10px)}60%{transform:translateX(-50%) translateY(-5px)}}
-    @keyframes grid-move{0%{transform:translate(0,0)}100%{transform:translate(60px,60px)}}
-  </style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #f5f5f7;
+      background: #030306;
+    }
 
-</head>
+    * {
+      box-sizing: border-box;
+    }
 
-<body>
-  <!-- Navigation -->
-  <nav class="nav-blur">
-    <div class="container flex justify-between items-center py-6">
-      <a href="https://purplewave.netlify.app" class="flex items-center gap-3 group">
-        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-          <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/262379dc-7d7f-4f73-bbf9-fb5c7b3e8b18.png"
-               alt="PurpleWave logo" class="h-8 w-auto" loading="eager"/>
-        </div>
-        <span class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">PurpleWave</span>
-      </a>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #050506;
+      color: #f5f5f7;
+    }
 
-      <ul class="hidden md:flex space-x-8 text-gray-300">
-        <li><a href="https://purplewave.netlify.app" class="hover:text-white transition-colors relative group">Home
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></span></a></li>
-        <li><a href="aboutus.html" class="hover:text-white transition-colors relative group">About
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></span></a></li>
-        <li><a href="services.html" class="hover:text-white transition-colors relative group">Services
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></span></a></li>
-        <li><a href="events.html" class="hover:text-white transition-colors relative group">Events
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></span></a></li>
-        <li><a href="contact.html" class="hover:text-white transition-colors relative group">Contact
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></span></a></li>
-      </ul>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-      <button class="md:hidden text-gray-300 hover:text-white">
-        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
-  </nav>
+    button,
+    .button {
+      border: none;
+      cursor: pointer;
+      font: inherit;
+    }
 
-  <!-- Hero Section -->
-  <section class="hero-bg relative flex items-center justify-center min-h-screen">
-    <!-- Floating Particles -->
-    <div class="floating-particles">
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-    </div>
+    .page-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      background: rgba(4, 4, 10, 0.95);
+      border-bottom: 1px solid #261843;
+      z-index: 100;
+    }
 
-    <!-- Animated Background Grid -->
-    <div class="absolute inset-0 opacity-20">
-      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(139,92,246,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
-    </div>
+    .container {
+      width: min(1200px, calc(100% - 3rem));
+      margin: 0 auto;
+    }
 
-    <!-- Content -->
-    <div class="relative z-10 container text-center">
-      <div class="max-w-6xl mx-auto">
-        <!-- Status Badge -->
-        <div class="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-300 text-sm font-medium mb-8">
-          <div class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-          AI-Powered Web Solutions
-        </div>
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
 
-        <!-- Main Heading -->
-        <h1 class="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 leading-tight">
-          <span class="text-gradient-ai">PurpleWave</span>
-          <br>
-          <span class="text-white text-4xl md:text-6xl lg:text-7xl font-light">AI Web Studio</span>
-        </h1>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
 
-        <!-- Typing Effect Subtitle -->
-        <div class="text-xl md:text-2xl text-gray-300 mb-12 h-16 flex items-center justify-center">
-          <span class="typing-effect">Crafting the future of digital experiences with AI precision</span>
-        </div>
+    .brand mark {
+      color: #fff;
+      background: transparent;
+    }
 
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-          <a href="services.html" class="btn-ai group">
-            <svg class="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-            Explore AI Services
-          </a>
-          <a href="contact.html" class="btn-secondary group">
-            <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-            </svg>
-            Start Conversation
-          </a>
-        </div>
+    .brand .accent {
+      color: #7c35a1;
+    }
 
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-          <div class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-            <div class="w-1 h-3 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full mt-2 animate-bounce"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-size: 0.95rem;
+      color: #c8c8cb;
+    }
 
-  <!-- AI Features Section -->
-  <section class="py-32 bg-gradient-to-b from-gray-900/50 to-black relative overflow-hidden">
-    <!-- Animated Background -->
-    <div class="absolute inset-0">
-      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-900/20 via-transparent to-pink-900/20"></div>
-      <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay:2s"></div>
-    </div>
+    .nav-links a:hover {
+      color: #fff;
+    }
 
-    <div class="container relative z-10">
-      <div class="text-center mb-20">
-        <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-full text-purple-300 text-sm font-medium mb-6">
-          <div class="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
-          AI-Powered Capabilities
-        </div>
-        <h2 class="text-5xl lg:text-6xl font-bold mb-6">
-          <span class="text-gradient-ai">Next-Gen</span>
-          <br>
-          <span class="text-white">Web Intelligence</span>
-        </h2>
-        <p class="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
-          Harnessing the power of artificial intelligence to create websites that learn, adapt, and evolve with your business needs.
-        </p>
-      </div>
+    main {
+      padding-top: 92px;
+    }
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Feature 1 -->
-        <div class="feature-card group">
-          <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
-            <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-4">Smart Analytics</h3>
-          <p class="text-gray-300 leading-relaxed">AI-driven insights that predict user behavior and optimize your website performance in real-time.</p>
-        </div>
+    .hero {
+      min-height: calc(100vh - 92px);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 6rem 0;
+    }
 
-        <!-- Feature 2 -->
-        <div class="feature-card group">
-          <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
-            <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-4">Adaptive Design</h3>
-          <p class="text-gray-300 leading-relaxed">Self-optimizing layouts that automatically adjust to user preferences and device capabilities.</p>
-        </div>
+    .hero-copy {
+      max-width: 650px;
+    }
 
-        <!-- Feature 3 -->
-        <div class="feature-card group">
-          <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
-            <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-4">Instant Deployment</h3>
-          <p class="text-gray-300 leading-relaxed">Lightning-fast deployment with automated testing, optimization, and performance monitoring.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.8rem;
+      color: #8f7fc5;
+    }
 
-  <!-- AI Showcase Section -->
-  <section class="py-32 bg-gradient-to-r from-purple-900/20 via-black to-cyan-900/20 relative overflow-hidden">
-    <!-- Animated Grid Background -->
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(139,92,246,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.3) 1px, transparent 1px); background-size: 60px 60px; animation: grid-move 20s linear infinite;"></div>
-    </div>
+    .hero-title {
+      margin: 1.2rem 0 1.4rem;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+    }
 
-    <div class="container relative z-10">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <!-- Content -->
-        <div>
-          <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 rounded-full text-cyan-300 text-sm font-medium mb-6">
-            <div class="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-pulse"></div>
-            Neural Networks
-          </div>
-          <h2 class="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Powered by
-            <span class="text-gradient-ai block">Advanced AI</span>
-          </h2>
-          <p class="text-gray-300 text-lg leading-relaxed mb-8">
-            Our proprietary AI algorithms analyze millions of data points to create websites that not only look stunning but perform exceptionally across all metrics.
-          </p>
+    .hero-title strong {
+      display: block;
+      color: #fff;
+    }
 
-          <div class="space-y-4 mb-8">
-            <div class="flex items-center gap-4">
-              <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
-                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-              </div>
-              <span class="text-gray-300">99.9% Uptime Guarantee</span>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-              </div>
-              <span class="text-gray-300">Lightning Fast Load Times</span>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                </svg>
-              </div>
-              <span class="text-gray-300">AI-Powered Optimization</span>
-            </div>
-          </div>
+    .hero-copy p {
+      max-width: 44rem;
+      line-height: 1.75;
+      color: #d8d8dd;
+      margin: 1.4rem 0 2.2rem;
+      font-size: 1.05rem;
+    }
 
-          <a href="aboutus.html" class="btn-ai">
-            Learn More About Our AI
-          </a>
-        </div>
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
 
-        <!-- Visual Element -->
-        <div class="relative">
-          <div class="ai-glow rounded-3xl p-8">
-            <div class="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50">
-              <!-- AI Brain Visualization -->
-              <div class="relative h-80 flex items-center justify-center">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="w-32 h-32 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-full flex items-center justify-center animate-pulse">
-                    <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-cyan-400 rounded-full flex items-center justify-center">
-                      <svg class="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
+    .button-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      background: #7c35a1;
+      color: #fff;
+      padding: 1rem 1.9rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
 
-                <!-- Neural Network Connections -->
-                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 320">
-                  <defs>
-                    <linearGradient id="neural-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.3"/>
-                      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.3"/>
-                    </linearGradient>
-                  </defs>
+    .button-primary:hover {
+      background: #6d2c90;
+      transform: translateY(-2px);
+    }
 
-                  <!-- Connection lines with animation -->
-                  <path d="M100,100 L200,80 L300,120" stroke="url(#neural-gradient)" stroke-width="2" fill="none" class="animate-pulse"/>
-                  <path d="M120,200 L200,160 L280,180" stroke="url(#neural-gradient)" stroke-width="2" fill="none" class="animate-pulse" style="animation-delay:1s"/>
-                  <path d="M80,150 L200,120 L320,140" stroke="url(#neural-gradient)" stroke-width="2" fill="none" class="animate-pulse" style="animation-delay:2s"/>
-                  <path d="M140,250 L200,200 L260,220" stroke="url(#neural-gradient)" stroke-width="2" fill="none" class="animate-pulse" style="animation-delay:0.5s"/>
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 1.9rem;
+      border-radius: 999px;
+      border: 1px solid #7c35a1;
+      color: #f5f5f7;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
 
-                  <!-- Nodes -->
-                  <circle cx="100" cy="100" r="4" fill="#8b5cf6" class="animate-ping"/>
-                  <circle cx="200" cy="80" r="4" fill="#ec4899" class="animate-ping" style="animation-delay:0.5s"/>
-                  <circle cx="300" cy="120" r="4" fill="#06b6d4" class="animate-ping" style="animation-delay:1s"/>
-                  <circle cx="120" cy="200" r="4" fill="#10b981" class="animate-ping" style="animation-delay:1.5s"/>
-                  <circle cx="200" cy="160" r="4" fill="#f59e0b" class="animate-ping" style="animation-delay:2s"/>
-                  <circle cx="280" cy="180" r="4" fill="#ef4444" class="animate-ping" style="animation-delay:2.5s"/>
-                </svg>
-              </div>
+    .button-secondary:hover {
+      background: rgba(124, 53, 161, 0.12);
+      transform: translateY(-2px);
+    }
 
-              <div class="text-center mt-6">
-                <h3 class="text-xl font-bold text-white mb-2">Neural Processing</h3>
-                <p class="text-gray-400 text-sm">Real-time AI optimization active</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
 
-  <!-- Stats Section -->
-  <section class="py-24 bg-gradient-to-b from-black via-gray-900/50 to-black">
-    <div class="container">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        <div class="text-center">
-          <div class="text-4xl lg:text-5xl font-bold text-gradient-ai mb-2">500+</div>
-          <div class="text-gray-400">AI Websites Created</div>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl lg:text-5xl font-bold text-gradient-ai mb-2">99.9%</div>
-          <div class="text-gray-400">Uptime Guarantee</div>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl lg:text-5xl font-bold text-gradient-ai mb-2">0.8s</div>
-          <div class="text-gray-400">Average Load Time</div>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl lg:text-5xl font-bold text-gradient-ai mb-2">24/7</div>
-          <div class="text-gray-400">AI Monitoring</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    .stat-card {
+      background: #09090d;
+      border: 1px solid #2a1e46;
+      border-radius: 20px;
+      padding: 1.5rem;
+    }
 
-  <!-- CTA Section -->
-  <section class="py-32 bg-gradient-to-r from-purple-900 via-violet-900 to-purple-900 relative overflow-hidden">
-    <!-- Animated Background -->
-    <div class="absolute inset-0">
-      <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_40%,rgba(139,92,246,0.3),transparent_50%)] bg-[radial-gradient(circle_at_70%_60%,rgba(236,72,153,0.2),transparent_50%)]"></div>
-    </div>
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
 
-    <div class="container relative z-10 text-center">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          Ready to Experience
-          <span class="text-gradient-ai block">AI-Powered Web Design?</span>
-        </h2>
-        <p class="text-gray-300 text-xl mb-12 leading-relaxed">
-          Join hundreds of businesses that have transformed their online presence with our cutting-edge AI technology.
-        </p>
+    .stat-label {
+      color: #b0a8d5;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
 
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <a href="contact.html" class="btn-ai group">
-            <svg class="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-            Start Your AI Journey
-          </a>
-          <a href="services.html" class="btn-secondary group">
-            <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.586a1 1 0 01.707.293l.707.707A1 1 0 0012.414 11H15m2 0h1.586a1 1 0 01.707.293l.707.707A1 1 0 0020.414 12H21"/>
-            </svg>
-            View AI Services
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+    .highlight-section,
+    .services-section,
+    .work-section,
+    .contact-section {
+      padding: 6rem 0;
+    }
 
-  <!-- Footer -->
-  <footer class="bg-gradient-to-r from-gray-900 via-black to-gray-900 text-gray-300 py-16 relative overflow-hidden">
-    <!-- Background Pattern -->
-    <div class="absolute inset-0 opacity-5">
-      <div class="absolute inset-0" style="background-image: linear-gradient(45deg, rgba(139,92,246,0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(139,92,246,0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(139,92,246,0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(139,92,246,0.1) 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px;"></div>
-    </div>
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-bottom: 2rem;
+    }
 
-    <div class="container relative z-10">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-        <div class="md:col-span-2">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-              <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/262379dc-7d7f-4f73-bbf9-fb5c7b3e8b18.png"
-                   alt="PurpleWave logo" class="h-8 w-auto"/>
-            </div>
-            <span class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">PurpleWave</span>
-          </div>
-          <p class="text-gray-400 leading-relaxed max-w-md mb-6">
-            Pioneering the future of web design with artificial intelligence. Creating experiences that adapt, learn, and evolve.
-          </p>
-          <div class="flex gap-4">
-            <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
-              <span class="text-white text-sm font-bold">AI</span>
-            </div>
-            <div class="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
-              <span class="text-white text-sm font-bold">⚡</span>
-            </div>
-          </div>
-        </div>
+    .section-tag {
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8f7fc5;
+    }
 
-        <div>
-          <h4 class="font-semibold text-white mb-4">AI Services</h4>
-          <ul class="space-y-3">
-            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Smart Web Design</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">AI Analytics</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Neural Optimization</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Adaptive UX</a></li>
-          </ul>
-        </div>
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      max-width: 660px;
+    }
 
-        <div>
-          <h4 class="font-semibold text-white mb-4">Company</h4>
-          <ul class="space-y-3">
-            <li><a href="aboutus.html" class="text-gray-400 hover:text-white transition-colors">About AI</a></li>
-            <li><a href="events.html" class="text-gray-400 hover:text-white transition-colors">AI Events</a></li>
-            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-            <li><a href="privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
-          </ul>
-        </div>
-      </div>
+    .section-copy {
+      max-width: 680px;
+      color: #c7c3d2;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
 
-      <div class="border-t border-gray-800 pt-8 text-center">
-        <p class="text-gray-500">© <span id="year"></span> PurpleWave AI. Powered by next-generation artificial intelligence. | Built for the future</p>
-      </div>
-    </div>
-  </footer>
+    .highlight-card,
+    .service-card,
+    .project-card,
+    .contact-card {
+      background: #08080d;
+      border: 1px solid #271d3f;
+      border-radius: 24px;
+      padding: 2rem;
+    }
 
-</body>
-</html>
-          </h2>
-          <p class="text-purple-200/90 leading-relaxed mb-4 text-lg">
-            PurpleWave fuses cutting-edge design with performance-first engineering, ensuring every pixel works as hard as it looks.
-          </p>
-          <p class="text-purple-200/90 leading-relaxed mb-8 text-lg">
-            From bespoke websites to real-time analytics, we deliver tools that let businesses grow with confidence.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="#contact" class="btn-primary group">
-              Let's Talk
-              <svg class="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-              </svg>
-            </a>
-            <a href="services.html" class="text-purple-200 hover:text-white transition-colors underline underline-offset-4">
-              Our Services
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    .highlight-grid,
+    .service-grid,
+    .project-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
 
-  <!-- Featured Cases -->
-  <section class="py-16 bg-gradient-to-r from-purple-900 to-black text-white">
-    <div class="container">
-      <h2 class="text-3xl md:text-4xl font-bold mb-10">Our Featured Cases</h2>
+    .highlight-grid {
+      grid-template-columns: 1.4fr 0.9fr;
+      align-items: center;
+    }
 
-      <!-- Optimized Carousel -->
-      <div class="relative overflow-hidden">
-        <div id="carousel" class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4" style="scrollbar-width:none;-ms-overflow-style:none">
+    .highlight-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
 
-          <!-- Optimized Cards with proper image dimensions -->
-          <div class="relative min-w-[300px] h-[400px] snap-start rounded-xl shadow-lg bg-gray-800">
-            <img src="https://wallpapers.com/images/thumbnail/dark-anime-guy-4k-phone-axewwxcp1z1szqwl.webp"
-                 alt="The Name Game project" class="w-full h-full object-cover rounded-xl"
-                 width="300" height="400" loading="lazy">
-            <div class="absolute inset-0 bg-black/40 rounded-xl p-4 flex flex-col justify-between">
-              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Project case</span>
-              <div>
-                <h3 class="text-xl font-bold mb-1">The Name Game</h3>
-                <p class="text-sm">VISMA</p>
-              </div>
-              <a href="#" class="underline text-sm">DISCOVER CASE</a>
-            </div>
-          </div>
+    .highlight-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
 
-          <!-- Add more optimized cards... -->
-          <div class="relative min-w-[300px] h-[400px] snap-start rounded-xl shadow-lg bg-gray-800">
-            <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/39465ec3-449f-42f6-837c-2b6c1628eece.png"
-                 alt="Ziggo Sport project" class="w-full h-full object-cover rounded-xl"
-                 width="300" height="400" loading="lazy">
-            <div class="absolute inset-0 bg-black/40 rounded-xl p-4 flex flex-col justify-between">
-              <span class="px-3 py-1 text-xs bg-white text-black rounded-full self-start">Customer case</span>
-              <div>
-                <h3 class="text-xl font-bold mb-1">Ziggo Sport</h3>
-                <p class="text-sm">Entertainment</p>
-              </div>
-              <a href="#" class="underline text-sm">DISCOVER CASE</a>
-            </div>
-          </div>
+    .highlight-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: #7c35a1;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
 
-        </div>
+    .highlight-item strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
 
-        <!-- Carousel Controls -->
-        <button onclick="scrollCarousel(-1)" 
-                class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow z-10"
-                aria-label="Previous">
-          ❮
-        </button>
-        <button onclick="scrollCarousel(1)" 
-                class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow z-10"
-                aria-label="Next">
-          ❯
-        </button>
+    .highlight-item span {
+      color: #b9b2d5;
+      line-height: 1.7;
+      font-size: 0.97rem;
+    }
 
-      </div>
-    </div>
-  </section>
+    .service-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 
-  <!-- Services Section -->
-  <section id="services" class="py-24 bg-gradient-to-br from-purple-950 via-black to-purple-900 relative overflow-hidden">
-    <!-- Background pattern -->
-    <div class="absolute inset-0 opacity-5">
-      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, rgba(147,51,234,0.3) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(236,72,153,0.3) 0%, transparent 50%);"></div>
-    </div>
-    
-    <div class="container relative z-10">
-      <div class="text-center mb-16">
-        <div class="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 rounded-full text-purple-200 text-sm font-medium mb-6">
-          <span class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></span>
-          What We Do
-        </div>
-        <h2 class="text-4xl lg:text-5xl font-extrabold text-gradient mb-6">
-          Our Services
-        </h2>
-        <p class="text-purple-200/80 text-lg max-w-2xl mx-auto">
-          From concept to launch, we provide end-to-end solutions that drive results
-        </p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="service-card group">
-          <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-purple-200 mb-4">Web Design</h3>
-          <p class="text-purple-400 leading-relaxed">Responsive, modern, and elegant websites tailored to your needs with cutting-edge technologies.</p>
-        </div>
-        
-        <div class="service-card group">
-          <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"/>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-purple-200 mb-4">Brand Identity</h3>
-          <p class="text-purple-400 leading-relaxed">Color themes, logos, and brand kits to establish your presence and create lasting impressions.</p>
-        </div>
-        
-        <div class="service-card group">
-          <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-purple-200 mb-4">Hosting & Support</h3>
-          <p class="text-purple-400 leading-relaxed">Fast hosting and reliable ongoing support for your site with 24/7 monitoring and maintenance.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    .service-card h3,
+    .project-card h3,
+    .contact-card h3 {
+      margin-top: 0;
+      color: #fff;
+      font-size: 1.25rem;
+      margin-bottom: 0.9rem;
+    }
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-24 bg-gradient-to-t from-black via-purple-950/50 to-black relative overflow-hidden">
-    <!-- Background decoration -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(147,51,234,0.05),transparent_70%)]"></div>
-    
-    <div class="container relative z-10 text-center">
-      <div class="glass-card p-12 max-w-2xl mx-auto">
-        <div class="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 rounded-full text-purple-200 text-sm font-medium mb-6">
-          <span class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></span>
-          Ready to Start?
-        </div>
-        <h2 class="text-4xl lg:text-5xl font-extrabold text-gradient mb-6">
-          Contact Us
-        </h2>
-        <p class="text-purple-200/90 text-lg mb-8 leading-relaxed">
-          Let's bring your ideas to life. Reach out today and let's create something amazing together.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="mailto:contact@purplewave.com" class="btn-primary group">
-            Email Us
-            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-          </a>
-          <a href="contact.html" class="text-purple-200 hover:text-white transition-colors underline underline-offset-4">
-            View Contact Form
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+    .service-card p,
+    .project-card p,
+    .contact-card p {
+      color: #b8b1d8;
+      line-height: 1.8;
+      font-size: 0.98rem;
+    }
 
-  <!-- Footer -->
-  <footer class="bg-gradient-to-r from-purple-950 via-black to-purple-950 text-purple-200 py-16 relative overflow-hidden">
-    <!-- Background pattern -->
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute inset-0" style="background-image: linear-gradient(45deg, rgba(147,51,234,0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(147,51,234,0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(147,51,234,0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(147,51,234,0.1) 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px;"></div>
-    </div>
-    
-    <div class="container relative z-10">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-        <div class="md:col-span-2">
-          <div class="flex items-center gap-3 mb-4">
-            <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/262379dc-7d7f-4f73-bbf9-fb5c7b3e8b18.png"
-                 alt="PurpleWave logo" class="h-10 w-auto" width="40" height="40"/>
-            <span class="text-2xl font-bold text-purple-200">PurpleWave</span>
-          </div>
-          <p class="text-purple-300/80 leading-relaxed max-w-md">
-            Creating bold, modern web experiences that drive results and captivate audiences.
-          </p>
-        </div>
-        
-        <div>
-          <h4 class="font-semibold text-white mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="aboutus.html" class="text-purple-300/80 hover:text-white transition-colors">About Us</a></li>
-            <li><a href="services.html" class="text-purple-300/80 hover:text-white transition-colors">Services</a></li>
-            <li><a href="events.html" class="text-purple-300/80 hover:text-white transition-colors">Events</a></li>
-            <li><a href="contact.html" class="text-purple-300/80 hover:text-white transition-colors">Contact</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="font-semibold text-white mb-4">Legal</h4>
-          <ul class="space-y-2">
-            <li><a href="privacy.html" class="text-purple-300/80 hover:text-white transition-colors">Privacy Policy</a></li>
-            <li><a href="consent.html" class="text-purple-300/80 hover:text-white transition-colors">Cookie Consent</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="border-t border-purple-800/50 pt-8 text-center">
-        <p class="text-purple-300/60">© <span id="year"></span> PurpleWave. All rights reserved. | Made with ❤️ for the web</p>
-      </div>
-    </div>
-  </footer>
+    .project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-  <!-- Load remaining CSS and JS after page load -->
-  <script>
-    // Set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
 
-    // Intersection Observer for animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+    .project-sample {
+      width: 100%;
+      height: 240px;
+      background: #14131a;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      color: #aea5d6;
+      font-weight: 600;
+    }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
-        }
-      });
-    }, observerOptions);
+    .project-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: #c7c1da;
+    }
 
-    // Observe elements for animation
-    document.addEventListener('DOMContentLoaded', () => {
-      const animateElements = document.querySelectorAll('.glass-card, .feature-card');
-      animateElements.forEach(el => observer.observe(el));
-    });
+    .contact-section {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(320px, 420px));
+      justify-content: center;
+      gap: 2rem;
+      align-items: stretch;
+      max-width: 940px;
+      margin: 0 auto;
+    }
 
-    // Typing effect
-    document.addEventListener('DOMContentLoaded', () => {
-      const typingElement = document.querySelector('.typing-effect');
-      if (typingElement) {
-        const text = typingElement.textContent;
-        typingElement.textContent = '';
-        let i = 0;
-        const typeWriter = () => {
-          if (i < text.length) {
-            typingElement.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 50);
-          }
-        };
-        setTimeout(typeWriter, 1000);
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .contact-card strong {
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .contact-card a {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    footer {
+      border-top: 1px solid #2f1f4f;
+      padding: 3rem 0 2rem;
+      color: #9e95b7;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+
+    .footer-inner a {
+      color: #c4bdd5;
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: #1a112a;
+      margin: 4rem 0;
+    }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .highlight-grid,
+      .contact-section,
+      .project-grid,
+      .service-grid {
+        grid-template-columns: 1fr;
       }
-    });
 
-    // Particle animation enhancement
-    document.addEventListener('DOMContentLoaded', () => {
-      const particles = document.querySelectorAll('.particle');
-      particles.forEach((particle, index) => {
-        particle.style.animationDelay = `${index * 0.5}s`;
-      });
-    });
+      .hero {
+        padding: 4rem 0;
+      }
+    }
 
-    // Load Elfsight chatbot after page load
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        const div = document.createElement('div');
-        div.className = 'elfsight-app-4eb1b9ed-d66c-4229-bbc4-139798a3f730';
-        div.setAttribute('data-elfsight-app-lazy', '');
-        document.body.appendChild(div);
+    @media (max-width: 740px) {
+      .container {
+        width: min(100%, calc(100% - 2rem));
+        padding: 0 1rem;
+      }
 
-        const script = document.createElement('script');
-        script.src = 'https://static.elfsight.com/platform/platform.js';
-        script.async = true;
-        document.head.appendChild(script);
-      }, 2000); // Load after 2 seconds
-    });
+      .nav-links {
+        display: none;
+      }
 
-    // Load additional styles after critical content
-    window.addEventListener('load', function() {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'data:text/css;base64,' + btoa(`
-        /* Additional animations and styles */
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.8s ease-out forwards;
-          opacity: 0;
-        }
+      .hero-title {
+        font-size: clamp(2.5rem, 9vw, 4rem);
+      }
 
-        /* Smooth scrolling */
-        html { scroll-behavior: smooth }
+      .hero-copy p,
+      .section-copy {
+        font-size: 1rem;
+      }
 
-        /* Focus states */
-        a:focus, button:focus {
-          outline: 2px solid #a78bfa;
-          outline-offset: 2px
-        }
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="home.html"><span class="accent">Purple</span><mark>Wave</mark></a>
+        <nav class="nav-links">
+          <a href="home.html">Home</a>
+          <a href="aboutus.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="events.html">Events</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-        /* Enhanced hover effects */
-        .btn-ai:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 20px 40px rgba(139,92,246,0.4);
-          background: linear-gradient(135deg,#7c3aed 0%,#db2777 50%,#0891b2 100%);
-        }
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Premium web studio</div>
+        <h1 class="hero-title">Elegant digital experiences in black, purple, and white.</h1>
+        <p>We build websites with strong visuals, clean structure, and a professional edge. No flash, no noise — just bold design that feels grounded and authentic.</p>
+        <div class="hero-actions">
+          <a class="button-primary" href="services.html">View services</a>
+          <a class="button-secondary" href="contact.html">Book a consultation</a>
+        </div>
 
-        .feature-card:hover .service-icon {
-          transform: scale(1.1) rotate(5deg);
-        }
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-number">12+</div>
+            <div class="stat-label">Years of design experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">250+</div>
+            <div class="stat-label">Websites delivered</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">8.9/10</div>
+            <div class="stat-label">Client satisfaction score</div>
+          </div>
+        </div>
+      </div>
 
-        /* Responsive adjustments */
-        @media (max-width: 640px) {
-          .hero-bg { background-attachment: scroll }
-          .text-6xl { font-size: 2.5rem }
-          .text-8xl { font-size: 3rem }
-          .text-9xl { font-size: 3.5rem }
-          .container { padding: 0 1rem }
-        }
+      <div class="highlight-card">
+        <div class="section-tag">Featured project</div>
+        <h2 class="section-title">A strong, simple website for creative and corporate clients.</h2>
+        <p class="section-copy">Focused on clarity, performance, and brand cohesion, this site uses matte purple accents with black and white surfaces to create a memorable presence.</p>
+        <div class="highlight-list">
+          <div class="highlight-item">
+            <span class="highlight-badge">01</span>
+            <div>
+              <strong>Bold visual identity</strong>
+              <span>Solid purple and black blocks create structure without using flashy gradients or effects.</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-badge">02</span>
+            <div>
+              <strong>Logical content flow</strong>
+              <span>Each section is easy to scan, with clear headings and simple calls to action that keep the experience professional.</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-badge">03</span>
+            <div>
+              <strong>Fast and polished</strong>
+              <span>The layout is designed to load quickly and suit modern browsers with consistent typography and spacing.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        /* Neural network pulse effect */
-        .neural-node {
-          animation: neural-pulse 2s ease-in-out infinite;
-        }
+    <section class="services-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">What we do</div>
+          <h2 class="section-title">Web design that feels premium without overdoing it.</h2>
+          <p class="section-copy">Clean layouts, matte purple accents, and strong black surfaces make our work look upscale and reliable.</p>
+        </div>
 
-        @keyframes neural-pulse {
-          0%, 100% {
-            transform: scale(1);
-            opacity: 0.7;
-          }
-          50% {
-            transform: scale(1.2);
-            opacity: 1;
-          }
-        }
-      `);
-      document.head.appendChild(link);
-    });
+        <div class="service-grid">
+          <article class="service-card">
+            <h3>Brand-driven design</h3>
+            <p>We shape your brand with consistent colors, typography, and structured layouts that feel intentional and professional.</p>
+          </article>
+          <article class="service-card">
+            <h3>Modern page systems</h3>
+            <p>Every page is built for clarity. Content, services, and messaging are laid out so visitors know what to do next.</p>
+          </article>
+          <article class="service-card">
+            <h3>Reliable performance</h3>
+            <p>No unnecessary animations or heavy visuals. The result is a site that looks premium and loads smoothly across screens.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Recent work</div>
+          <h2 class="section-title">Selected projects with strong visual direction.</h2>
+          <p class="section-copy">These case studies show how a simple palette can feel confident and distinctive when paired with smart layout choices.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-sample">Client: Studio Noir</div>
+            <div>
+              <h3>A polished site for a creative agency</h3>
+              <p>Minimal navigation, crisp typography, and a bold dark palette that strengthens the brand.</p>
+            </div>
+            <div class="project-info">
+              <span>Web design</span>
+              <span>2025</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-sample">Client: Vault Capital</div>
+            <div>
+              <h3>Corporate site with refined purple accents</h3>
+              <p>Professional presentation and clear messaging without relying on flashy visual effects.</p>
+            </div>
+            <div class="project-info">
+              <span>Brand website</span>
+              <span>2024</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-card">
+          <div class="section-tag">Let’s work together</div>
+          <h2 class="section-title">A professional website with a strong purple identity.</h2>
+          <p class="section-copy">If you want a site that feels premium, bold, and refined — this is the approach that keeps the experience grounded and distinctive.</p>
+          <a class="button-primary" href="contact.html">Contact us</a>
+        </div>
+
+        <div class="contact-card">
+          <strong>Talk to the team</strong>
+          <p>We specialize in sites with a black, purple, and white aesthetic that looks authentic, not artificial.</p>
+          <p>Get in touch to discuss your project, timelines, and visual direction.</p>
+          <a href="mailto:contact@purplewave.com">contact@purplewave.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span>© <span id="year"></span> PurpleWave</span>
+        <span>Built with care for strong brands.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
